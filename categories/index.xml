@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on SivanLaai&#39;s Blog</title>
+    <link>http://www.sivanlaai.top/categories/</link>
+    <description>Recent content in Categories on SivanLaai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 07 Dec 2022 15:32:44 +0800</lastBuildDate><atom:link href="http://www.sivanlaai.top/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>学习</title>
+      <link>http://www.sivanlaai.top/categories/%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 07 Dec 2022 15:32:44 +0800</pubDate>
+      
+      <guid>http://www.sivanlaai.top/categories/%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>百科</title>
+      <link>http://www.sivanlaai.top/categories/%E7%99%BE%E7%A7%91/</link>
+      <pubDate>Thu, 28 Jul 2022 11:46:36 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/categories/%E7%99%BE%E7%A7%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>常见问题</title>
+      <link>http://www.sivanlaai.top/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 28 Jul 2022 11:46:36 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>技术文档</title>
+      <link>http://www.sivanlaai.top/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Thu, 19 May 2022 13:40:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tmux</title>
+      <link>http://www.sivanlaai.top/categories/tmux/</link>
+      <pubDate>Fri, 08 Apr 2022 16:14:01 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/categories/tmux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>http://www.sivanlaai.top/categories/vim/</link>
+      <pubDate>Fri, 08 Apr 2022 16:14:01 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/categories/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>安装</title>
+      <link>http://www.sivanlaai.top/categories/%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Mon, 30 Aug 2021 20:25:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/categories/%E5%AE%89%E8%A3%85/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>简历解析</title>
+      <link>http://www.sivanlaai.top/categories/%E7%AE%80%E5%8E%86%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Mon, 30 Aug 2021 20:25:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/categories/%E7%AE%80%E5%8E%86%E8%A7%A3%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rime</title>
+      <link>http://www.sivanlaai.top/categories/rime/</link>
+      <pubDate>Thu, 29 Jul 2021 14:11:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/categories/rime/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

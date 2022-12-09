@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>常见问题 on SivanLaai&#39;s Blog</title>
+    <link>http://www.sivanlaai.top/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+    <description>Recent content in 常见问题 on SivanLaai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 28 Jul 2022 11:46:36 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nextcloud配置</title>
+      <link>http://www.sivanlaai.top/posts/experience/software/nextcloud/</link>
+      <pubDate>Thu, 28 Jul 2022 11:46:36 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/software/nextcloud/</guid>
+      <description>title: nextcloud配置 date: 2021-12-08 14:39:24 permalink: /pages/20632c/ categories: 百科 常见问题 tags: nextcloud网盘相关问题 网盘配置 （1）配置环境 Linux + Apache2 + Mysql + Php(LAMP) Example installation on Ubuntu 20.04 LTS — Nextcloud latest Administration Manual latest</description>
+    </item>
+    
+    <item>
+      <title>Web容器</title>
+      <link>http://www.sivanlaai.top/posts/experience/software/web/</link>
+      <pubDate>Tue, 03 May 2022 10:47:44 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/software/web/</guid>
+      <description>apache常见问题 配置apache2文件简单服务器 打开配置文件 1 sudo vim /etc/apache2/sites-available/000-default.conf 修改内容为 1 2 3 4 5 6 Alias /e6ecni3_Sivan &amp;#34;/var/www/html/&amp;#34; &amp;lt;Directory /var/www/html/&amp;#34;&amp;gt; Require all granted AllowOverride All Options FollowSymLinks MultiViews &amp;lt;/Directory&amp;gt; 删除/var/ww</description>
+    </item>
+    
+    <item>
+      <title>数据库配置</title>
+      <link>http://www.sivanlaai.top/posts/experience/software/mysql/</link>
+      <pubDate>Fri, 25 Feb 2022 21:41:04 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/software/mysql/</guid>
+      <description>mysql数据库 mysql忘记密码 （1）修改配置文件免密 1 sudo vim /etc/mysql/my.cnf 1 2 [mysqld] skip-grant-tables （2）重启mysql 1 sudo service mysql restart （3）修改初始密码 1 2 3 mysql -u root use mysql; update user</description>
+    </item>
+    
+    <item>
+      <title>pytorch使用问题</title>
+      <link>http://www.sivanlaai.top/posts/experience/software/pytorch/</link>
+      <pubDate>Tue, 05 Oct 2021 10:49:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/software/pytorch/</guid>
+      <description>1.ModuleNotFoundError: No module named &amp;lsquo;_lzma&amp;rsquo; Ubuntu （1）安装依赖 1 2 apt-get install liblzma-dev -y pip install backports.lzma （2）打开lzma.py 1 vim ~/a/b/python3.7/lzma.py （3）修改代码 1 2 3 4 5 6 7 8 9 10 11 #修改前 from _lzma import * from _lzma import _encode_filter_properties, _decode_filter_properties #修</description>
+    </item>
+    
+    <item>
+      <title>安装latex</title>
+      <link>http://www.sivanlaai.top/posts/experience/software/latex/</link>
+      <pubDate>Tue, 05 Oct 2021 10:45:13 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/software/latex/</guid>
+      <description>安装Latex Windows WSL （1）安装WSL 配置WSL 1 wsl --install 安装WSL-Ubuntu 18.04 1 wsl --install -d Ubuntu-18.04 #等待安装完成 启动Ubuntu 1 wsl bash （2）安装TexL</description>
+    </item>
+    
+    <item>
+      <title>安装Mongodb</title>
+      <link>http://www.sivanlaai.top/posts/experience/software/mongodb/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:54 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/software/mongodb/</guid>
+      <description>Mongodb安装 （1）导入公匙 1 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add - （2）创建mongodb列表文件 1 echo &amp;#34;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/5.0 multiverse&amp;#34; | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list （3）重新加载包数据 1 sudo apt-get update （</description>
+    </item>
+    
+    <item>
+      <title>apt重新安装配置</title>
+      <link>http://www.sivanlaai.top/posts/experience/system/apt/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:52 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/system/apt/</guid>
+      <description>7.apt重新配置 （1）修复Python 当前的系统python如果有错误了，也需要一起修复，这个版本的python不能随便的更改，需要从一个</description>
+    </item>
+    
+    <item>
+      <title>python安装和配置</title>
+      <link>http://www.sivanlaai.top/posts/experience/software/python/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:50 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/software/python/</guid>
+      <description>Python 相关问题 Python ImportError: No module named _bz2 1 2 sudo apt-get install libbz2-dev #重新编译Python ImportError: Missing optional dependency &amp;lsquo;openpyxl&amp;rsquo; 1 2 pip install openpyxl #重新编译Python 重置linux的python 1 2 unset PYTHONHOME unset PYTHONPATH 安</description>
+    </item>
+    
+    <item>
+      <title>系统配置和问题</title>
+      <link>http://www.sivanlaai.top/posts/experience/system/setting/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/system/setting/</guid>
+      <description>Linux /usr/bin/dpkg returned an error code (1) 解决dpkg错误 1 2 3 cd /var/lib/dpkg sudo mv info info.baksudo mkdir info 添加用户名和添加sudo 添加用户名 1 sudo useradd -m -d /data/username -s /bin/zsh username 修改密码 1 sudo passwd username 添加sudoers 1</description>
+    </item>
+    
+    <item>
+      <title>配置防火墙</title>
+      <link>http://www.sivanlaai.top/posts/experience/system/firewall/</link>
+      <pubDate>Mon, 30 Aug 2021 20:25:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/system/firewall/</guid>
+      <description>Ubuntu （1）查看ufw信息 1 sudo ufw status （2）激活ufw 1 sudo ufw enable （3）阻止/允许IP 1 2 3 4 # 允许IP sudo ufw allow from 203.0.113.101 # 阻止IP sudo ufw deny from 203.0.113.100 （3）阻止/允许p</description>
+    </item>
+    
+  </channel>
+</rss>

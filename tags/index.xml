@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on SivanLaai&#39;s Blog</title>
+    <link>http://www.sivanlaai.top/tags/</link>
+    <description>Recent content in Tags on SivanLaai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 07 Dec 2022 15:32:44 +0800</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>论文阅读</title>
+      <link>http://www.sivanlaai.top/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</link>
+      <pubDate>Wed, 07 Dec 2022 15:32:44 +0800</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wordpress</title>
+      <link>http://www.sivanlaai.top/tags/wordpress/</link>
+      <pubDate>Thu, 19 May 2022 13:40:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/wordpress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>输入法</title>
+      <link>http://www.sivanlaai.top/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</link>
+      <pubDate>Thu, 29 Jul 2021 14:11:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
