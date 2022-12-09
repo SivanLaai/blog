@@ -3,10 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://www.sivanlaai.top/posts/</loc>
-    <lastmod>2022-12-07T15:32:44+08:00</lastmod>
+    <lastmod>2022-12-09T15:41:53+08:00</lastmod>
   </url><url>
     <loc>http://www.sivanlaai.top/categories/</loc>
-    <lastmod>2022-12-07T15:32:44+08:00</lastmod>
+    <lastmod>2022-12-09T15:41:53+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -18,8 +18,11 @@
                 href="http://www.sivanlaai.top/categories/"
                 />
   </url><url>
+    <loc>http://www.sivanlaai.top/posts/experience/blog/blog_auto_deploy/</loc>
+    <lastmod>2022-12-09T15:41:53+08:00</lastmod>
+  </url><url>
     <loc>http://www.sivanlaai.top/</loc>
-    <lastmod>2022-12-07T15:32:44+08:00</lastmod>
+    <lastmod>2022-12-09T15:41:53+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -32,7 +35,7 @@
                 />
   </url><url>
     <loc>http://www.sivanlaai.top/tags/</loc>
-    <lastmod>2022-12-07T15:32:44+08:00</lastmod>
+    <lastmod>2022-12-09T15:41:53+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -43,6 +46,15 @@
                 hreflang="zh-cn"
                 href="http://www.sivanlaai.top/tags/"
                 />
+  </url><url>
+    <loc>http://www.sivanlaai.top/categories/%E5%8D%9A%E5%AE%A2%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2022-12-09T15:41:53+08:00</lastmod>
+  </url><url>
+    <loc>http://www.sivanlaai.top/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2022-12-09T15:41:53+08:00</lastmod>
+  </url><url>
+    <loc>http://www.sivanlaai.top/tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2022-12-09T15:41:53+08:00</lastmod>
   </url><url>
     <loc>http://www.sivanlaai.top/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</loc>
     <lastmod>2022-12-07T15:32:44+08:00</lastmod>

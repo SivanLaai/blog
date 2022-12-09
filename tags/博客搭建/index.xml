@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>博客搭建 on SivanLaai&#39;s Blog</title>
+    <link>http://www.sivanlaai.top/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
+    <description>Recent content in 博客搭建 on SivanLaai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 09 Dec 2022 15:41:53 +0800</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obsidian写hugo博客，github自动部署</title>
+      <link>http://www.sivanlaai.top/posts/experience/blog/blog_auto_deploy/</link>
+      <pubDate>Fri, 09 Dec 2022 15:41:53 +0800</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/blog/blog_auto_deploy/</guid>
+      <description>使用Obsidian写博客 利用Github自动部署 本人原来使用的博客是vuepress + vdoing，后来在使用的过程中发现这个博客非常的笨</description>
+    </item>
+    
+  </channel>
+</rss>

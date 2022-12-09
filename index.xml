@@ -6,7 +6,16 @@
     <description>Recent content on SivanLaai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 07 Dec 2022 15:32:44 +0800</lastBuildDate><atom:link href="http://www.sivanlaai.top/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Dec 2022 15:41:53 +0800</lastBuildDate><atom:link href="http://www.sivanlaai.top/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obsidian写hugo博客，github自动部署</title>
+      <link>http://www.sivanlaai.top/posts/experience/blog/blog_auto_deploy/</link>
+      <pubDate>Fri, 09 Dec 2022 15:41:53 +0800</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/experience/blog/blog_auto_deploy/</guid>
+      <description>使用Obsidian写博客 利用Github自动部署 本人原来使用的博客是vuepress + vdoing，后来在使用的过程中发现这个博客非常的笨</description>
+    </item>
+    
     <item>
       <title>论文阅读方法</title>
       <link>http://www.sivanlaai.top/posts/learning/paper_reading_method/</link>
