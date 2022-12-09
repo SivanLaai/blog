@@ -18,7 +18,7 @@
                 href="http://www.sivanlaai.top/categories/"
                 />
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/software/obsdidian_hugo_auto_deploy/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/hugo/auto_deploy_with_obsidian/</loc>
     <lastmod>2022-12-09T15:41:53+08:00</lastmod>
   </url><url>
     <loc>http://www.sivanlaai.top/</loc>
@@ -65,28 +65,31 @@
     <loc>http://www.sivanlaai.top/categories/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-12-07T15:32:44+08:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/software/nextcloud/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/nextcloud/</loc>
     <lastmod>2022-07-28T11:46:36+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/categories/%E7%99%BE%E7%A7%91/</loc>
-    <lastmod>2022-07-28T11:46:36+00:00</lastmod>
-  </url><url>
-    <loc>http://www.sivanlaai.top/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://www.sivanlaai.top/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-07-28T11:46:36+00:00</lastmod>
   </url><url>
     <loc>http://www.sivanlaai.top/tags/wordpress/</loc>
     <lastmod>2022-05-19T13:40:49+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/software/wordpress/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/wordpress/</loc>
+    <lastmod>2022-05-19T13:40:49+00:00</lastmod>
+  </url><url>
+    <loc>http://www.sivanlaai.top/categories/%E7%99%BE%E7%A7%91/</loc>
     <lastmod>2022-05-19T13:40:49+00:00</lastmod>
   </url><url>
     <loc>http://www.sivanlaai.top/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/</loc>
     <lastmod>2022-05-19T13:40:49+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/software/compile_and_install/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/compile_and_install/</loc>
     <lastmod>2022-05-19T13:40:49+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/software/web/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/web/</loc>
+    <lastmod>2022-05-03T10:47:44+00:00</lastmod>
+  </url><url>
+    <loc>http://www.sivanlaai.top/categories/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2022-05-03T10:47:44+00:00</lastmod>
   </url><url>
     <loc>http://www.sivanlaai.top/categories/tmux/</loc>
@@ -98,31 +101,31 @@
     <loc>http://www.sivanlaai.top/posts/projects/vim/</loc>
     <lastmod>2022-04-08T16:14:01+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/software/docker/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/docker/</loc>
     <lastmod>2022-04-02T19:07:09+00:00</lastmod>
   </url><url>
     <loc>http://www.sivanlaai.top/posts/misc/random_note/</loc>
     <lastmod>2022-03-25T09:34:25+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/software/mysql/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/mysql/</loc>
     <lastmod>2022-02-25T21:41:04+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/software/pytorch/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/pytorch/</loc>
     <lastmod>2021-10-05T10:49:49+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/software/latex/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/latex/</loc>
     <lastmod>2021-10-05T10:45:13+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/software/mongodb/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/mongodb/</loc>
     <lastmod>2021-09-16T16:05:54+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/system/apt/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/apt/</loc>
     <lastmod>2021-09-16T16:05:52+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/software/python/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/python/</loc>
     <lastmod>2021-09-16T16:05:50+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/system/setting/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/system/</loc>
     <lastmod>2021-09-16T16:05:49+00:00</lastmod>
   </url><url>
     <loc>http://www.sivanlaai.top/categories/%E5%AE%89%E8%A3%85/</loc>
@@ -134,7 +137,7 @@
     <loc>http://www.sivanlaai.top/posts/projects/resume_parser/</loc>
     <lastmod>2021-08-30T20:25:51+00:00</lastmod>
   </url><url>
-    <loc>http://www.sivanlaai.top/posts/experience/system/firewall/</loc>
+    <loc>http://www.sivanlaai.top/posts/knowledge/firewall/</loc>
     <lastmod>2021-08-30T20:25:51+00:00</lastmod>
   </url><url>
     <loc>http://www.sivanlaai.top/about/</loc>
