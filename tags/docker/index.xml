@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 02 Apr 2022 19:07:09 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>docker教程</title>
-      <link>http://www.sivanlaai.top/posts/technology/docker/</link>
+      <link>http://www.sivanlaai.top/articles/technology/docker/</link>
       <pubDate>Sat, 02 Apr 2022 19:07:09 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/docker/</guid>
+      <guid>http://www.sivanlaai.top/articles/technology/docker/</guid>
       <description>docker教程 docker安装 卸载老版本docker 1 sudo apt-get remove docker docker-engine docker.io containerd runc 设置apt仓库 1.更新apt包索引并且安装相关依赖允许apt使用ht</description>
     </item>
     

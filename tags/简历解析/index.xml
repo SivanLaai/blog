@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 30 Aug 2021 20:25:51 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/%E7%AE%80%E5%8E%86%E8%A7%A3%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>简历解析软件安装</title>
-      <link>http://www.sivanlaai.top/posts/projects/resume_parser/</link>
+      <link>http://www.sivanlaai.top/articles/projects/resume_parser/</link>
       <pubDate>Mon, 30 Aug 2021 20:25:51 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/projects/resume_parser/</guid>
+      <guid>http://www.sivanlaai.top/articles/projects/resume_parser/</guid>
       <description>1.安装selenium chrome安装 1 2 3 4 sudo apt-get install libxss1 libappindicator1 libindicator7 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb sudo dpkg -i ./google-chrome*.deb sudo apt-get install -f 配置chromedriver （1）下载驱动 去官网下载：htt</description>
     </item>
     

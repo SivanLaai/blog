@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>📚 on SivanLaai&#39;s Blog</title>
+    <link>http://www.sivanlaai.top/articles/</link>
+    <description>Recent content in 📚 on SivanLaai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 10 Dec 2022 11:39:42 +0800</lastBuildDate><atom:link href="http://www.sivanlaai.top/articles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>好物收藏</title>
+      <link>http://www.sivanlaai.top/articles/misc/collection/</link>
+      <pubDate>Sat, 10 Dec 2022 11:39:42 +0800</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/misc/collection/</guid>
+      <description>教程 Hugo博客官方教程 Markdown 官方教程 工具 图片上传 | PicX 图床神器 (xpoet.cn)</description>
+    </item>
+    
+    <item>
+      <title>Obsidian写hugo博客，github自动部署</title>
+      <link>http://www.sivanlaai.top/articles/technology/auto_deploy_with_obsidian/</link>
+      <pubDate>Fri, 09 Dec 2022 15:41:53 +0800</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/auto_deploy_with_obsidian/</guid>
+      <description>本人原来使用的博客是vuepress + vdoing，后来在使用的过程中发现这个博客非常的笨重，没有多少的文章编译下来就需要一会时间。 以前使用</description>
+    </item>
+    
+    <item>
+      <title>论文阅读方法</title>
+      <link>http://www.sivanlaai.top/articles/learning/paper_reading_method/</link>
+      <pubDate>Wed, 07 Dec 2022 15:32:44 +0800</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/learning/paper_reading_method/</guid>
+      <description>作为在读博士，在阅读几百篇论文的过程中，总结了一些经验方法，分享给大家（文末有彩蛋哦）。 如果你在阅读文献时遇到如下问题，那么这篇文章的经验方</description>
+    </item>
+    
+    <item>
+      <title>nextcloud配置</title>
+      <link>http://www.sivanlaai.top/articles/technology/nextcloud/</link>
+      <pubDate>Thu, 28 Jul 2022 11:46:36 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/nextcloud/</guid>
+      <description>nextcloud网盘相关问题 网盘配置 （1）配置环境 Linux + Apache2 + Mysql + Php(LAMP) Example installation on Ubuntu 20.04 LTS — Nextcloud latest Administration Manual latest documentation 配置Linux + Nginx + Mysql + Php(LNMP)环境 1</description>
+    </item>
+    
+    <item>
+      <title>wordpress安装和问题</title>
+      <link>http://www.sivanlaai.top/articles/technology/wordpress/</link>
+      <pubDate>Thu, 19 May 2022 13:40:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/wordpress/</guid>
+      <description>wordpress permainlink 不生效 1.打开apache2默认配置文件 1 sudo vim /etc/apache2/sites-available/000-default.conf 2.修改内容为如下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35</description>
+    </item>
+    
+    <item>
+      <title>软件编译和安装</title>
+      <link>http://www.sivanlaai.top/articles/technology/compile_and_install/</link>
+      <pubDate>Thu, 19 May 2022 13:40:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/compile_and_install/</guid>
+      <description>软件编译和安装 qbittorrent编译安装 安装依赖 1 2 apt-get install build-essential pkg-config automake libtool git apt-get install libboost-dev libboost-system-dev libboost-chrono-dev libboost-random-dev libssl-dev libgeoip-dev 安装libtorrent 1 2 3 4 5 6 7 8 9 git clone https://github.com/arvidn/libtorrent.git #之前</description>
+    </item>
+    
+    <item>
+      <title>apache 和 nginx的使用和反向代理</title>
+      <link>http://www.sivanlaai.top/articles/technology/apache2_and_nginx/</link>
+      <pubDate>Tue, 03 May 2022 10:47:44 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/apache2_and_nginx/</guid>
+      <description>apache常见问题 配置apache2文件简单服务器 打开配置文件 1 sudo vim /etc/apache2/sites-available/000-default.conf 修改内容为 1 2 3 4 5 6 Alias /e6ecni3_Sivan &amp;#34;/var/www/html/&amp;#34; &amp;lt;Directory /var/www/html/&amp;#34;&amp;gt; Require all granted AllowOverride All Options FollowSymLinks MultiViews &amp;lt;/Directory&amp;gt; 删除/var/ww</description>
+    </item>
+    
+    <item>
+      <title>Vim/Neovim-Tmux 一键安装轻量级工作站</title>
+      <link>http://www.sivanlaai.top/articles/projects/vim/</link>
+      <pubDate>Fri, 08 Apr 2022 16:14:01 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/projects/vim/</guid>
+      <description>添加功能： 1.文件管理：插件NerdTree 打开文件管理：Crtl + N 退出文件管理：Crtl + C 2.跳转功能：Ctags\pygments\</description>
+    </item>
+    
+    <item>
+      <title>docker教程</title>
+      <link>http://www.sivanlaai.top/articles/technology/docker/</link>
+      <pubDate>Sat, 02 Apr 2022 19:07:09 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/docker/</guid>
+      <description>docker教程 docker安装 卸载老版本docker 1 sudo apt-get remove docker docker-engine docker.io containerd runc 设置apt仓库 1.更新apt包索引并且安装相关依赖允许apt使用ht</description>
+    </item>
+    
+    <item>
+      <title>随笔</title>
+      <link>http://www.sivanlaai.top/articles/misc/random_note/</link>
+      <pubDate>Fri, 25 Mar 2022 09:34:25 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/misc/random_note/</guid>
+      <description>你我都是深夜里的尘埃，虚无飘渺，明明很近却又抓不到，握不住，我抓住你却犹如空气般跑开。纵使在同一个时空里，没有足够的条件使这两粒尘埃相互依靠</description>
+    </item>
+    
+    <item>
+      <title>卜东坡算法-2021秋作业2-动态规划</title>
+      <link>http://www.sivanlaai.top/articles/learning/ucas_pu_2021_algorithm_assignment/dynamic_programing/</link>
+      <pubDate>Wed, 02 Mar 2022 19:26:58 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/learning/ucas_pu_2021_algorithm_assignment/dynamic_programing/</guid>
+      <description>2021秋作业2-动态规划 1. Money robbing A robber is planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same</description>
+    </item>
+    
+    <item>
+      <title>卜东坡算法-2021秋作业3-贪心</title>
+      <link>http://www.sivanlaai.top/articles/learning/ucas_pu_2021_algorithm_assignment/greedy/</link>
+      <pubDate>Wed, 02 Mar 2022 19:26:58 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/learning/ucas_pu_2021_algorithm_assignment/greedy/</guid>
+      <description>2021秋作业2-动态规划 1. Money robbing A robber is planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same</description>
+    </item>
+    
+    <item>
+      <title>数据库配置</title>
+      <link>http://www.sivanlaai.top/articles/technology/mysql/</link>
+      <pubDate>Fri, 25 Feb 2022 21:41:04 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/mysql/</guid>
+      <description>mysql数据库 mysql忘记密码 （1）修改配置文件免密 1 sudo vim /etc/mysql/my.cnf 1 2 [mysqld] skip-grant-tables （2）重启mysql 1 sudo service mysql restart （3）修改初始密码 1 2 3 mysql -u root use mysql; update user</description>
+    </item>
+    
+    <item>
+      <title>卜东坡算法-2021秋作业1-分治</title>
+      <link>http://www.sivanlaai.top/articles/learning/ucas_pu_2021_algorithm_assignment/conquer_divide/</link>
+      <pubDate>Fri, 17 Dec 2021 16:30:28 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/learning/ucas_pu_2021_algorithm_assignment/conquer_divide/</guid>
+      <description>2021秋作业1-分治 1. 找出整数数组中第K大的数 215.Kth Largest Element in an Array (Medium) Given an integer array nums and an integer k, please return the k-th largest element in the array. Your algorithm’s runtime complexity must be in the order of O(n),</description>
+    </item>
+    
+    <item>
+      <title>pytorch使用问题</title>
+      <link>http://www.sivanlaai.top/articles/technology/pytorch/</link>
+      <pubDate>Tue, 05 Oct 2021 10:49:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/pytorch/</guid>
+      <description>1.ModuleNotFoundError: No module named &amp;lsquo;_lzma&amp;rsquo; Ubuntu （1）安装依赖 1 2 apt-get install liblzma-dev -y pip install backports.lzma （2）打开lzma.py 1 vim ~/a/b/python3.7/lzma.py （3）修改代码 1 2 3 4 5 6 7 8 9 10 11 #修改前 from _lzma import * from _lzma import _encode_filter_properties, _decode_filter_properties #修</description>
+    </item>
+    
+    <item>
+      <title>安装latex</title>
+      <link>http://www.sivanlaai.top/articles/technology/latex/</link>
+      <pubDate>Tue, 05 Oct 2021 10:45:13 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/latex/</guid>
+      <description>安装Latex Windows WSL （1）安装WSL 配置WSL 1 wsl --install 安装WSL-Ubuntu 18.04 1 wsl --install -d Ubuntu-18.04 #等待安装完成 启动Ubuntu 1 wsl bash （2）安装TexL</description>
+    </item>
+    
+    <item>
+      <title>Mongodb总结</title>
+      <link>http://www.sivanlaai.top/articles/technology/mongodb/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:54 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/mongodb/</guid>
+      <description>Mongodb安装 （1）导入公匙 1 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add - （2）创建mongodb列表文件 1 echo &amp;#34;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/5.0 multiverse&amp;#34; | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list （3）重新加载包数据 1 sudo apt-get update （</description>
+    </item>
+    
+    <item>
+      <title>apt重新安装配置</title>
+      <link>http://www.sivanlaai.top/articles/technology/apt/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:52 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/apt/</guid>
+      <description>7.apt重新配置 （1）修复Python 当前的系统python如果有错误了，也需要一起修复，这个版本的python不能随便的更改，需要从一个</description>
+    </item>
+    
+    <item>
+      <title>python总结</title>
+      <link>http://www.sivanlaai.top/articles/technology/python/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:50 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/python/</guid>
+      <description>Python 相关问题 Python ImportError: No module named _bz2 1 2 sudo apt-get install libbz2-dev #重新编译Python ImportError: Missing optional dependency &amp;lsquo;openpyxl&amp;rsquo; 1 2 pip install openpyxl #重新编译Python 重置linux的python 1 2 unset PYTHONHOME unset PYTHONPATH 安</description>
+    </item>
+    
+    <item>
+      <title>系统配置和问题</title>
+      <link>http://www.sivanlaai.top/articles/technology/system/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/system/</guid>
+      <description>Linux /usr/bin/dpkg returned an error code (1) 解决dpkg错误 1 2 3 cd /var/lib/dpkg sudo mv info info.baksudo mkdir info 添加用户名和添加sudo 添加用户名 1 sudo useradd -m -d /data/username -s /bin/zsh username 修改密码 1 sudo passwd username 添加sudoers 1</description>
+    </item>
+    
+    <item>
+      <title>简历解析软件安装</title>
+      <link>http://www.sivanlaai.top/articles/projects/resume_parser/</link>
+      <pubDate>Mon, 30 Aug 2021 20:25:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/projects/resume_parser/</guid>
+      <description>1.安装selenium chrome安装 1 2 3 4 sudo apt-get install libxss1 libappindicator1 libindicator7 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb sudo dpkg -i ./google-chrome*.deb sudo apt-get install -f 配置chromedriver （1）下载驱动 去官网下载：htt</description>
+    </item>
+    
+    <item>
+      <title>配置ufw</title>
+      <link>http://www.sivanlaai.top/articles/technology/ufw_config/</link>
+      <pubDate>Mon, 30 Aug 2021 20:25:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/technology/ufw_config/</guid>
+      <description>Ubuntu UFW 配置 （1）查看ufw信息 1 sudo ufw status （2）激活ufw 1 sudo ufw enable （3）阻止/允许IP 1 2 3 4 # 允许IP sudo ufw allow from 203.0.113.101 # 阻止IP sudo ufw deny from 203.0.113.100 （3）阻止/</description>
+    </item>
+    
+    <item>
+      <title>Rime更新历史</title>
+      <link>http://www.sivanlaai.top/articles/projects/rime/update_history/</link>
+      <pubDate>Thu, 29 Jul 2021 14:11:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/projects/rime/update_history/</guid>
+      <description>更新历史 2021-08-01 1.修复九宫拼音不支持简拼的情况，如输入xqw不显示结果。 2.四叶草拼音去除25258个重复的词组，只保留最高频次的词组 1 2 3 ./</description>
+    </item>
+    
+    <item>
+      <title>Rime安装说明</title>
+      <link>http://www.sivanlaai.top/articles/projects/rime/installation/</link>
+      <pubDate>Thu, 29 Jul 2021 14:10:34 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/projects/rime/installation/</guid>
+      <description>不看下面的繁索的安装直接去发布页面下载已编译版本 最新发布页面 小狼毫（PC端） 0.备份小狼毫输入法安装目录的data文件夹，备份~\AppDa</description>
+    </item>
+    
+    <item>
+      <title>Rime输入法介绍</title>
+      <link>http://www.sivanlaai.top/articles/projects/rime/info/</link>
+      <pubDate>Thu, 29 Jul 2021 13:42:07 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/articles/projects/rime/info/</guid>
+      <description>【rime 小狼毫\trime 同文】手机/PC一站式配置【简约皮肤\拼音搜狗词库\原创trime同文 四叶草九宫格拼音\四叶草拼音\小鹤双拼\极</description>
+    </item>
+    
+  </channel>
+</rss>

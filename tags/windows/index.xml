@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 16 Sep 2021 16:05:49 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>系统配置和问题</title>
-      <link>http://www.sivanlaai.top/posts/technology/system/</link>
+      <link>http://www.sivanlaai.top/articles/technology/system/</link>
       <pubDate>Thu, 16 Sep 2021 16:05:49 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/system/</guid>
+      <guid>http://www.sivanlaai.top/articles/technology/system/</guid>
       <description>Linux /usr/bin/dpkg returned an error code (1) 解决dpkg错误 1 2 3 cd /var/lib/dpkg sudo mv info info.baksudo mkdir info 添加用户名和添加sudo 添加用户名 1 sudo useradd -m -d /data/username -s /bin/zsh username 修改密码 1 sudo passwd username 添加sudoers 1</description>
     </item>
     

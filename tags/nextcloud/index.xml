@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 28 Jul 2022 11:46:36 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/nextcloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>nextcloud配置</title>
-      <link>http://www.sivanlaai.top/posts/technology/nextcloud/</link>
+      <link>http://www.sivanlaai.top/articles/technology/nextcloud/</link>
       <pubDate>Thu, 28 Jul 2022 11:46:36 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/nextcloud/</guid>
+      <guid>http://www.sivanlaai.top/articles/technology/nextcloud/</guid>
       <description>nextcloud网盘相关问题 网盘配置 （1）配置环境 Linux + Apache2 + Mysql + Php(LAMP) Example installation on Ubuntu 20.04 LTS — Nextcloud latest Administration Manual latest documentation 配置Linux + Nginx + Mysql + Php(LNMP)环境 1</description>
     </item>
     

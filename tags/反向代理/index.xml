@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 03 May 2022 10:47:44 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>apache 和 nginx的使用和反向代理</title>
-      <link>http://www.sivanlaai.top/posts/technology/apache2_and_nginx/</link>
+      <link>http://www.sivanlaai.top/articles/technology/apache2_and_nginx/</link>
       <pubDate>Tue, 03 May 2022 10:47:44 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/apache2_and_nginx/</guid>
+      <guid>http://www.sivanlaai.top/articles/technology/apache2_and_nginx/</guid>
       <description>apache常见问题 配置apache2文件简单服务器 打开配置文件 1 sudo vim /etc/apache2/sites-available/000-default.conf 修改内容为 1 2 3 4 5 6 Alias /e6ecni3_Sivan &amp;#34;/var/www/html/&amp;#34; &amp;lt;Directory /var/www/html/&amp;#34;&amp;gt; Require all granted AllowOverride All Options FollowSymLinks MultiViews &amp;lt;/Directory&amp;gt; 删除/var/ww</description>
     </item>
     
