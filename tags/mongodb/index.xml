@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 16 Sep 2021 16:05:54 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mongodb总结</title>
-      <link>http://www.sivanlaai.top/articles/technology/mongodb/</link>
+      <link>http://www.sivanlaai.top/posts/technology/mongodb/</link>
       <pubDate>Thu, 16 Sep 2021 16:05:54 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/articles/technology/mongodb/</guid>
+      <guid>http://www.sivanlaai.top/posts/technology/mongodb/</guid>
       <description>Mongodb安装 （1）导入公匙 1 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add - （2）创建mongodb列表文件 1 echo &amp;#34;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/5.0 multiverse&amp;#34; | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list （3）重新加载包数据 1 sudo apt-get update （</description>
     </item>
     

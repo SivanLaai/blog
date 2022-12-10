@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 05 Oct 2021 10:49:49 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>pytorch使用问题</title>
-      <link>http://www.sivanlaai.top/articles/technology/pytorch/</link>
+      <link>http://www.sivanlaai.top/posts/technology/pytorch/</link>
       <pubDate>Tue, 05 Oct 2021 10:49:49 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/articles/technology/pytorch/</guid>
+      <guid>http://www.sivanlaai.top/posts/technology/pytorch/</guid>
       <description>1.ModuleNotFoundError: No module named &amp;lsquo;_lzma&amp;rsquo; Ubuntu （1）安装依赖 1 2 apt-get install liblzma-dev -y pip install backports.lzma （2）打开lzma.py 1 vim ~/a/b/python3.7/lzma.py （3）修改代码 1 2 3 4 5 6 7 8 9 10 11 #修改前 from _lzma import * from _lzma import _encode_filter_properties, _decode_filter_properties #修</description>
     </item>
     

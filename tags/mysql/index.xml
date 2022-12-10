@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 25 Feb 2022 21:41:04 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>数据库配置</title>
-      <link>http://www.sivanlaai.top/articles/technology/mysql/</link>
+      <link>http://www.sivanlaai.top/posts/technology/mysql/</link>
       <pubDate>Fri, 25 Feb 2022 21:41:04 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/articles/technology/mysql/</guid>
+      <guid>http://www.sivanlaai.top/posts/technology/mysql/</guid>
       <description>mysql数据库 mysql忘记密码 （1）修改配置文件免密 1 sudo vim /etc/mysql/my.cnf 1 2 [mysqld] skip-grant-tables （2）重启mysql 1 sudo service mysql restart （3）修改初始密码 1 2 3 mysql -u root use mysql; update user</description>
     </item>
     
