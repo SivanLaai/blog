@@ -6,7 +6,16 @@
     <description>Recent content on SivanLaai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 09 Dec 2022 15:41:53 +0800</lastBuildDate><atom:link href="http://www.sivanlaai.top/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Dec 2022 11:39:42 +0800</lastBuildDate><atom:link href="http://www.sivanlaai.top/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>教程收藏</title>
+      <link>http://www.sivanlaai.top/posts/technology/tutorials/</link>
+      <pubDate>Sat, 10 Dec 2022 11:39:42 +0800</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/technology/tutorials/</guid>
+      <description>Hugo博客官方教程 Markdown 官方教程</description>
+    </item>
+    
     <item>
       <title>Obsidian写hugo博客，github自动部署</title>
       <link>http://www.sivanlaai.top/posts/technology/auto_deploy_with_obsidian/</link>
@@ -53,11 +62,11 @@
     </item>
     
     <item>
-      <title>Web容器</title>
-      <link>http://www.sivanlaai.top/posts/technology/web/</link>
+      <title>apache 和 nginx的使用和反向代理</title>
+      <link>http://www.sivanlaai.top/posts/technology/apache2_and_nginx/</link>
       <pubDate>Tue, 03 May 2022 10:47:44 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/web/</guid>
+      <guid>http://www.sivanlaai.top/posts/technology/apache2_and_nginx/</guid>
       <description>apache常见问题 配置apache2文件简单服务器 打开配置文件 1 sudo vim /etc/apache2/sites-available/000-default.conf 修改内容为 1 2 3 4 5 6 Alias /e6ecni3_Sivan &amp;#34;/var/www/html/&amp;#34; &amp;lt;Directory /var/www/html/&amp;#34;&amp;gt; Require all granted AllowOverride All Options FollowSymLinks MultiViews &amp;lt;/Directory&amp;gt; 删除/var/ww</description>
     </item>
     
@@ -89,12 +98,39 @@
     </item>
     
     <item>
+      <title>卜东坡算法-2021秋作业2-动态规划</title>
+      <link>http://www.sivanlaai.top/posts/learning/ucas_pu_2021_algorithm_assignment/dynamic_programing/</link>
+      <pubDate>Wed, 02 Mar 2022 19:26:58 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/learning/ucas_pu_2021_algorithm_assignment/dynamic_programing/</guid>
+      <description>2021秋作业2-动态规划 1. Money robbing A robber is planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same</description>
+    </item>
+    
+    <item>
+      <title>卜东坡算法-2021秋作业3-贪心</title>
+      <link>http://www.sivanlaai.top/posts/learning/ucas_pu_2021_algorithm_assignment/greedy/</link>
+      <pubDate>Wed, 02 Mar 2022 19:26:58 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/learning/ucas_pu_2021_algorithm_assignment/greedy/</guid>
+      <description>2021秋作业2-动态规划 1. Money robbing A robber is planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same</description>
+    </item>
+    
+    <item>
       <title>数据库配置</title>
       <link>http://www.sivanlaai.top/posts/technology/mysql/</link>
       <pubDate>Fri, 25 Feb 2022 21:41:04 +0000</pubDate>
       
       <guid>http://www.sivanlaai.top/posts/technology/mysql/</guid>
       <description>mysql数据库 mysql忘记密码 （1）修改配置文件免密 1 sudo vim /etc/mysql/my.cnf 1 2 [mysqld] skip-grant-tables （2）重启mysql 1 sudo service mysql restart （3）修改初始密码 1 2 3 mysql -u root use mysql; update user</description>
+    </item>
+    
+    <item>
+      <title>卜东坡算法-2021秋作业1-分治</title>
+      <link>http://www.sivanlaai.top/posts/learning/ucas_pu_2021_algorithm_assignment/conquer_divide/</link>
+      <pubDate>Fri, 17 Dec 2021 16:30:28 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/learning/ucas_pu_2021_algorithm_assignment/conquer_divide/</guid>
+      <description>2021秋作业1-分治 1. 找出整数数组中第K大的数 215.Kth Largest Element in an Array (Medium) Given an integer array nums and an integer k, please return the k-th largest element in the array. Your algorithm’s runtime complexity must be in the order of O(n),</description>
     </item>
     
     <item>
@@ -116,7 +152,7 @@
     </item>
     
     <item>
-      <title>安装Mongodb</title>
+      <title>Mongodb总结</title>
       <link>http://www.sivanlaai.top/posts/technology/mongodb/</link>
       <pubDate>Thu, 16 Sep 2021 16:05:54 +0000</pubDate>
       
@@ -134,7 +170,7 @@
     </item>
     
     <item>
-      <title>python安装和配置</title>
+      <title>python总结</title>
       <link>http://www.sivanlaai.top/posts/technology/python/</link>
       <pubDate>Thu, 16 Sep 2021 16:05:50 +0000</pubDate>
       
@@ -161,12 +197,12 @@
     </item>
     
     <item>
-      <title>配置防火墙</title>
-      <link>http://www.sivanlaai.top/posts/technology/firewall/</link>
+      <title>配置ufw</title>
+      <link>http://www.sivanlaai.top/posts/technology/ufw_config/</link>
       <pubDate>Mon, 30 Aug 2021 20:25:51 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/firewall/</guid>
-      <description>Ubuntu （1）查看ufw信息 1 sudo ufw status （2）激活ufw 1 sudo ufw enable （3）阻止/允许IP 1 2 3 4 # 允许IP sudo ufw allow from 203.0.113.101 # 阻止IP sudo ufw deny from 203.0.113.100 （3）阻止/允许p</description>
+      <guid>http://www.sivanlaai.top/posts/technology/ufw_config/</guid>
+      <description>Ubuntu UFW 配置 （1）查看ufw信息 1 sudo ufw status （2）激活ufw 1 sudo ufw enable （3）阻止/允许IP 1 2 3 4 # 允许IP sudo ufw allow from 203.0.113.101 # 阻止IP sudo ufw deny from 203.0.113.100 （3）阻止/</description>
     </item>
     
     <item>

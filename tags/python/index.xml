@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>python on SivanLaai&#39;s Blog</title>
+    <link>http://www.sivanlaai.top/tags/python/</link>
+    <description>Recent content in python on SivanLaai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 16 Sep 2021 16:05:50 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python总结</title>
+      <link>http://www.sivanlaai.top/posts/technology/python/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:50 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/technology/python/</guid>
+      <description>Python 相关问题 Python ImportError: No module named _bz2 1 2 sudo apt-get install libbz2-dev #重新编译Python ImportError: Missing optional dependency &amp;lsquo;openpyxl&amp;rsquo; 1 2 pip install openpyxl #重新编译Python 重置linux的python 1 2 unset PYTHONHOME unset PYTHONPATH 安</description>
+    </item>
+    
+  </channel>
+</rss>

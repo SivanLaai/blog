@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>vim on SivanLaai&#39;s Blog</title>
+    <link>http://www.sivanlaai.top/tags/vim/</link>
+    <description>Recent content in vim on SivanLaai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 08 Apr 2022 16:14:01 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim/Neovim-Tmux 一键安装轻量级工作站</title>
+      <link>http://www.sivanlaai.top/posts/projects/vim/</link>
+      <pubDate>Fri, 08 Apr 2022 16:14:01 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/projects/vim/</guid>
+      <description>添加功能： 1.文件管理：插件NerdTree 打开文件管理：Crtl + N 退出文件管理：Crtl + C 2.跳转功能：Ctags\pygments\</description>
+    </item>
+    
+  </channel>
+</rss>

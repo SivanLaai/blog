@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>软件安装 on SivanLaai&#39;s Blog</title>
+    <link>http://www.sivanlaai.top/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</link>
+    <description>Recent content in 软件安装 on SivanLaai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 19 May 2022 13:40:49 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>软件编译和安装</title>
+      <link>http://www.sivanlaai.top/posts/technology/compile_and_install/</link>
+      <pubDate>Thu, 19 May 2022 13:40:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/technology/compile_and_install/</guid>
+      <description>软件编译和安装 qbittorrent编译安装 安装依赖 1 2 apt-get install build-essential pkg-config automake libtool git apt-get install libboost-dev libboost-system-dev libboost-chrono-dev libboost-random-dev libssl-dev libgeoip-dev 安装libtorrent 1 2 3 4 5 6 7 8 9 git clone https://github.com/arvidn/libtorrent.git #之前</description>
+    </item>
+    
+  </channel>
+</rss>

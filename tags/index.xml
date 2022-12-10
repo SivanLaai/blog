@@ -6,7 +6,34 @@
     <description>Recent content in Tags on SivanLaai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 09 Dec 2022 15:41:53 +0800</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Dec 2022 11:39:42 +0800</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>传送门</title>
+      <link>http://www.sivanlaai.top/tags/%E4%BC%A0%E9%80%81%E9%97%A8/</link>
+      <pubDate>Sat, 10 Dec 2022 11:39:42 +0800</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E4%BC%A0%E9%80%81%E9%97%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>收藏</title>
+      <link>http://www.sivanlaai.top/tags/%E6%94%B6%E8%97%8F/</link>
+      <pubDate>Sat, 10 Dec 2022 11:39:42 +0800</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E6%94%B6%E8%97%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>http://www.sivanlaai.top/tags/hugo/</link>
+      <pubDate>Fri, 09 Dec 2022 15:41:53 +0800</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>博客搭建</title>
       <link>http://www.sivanlaai.top/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
@@ -35,6 +62,33 @@
     </item>
     
     <item>
+      <title>apache</title>
+      <link>http://www.sivanlaai.top/tags/apache/</link>
+      <pubDate>Thu, 28 Jul 2022 11:46:36 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aria2</title>
+      <link>http://www.sivanlaai.top/tags/aria2/</link>
+      <pubDate>Thu, 28 Jul 2022 11:46:36 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/aria2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nextcloud</title>
+      <link>http://www.sivanlaai.top/tags/nextcloud/</link>
+      <pubDate>Thu, 28 Jul 2022 11:46:36 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/nextcloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>wordpress</title>
       <link>http://www.sivanlaai.top/tags/wordpress/</link>
       <pubDate>Thu, 19 May 2022 13:40:49 +0000</pubDate>
@@ -44,9 +98,225 @@
     </item>
     
     <item>
+      <title>软件安装</title>
+      <link>http://www.sivanlaai.top/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Thu, 19 May 2022 13:40:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>软件编译</title>
+      <link>http://www.sivanlaai.top/tags/%E8%BD%AF%E4%BB%B6%E7%BC%96%E8%AF%91/</link>
+      <pubDate>Thu, 19 May 2022 13:40:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E8%BD%AF%E4%BB%B6%E7%BC%96%E8%AF%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>反向代理</title>
+      <link>http://www.sivanlaai.top/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Tue, 03 May 2022 10:47:44 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tmux</title>
+      <link>http://www.sivanlaai.top/tags/tmux/</link>
+      <pubDate>Fri, 08 Apr 2022 16:14:01 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/tmux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>http://www.sivanlaai.top/tags/vim/</link>
+      <pubDate>Fri, 08 Apr 2022 16:14:01 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://www.sivanlaai.top/tags/docker/</link>
+      <pubDate>Sat, 02 Apr 2022 19:07:09 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>卜东坡-算法设计与分析</title>
+      <link>http://www.sivanlaai.top/tags/%E5%8D%9C%E4%B8%9C%E5%9D%A1-%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/</link>
+      <pubDate>Wed, 02 Mar 2022 19:26:58 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E5%8D%9C%E4%B8%9C%E5%9D%A1-%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>动态规划</title>
+      <link>http://www.sivanlaai.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Wed, 02 Mar 2022 19:26:58 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>算法学习</title>
+      <link>http://www.sivanlaai.top/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 02 Mar 2022 19:26:58 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>贪心</title>
+      <link>http://www.sivanlaai.top/tags/%E8%B4%AA%E5%BF%83/</link>
+      <pubDate>Wed, 02 Mar 2022 19:26:58 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E8%B4%AA%E5%BF%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>http://www.sivanlaai.top/tags/mysql/</link>
+      <pubDate>Fri, 25 Feb 2022 21:41:04 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数据库</title>
+      <link>http://www.sivanlaai.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Fri, 25 Feb 2022 21:41:04 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>分治</title>
+      <link>http://www.sivanlaai.top/tags/%E5%88%86%E6%B2%BB/</link>
+      <pubDate>Fri, 17 Dec 2021 16:30:28 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E5%88%86%E6%B2%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pytorch</title>
+      <link>http://www.sivanlaai.top/tags/pytorch/</link>
+      <pubDate>Tue, 05 Oct 2021 10:49:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/pytorch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>latex</title>
+      <link>http://www.sivanlaai.top/tags/latex/</link>
+      <pubDate>Tue, 05 Oct 2021 10:45:13 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MongoDB</title>
+      <link>http://www.sivanlaai.top/tags/mongodb/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:54 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/mongodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>踩坑</title>
+      <link>http://www.sivanlaai.top/tags/%E8%B8%A9%E5%9D%91/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:52 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E8%B8%A9%E5%9D%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://www.sivanlaai.top/tags/python/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:50 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://www.sivanlaai.top/tags/linux/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>http://www.sivanlaai.top/tags/windows/</link>
+      <pubDate>Thu, 16 Sep 2021 16:05:49 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>firewall</title>
+      <link>http://www.sivanlaai.top/tags/firewall/</link>
+      <pubDate>Mon, 30 Aug 2021 20:25:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/firewall/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ufw</title>
+      <link>http://www.sivanlaai.top/tags/ufw/</link>
+      <pubDate>Mon, 30 Aug 2021 20:25:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/ufw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>简历解析</title>
+      <link>http://www.sivanlaai.top/tags/%E7%AE%80%E5%8E%86%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Mon, 30 Aug 2021 20:25:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/%E7%AE%80%E5%8E%86%E8%A7%A3%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rime</title>
+      <link>http://www.sivanlaai.top/tags/rime/</link>
+      <pubDate>Thu, 29 Jul 2021 14:11:51 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/tags/rime/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>输入法</title>
       <link>http://www.sivanlaai.top/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</link>
-      <pubDate>Thu, 29 Jul 2021 14:11:51 +0000</pubDate>
+      <pubDate>Thu, 29 Jul 2021 13:42:07 +0000</pubDate>
       
       <guid>http://www.sivanlaai.top/tags/%E8%BE%93%E5%85%A5%E6%B3%95/</guid>
       <description></description>

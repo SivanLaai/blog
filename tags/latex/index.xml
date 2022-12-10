@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>latex on SivanLaai&#39;s Blog</title>
+    <link>http://www.sivanlaai.top/tags/latex/</link>
+    <description>Recent content in latex on SivanLaai&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 05 Oct 2021 10:45:13 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安装latex</title>
+      <link>http://www.sivanlaai.top/posts/technology/latex/</link>
+      <pubDate>Tue, 05 Oct 2021 10:45:13 +0000</pubDate>
+      
+      <guid>http://www.sivanlaai.top/posts/technology/latex/</guid>
+      <description>安装Latex Windows WSL （1）安装WSL 配置WSL 1 wsl --install 安装WSL-Ubuntu 18.04 1 wsl --install -d Ubuntu-18.04 #等待安装完成 启动Ubuntu 1 wsl bash （2）安装TexL</description>
+    </item>
+    
+  </channel>
+</rss>
