@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>rime on SivanLaai&#39;s Blog</title>
-    <link>http://www.sivanlaai.top/tags/rime/</link>
+    <link>https://www.sivanlaai.top/tags/rime/</link>
     <description>Recent content in rime on SivanLaai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 29 Jul 2021 14:11:51 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/tags/rime/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Jul 2021 14:11:51 +0000</lastBuildDate><atom:link href="https://www.sivanlaai.top/tags/rime/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rime更新历史</title>
-      <link>http://www.sivanlaai.top/posts/projects/rime/update_history/</link>
+      <link>https://www.sivanlaai.top/posts/projects/rime/update_history/</link>
       <pubDate>Thu, 29 Jul 2021 14:11:51 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/projects/rime/update_history/</guid>
+      <guid>https://www.sivanlaai.top/posts/projects/rime/update_history/</guid>
       <description>更新历史 2021-08-01 1.修复九宫拼音不支持简拼的情况，如输入xqw不显示结果。 2.四叶草拼音去除25258个重复的词组，只保留最高频次的词组 1 2 3 ./</description>
     </item>
     
     <item>
       <title>Rime安装说明</title>
-      <link>http://www.sivanlaai.top/posts/projects/rime/installation/</link>
+      <link>https://www.sivanlaai.top/posts/projects/rime/installation/</link>
       <pubDate>Thu, 29 Jul 2021 14:10:34 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/projects/rime/installation/</guid>
+      <guid>https://www.sivanlaai.top/posts/projects/rime/installation/</guid>
       <description>不看下面的繁索的安装直接去发布页面下载已编译版本 最新发布页面 小狼毫（PC端） 0.备份小狼毫输入法安装目录的data文件夹，备份~\AppDa</description>
     </item>
     
     <item>
       <title>Rime输入法介绍</title>
-      <link>http://www.sivanlaai.top/posts/projects/rime/info/</link>
+      <link>https://www.sivanlaai.top/posts/projects/rime/info/</link>
       <pubDate>Thu, 29 Jul 2021 13:42:07 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/projects/rime/info/</guid>
+      <guid>https://www.sivanlaai.top/posts/projects/rime/info/</guid>
       <description>【rime 小狼毫\trime 同文】手机/PC一站式配置【简约皮肤\拼音搜狗词库\原创trime同文 四叶草九宫格拼音\四叶草拼音\小鹤双拼\极</description>
     </item>
     

@@ -2,76 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://www.sivanlaai.top/en/archives/</loc>
+    <loc>https://www.sivanlaai.top/en/archives/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://www.sivanlaai.top/archives/"
+                href="https://www.sivanlaai.top/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://www.sivanlaai.top/en/archives/"
+                href="https://www.sivanlaai.top/en/archives/"
                 />
   </url><url>
-    <loc>http://www.sivanlaai.top/en/categories/</loc>
+    <loc>https://www.sivanlaai.top/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://www.sivanlaai.top/categories/"
+                href="https://www.sivanlaai.top/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://www.sivanlaai.top/en/categories/"
+                href="https://www.sivanlaai.top/en/categories/"
                 />
   </url><url>
-    <loc>http://www.sivanlaai.top/en/search/</loc>
+    <loc>https://www.sivanlaai.top/en/search/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://www.sivanlaai.top/search/"
+                href="https://www.sivanlaai.top/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://www.sivanlaai.top/en/search/"
+                href="https://www.sivanlaai.top/en/search/"
                 />
   </url><url>
-    <loc>http://www.sivanlaai.top/en/series/</loc>
+    <loc>https://www.sivanlaai.top/en/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://www.sivanlaai.top/series/"
+                href="https://www.sivanlaai.top/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://www.sivanlaai.top/en/series/"
+                href="https://www.sivanlaai.top/en/series/"
                 />
   </url><url>
-    <loc>http://www.sivanlaai.top/en/</loc>
+    <loc>https://www.sivanlaai.top/en/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://www.sivanlaai.top/"
+                href="https://www.sivanlaai.top/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://www.sivanlaai.top/en/"
+                href="https://www.sivanlaai.top/en/"
                 />
   </url><url>
-    <loc>http://www.sivanlaai.top/en/tags/</loc>
+    <loc>https://www.sivanlaai.top/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://www.sivanlaai.top/tags/"
+                href="https://www.sivanlaai.top/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://www.sivanlaai.top/en/tags/"
+                href="https://www.sivanlaai.top/en/tags/"
                 />
   </url>
 </urlset>

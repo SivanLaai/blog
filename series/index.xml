@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Series on SivanLaai&#39;s Blog</title>
-    <link>http://www.sivanlaai.top/series/</link>
+    <link>https://www.sivanlaai.top/series/</link>
     <description>Recent content in Series on SivanLaai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="http://www.sivanlaai.top/series/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language><atom:link href="https://www.sivanlaai.top/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

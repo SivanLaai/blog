@@ -2,89 +2,89 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>教程 on SivanLaai&#39;s Blog</title>
-    <link>http://www.sivanlaai.top/categories/%E6%95%99%E7%A8%8B/</link>
+    <link>https://www.sivanlaai.top/categories/%E6%95%99%E7%A8%8B/</link>
     <description>Recent content in 教程 on SivanLaai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 28 Jul 2022 11:46:36 +0000</lastBuildDate><atom:link href="http://www.sivanlaai.top/categories/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Jul 2022 11:46:36 +0000</lastBuildDate><atom:link href="https://www.sivanlaai.top/categories/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>nextcloud配置</title>
-      <link>http://www.sivanlaai.top/posts/technology/nextcloud/</link>
+      <link>https://www.sivanlaai.top/posts/technology/nextcloud/</link>
       <pubDate>Thu, 28 Jul 2022 11:46:36 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/nextcloud/</guid>
+      <guid>https://www.sivanlaai.top/posts/technology/nextcloud/</guid>
       <description>nextcloud网盘相关问题 网盘配置 （1）配置环境 Linux + Apache2 + Mysql + Php(LAMP) Example installation on Ubuntu 20.04 LTS — Nextcloud latest Administration Manual latest documentation 配置Linux + Nginx + Mysql + Php(LNMP)环境 1</description>
     </item>
     
     <item>
       <title>软件编译和安装</title>
-      <link>http://www.sivanlaai.top/posts/technology/compile_and_install/</link>
+      <link>https://www.sivanlaai.top/posts/technology/compile_and_install/</link>
       <pubDate>Thu, 19 May 2022 13:40:49 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/compile_and_install/</guid>
+      <guid>https://www.sivanlaai.top/posts/technology/compile_and_install/</guid>
       <description>软件编译和安装 qbittorrent编译安装 安装依赖 1 2 apt-get install build-essential pkg-config automake libtool git apt-get install libboost-dev libboost-system-dev libboost-chrono-dev libboost-random-dev libssl-dev libgeoip-dev 安装libtorrent 1 2 3 4 5 6 7 8 9 git clone https://github.com/arvidn/libtorrent.git #之前</description>
     </item>
     
     <item>
       <title>apache 和 nginx的使用和反向代理</title>
-      <link>http://www.sivanlaai.top/posts/technology/apache2_and_nginx/</link>
+      <link>https://www.sivanlaai.top/posts/technology/apache2_and_nginx/</link>
       <pubDate>Tue, 03 May 2022 10:47:44 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/apache2_and_nginx/</guid>
+      <guid>https://www.sivanlaai.top/posts/technology/apache2_and_nginx/</guid>
       <description>apache常见问题 配置apache2文件简单服务器 打开配置文件 1 sudo vim /etc/apache2/sites-available/000-default.conf 修改内容为 1 2 3 4 5 6 Alias /e6ecni3_Sivan &amp;#34;/var/www/html/&amp;#34; &amp;lt;Directory /var/www/html/&amp;#34;&amp;gt; Require all granted AllowOverride All Options FollowSymLinks MultiViews &amp;lt;/Directory&amp;gt; 删除/var/ww</description>
     </item>
     
     <item>
       <title>docker教程</title>
-      <link>http://www.sivanlaai.top/posts/technology/docker/</link>
+      <link>https://www.sivanlaai.top/posts/technology/docker/</link>
       <pubDate>Sat, 02 Apr 2022 19:07:09 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/docker/</guid>
+      <guid>https://www.sivanlaai.top/posts/technology/docker/</guid>
       <description>docker教程 docker安装 卸载老版本docker 1 sudo apt-get remove docker docker-engine docker.io containerd runc 设置apt仓库 1.更新apt包索引并且安装相关依赖允许apt使用ht</description>
     </item>
     
     <item>
       <title>数据库配置</title>
-      <link>http://www.sivanlaai.top/posts/technology/mysql/</link>
+      <link>https://www.sivanlaai.top/posts/technology/mysql/</link>
       <pubDate>Fri, 25 Feb 2022 21:41:04 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/mysql/</guid>
+      <guid>https://www.sivanlaai.top/posts/technology/mysql/</guid>
       <description>mysql数据库 mysql忘记密码 （1）修改配置文件免密 1 sudo vim /etc/mysql/my.cnf 1 2 [mysqld] skip-grant-tables （2）重启mysql 1 sudo service mysql restart （3）修改初始密码 1 2 3 mysql -u root use mysql; update user</description>
     </item>
     
     <item>
       <title>安装latex</title>
-      <link>http://www.sivanlaai.top/posts/technology/latex/</link>
+      <link>https://www.sivanlaai.top/posts/technology/latex/</link>
       <pubDate>Tue, 05 Oct 2021 10:45:13 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/latex/</guid>
+      <guid>https://www.sivanlaai.top/posts/technology/latex/</guid>
       <description>安装Latex Windows WSL （1）安装WSL 配置WSL 1 wsl --install 安装WSL-Ubuntu 18.04 1 wsl --install -d Ubuntu-18.04 #等待安装完成 启动Ubuntu 1 wsl bash （2）安装TexL</description>
     </item>
     
     <item>
       <title>Mongodb总结</title>
-      <link>http://www.sivanlaai.top/posts/technology/mongodb/</link>
+      <link>https://www.sivanlaai.top/posts/technology/mongodb/</link>
       <pubDate>Thu, 16 Sep 2021 16:05:54 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/mongodb/</guid>
+      <guid>https://www.sivanlaai.top/posts/technology/mongodb/</guid>
       <description>Mongodb安装 （1）导入公匙 1 wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add - （2）创建mongodb列表文件 1 echo &amp;#34;deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/5.0 multiverse&amp;#34; | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list （3）重新加载包数据 1 sudo apt-get update （</description>
     </item>
     
     <item>
       <title>系统配置和问题</title>
-      <link>http://www.sivanlaai.top/posts/technology/system/</link>
+      <link>https://www.sivanlaai.top/posts/technology/system/</link>
       <pubDate>Thu, 16 Sep 2021 16:05:49 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/system/</guid>
+      <guid>https://www.sivanlaai.top/posts/technology/system/</guid>
       <description>Linux /usr/bin/dpkg returned an error code (1) 解决dpkg错误 1 2 3 cd /var/lib/dpkg sudo mv info info.baksudo mkdir info 添加用户名和添加sudo 添加用户名 1 sudo useradd -m -d /data/username -s /bin/zsh username 修改密码 1 sudo passwd username 添加sudoers 1</description>
     </item>
     
     <item>
       <title>配置ufw</title>
-      <link>http://www.sivanlaai.top/posts/technology/ufw_config/</link>
+      <link>https://www.sivanlaai.top/posts/technology/ufw_config/</link>
       <pubDate>Mon, 30 Aug 2021 20:25:51 +0000</pubDate>
       
-      <guid>http://www.sivanlaai.top/posts/technology/ufw_config/</guid>
+      <guid>https://www.sivanlaai.top/posts/technology/ufw_config/</guid>
       <description>Ubuntu UFW 配置 （1）查看ufw信息 1 sudo ufw status （2）激活ufw 1 sudo ufw enable （3）阻止/允许IP 1 2 3 4 # 允许IP sudo ufw allow from 203.0.113.101 # 阻止IP sudo ufw deny from 203.0.113.100 （3）阻止/</description>
     </item>
     
