@@ -1,0 +1,7 @@
+public
+*.lock
+node_modules/
+build/
+resources/
+config_local.toml
+.hugo_build.lock
