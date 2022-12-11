@@ -1,6 +1,5 @@
 https://www.sivanlaai.top/posts/misc/collection/
 https://www.sivanlaai.top/posts/technology/auto_deploy_with_obsidian/
-https://www.sivanlaai.top/posts/learning/paper_reading_method/
 https://www.sivanlaai.top/posts/technology/nextcloud/
 https://www.sivanlaai.top/posts/technology/wordpress/
 https://www.sivanlaai.top/posts/technology/compile_and_install/
