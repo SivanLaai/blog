@@ -1,7 +1,7 @@
 ---
 title: 论文阅读方法
 date: 2022-12-07T15:32:44+08:00
-draft: false
+draft: true
 author: 知乎
 categories:
   - 学习

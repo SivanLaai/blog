@@ -5,3 +5,4 @@ build/
 resources/
 config_local.toml
 .hugo_build.lock
+workspace.json
