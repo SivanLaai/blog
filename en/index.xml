@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>SivanLaai&#39;s Blog</title>
-    <link>https://www.sivanlaai.top/en/</link>
-    <description>Recent content on SivanLaai&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language><atom:link href="https://www.sivanlaai.top/en/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-  </channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Sivanlaai's Blog</title><link>https://www.sivanlaai.top/en/</link><description>SivanLaai's blog, Where to learning, recording and being better.</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>lyhhap@163.com (SivanLaai)</managingEditor><webMaster>lyhhap@163.com (SivanLaai)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://www.sivanlaai.top/en/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
