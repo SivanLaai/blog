@@ -664,6 +664,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [params.umami]
     enable = true
     url = 'https://data.sivanlaai.top/umami.js'
+  [params.baiduStastics]
+    enable = true
+    url = 'https://hm.baidu.com/hm.js?d4bc2287f77d75f390f7b7e5f5737a9e'
 
   # Busuanzi count since v0.2.12
   # 不蒜子统计 since v0.2.12
