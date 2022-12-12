@@ -1,4 +1,4 @@
 {{- /* Unami */ -}}
 {{- if eq .Site.Params.umami.enable true -}}
-    <script async defer data-website-id="64317f56-47a8-4a6a-b9ee-f4b048243029" src="https://count.sivanlaai.top/umami.js"></script>
+    <script async defer data-website-id="64317f56-47a8-4a6a-b9ee-f4b048243029" src={{ .Site.Params.umami.url }}></script>
 {{- end -}}
