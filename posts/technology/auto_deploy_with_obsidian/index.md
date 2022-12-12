@@ -38,7 +38,7 @@ git remote set-url origin git@github.com:SivanLaai/SivanLaai.github.io.git
 ## 评论功能（可选）
 **建议新手根据自己的时间来衡量是否加入，不然折腾起来也挺费劲，容易遇到这种问题。确实有时间的可以尝试
 
-本教程中使用的hugo主题是papermod，同时加入了评论功能，使用的是Waline评论系统，比较推荐使用这个评论系统，支持自建后端也可以使用免费的后端云服务，有评论管理功能，安全，支持登录和匿名模式，爆吹。
+本教程中使用的hugo主题是Loveit，同时加入了评论功能，使用的是Waline评论系统，比较推荐使用这个评论系统，支持自建后端也可以使用免费的后端云服务，有评论管理功能，安全，支持登录和匿名模式，爆吹。
 
 对于Waline的详细使用请看[官方教程](https://waline.js.org/guide/get-started/)，根据官方教程配置好Waline后端好，在```config.yml```里面如下：
 ```
@@ -46,6 +46,11 @@ waline:
     serverUrl: "WALINE_SERVER_URL"
 ```
 把```WALINE_SERVER_URL```替换成你的Waline服务地址就可以。
+## 站点统计
+针对原版的不算子的统计功能，感觉有点鸡肋，可以尝试加入了其他的站点统计功能
+- [umami](https://github.com/umami-software/umami)（开源比较推荐）
+- [百度统计——一站式智能数据分析与应用平台 (baidu.com)](https://tongji.baidu.com/web5/welcome/login)
+
 
 # 参考文章
 1. [Obsidian + Hugo 最佳配置推荐 | 胡说 (zhangyingwei.com)](https://blog.zhangyingwei.com/posts/2022m4d12h13m13s22/)
