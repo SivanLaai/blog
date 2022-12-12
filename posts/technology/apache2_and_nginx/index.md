@@ -1,4 +1,4 @@
-# apache 和 nginx的使用和反向代理
+# web容器的使用和反向代理
 
 # apache常见问题
 ### 配置apache2文件简单服务器
@@ -80,11 +80,63 @@ LoadModule proxy_http_module modules/mod_proxy_http.so
 # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
 
 ```
+
 #### 启动服务
 ```bash
 sudo a2ensite example.conf
 sudo service apache2 restart
 ```
+
+## apache 添加ssl证书并反向代理
+- 开启ssl模块
+```bash
+sudo a2enmod ssl
+```
+- 配置证书```site.conf```
+```bash
+LoadModule proxy_module modules/mod_proxy.so                                  
+<IfModule mod_ssl.c>            
+        <VirtualHost _default_:443>
+                ServerAdmin webmaster@localhost                                                                
+                                                                                        
+                RewriteEngine on
+  
+                ProxyPass               /       http://127.0.0.1:8360/
+                ProxyPassReverse        /       http://127.0.0.1:8360/
+
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+                SSLEngine on
+                SSLCertificateFile      /etc/apache2/ssl/cloud.sivanlaai.top.pem
+                SSLCertificateKeyFile /etc/apache2/ssl/cloud.sivanlaai.top.key
+                SSLCertificateChainFile /etc/apache2/ssl/cloud.sivanlaai.top.crt
+				SSLCACertificatePath /etc/apache2/ssl
+                SSLCACertificateFile /etc/apache2/ssl.crt/root_bundle.crt                                        
+        </VirtualHost>                                                          
+</IfModule>  
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+
+```
+
+## 阿里云ssl证书安装错误
+- 根据阿里云的教程[在Apache服务器上安装SSL证书 (aliyun.com)](https://help.aliyun.com/document_detail/98727.html?spm=0.2020520163.help.dexternal.172bmN0amN0aZT)
+1.在服务器上更新证书apache2会报错
+（1）错误1：```AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globa```
+在```apache.conf```最后添加如下：
+```
+...
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet                                                                                                                                                   
+ServerName 127.0.0.1 
+```
+
+（2）错误2：```Action 'start' failed.```
+看日志提示```SSL Library Error: error:0A0000B1:SSL routines::no certificate assigned```
+- 解决方案
+下载这两处的文件然后把其他文件里面的pem文件更新到```site.conf```中
+![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20221212231557.png)
+
 
 # Nginx常见问题
 ### 配置nginx反向代理和重定向
