@@ -18,7 +18,7 @@ https://www.sivanlaai.top/posts/technology/python/
 https://www.sivanlaai.top/posts/technology/system/
 https://www.sivanlaai.top/posts/projects/resume_parser/
 https://www.sivanlaai.top/posts/technology/ufw_config/
-https://www.sivanlaai.top/about/about/
+https://www.sivanlaai.top/about/
 https://www.sivanlaai.top/posts/projects/rime/update_history/
 https://www.sivanlaai.top/posts/projects/rime/installation/
 https://www.sivanlaai.top/posts/projects/rime/info/
