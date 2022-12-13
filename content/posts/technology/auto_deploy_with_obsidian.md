@@ -60,6 +60,156 @@ waline:
 - [umami](https://github.com/umami-software/umami)（开源比较推荐）
 - [百度统计——一站式智能数据分析与应用平台 (baidu.com)](https://tongji.baidu.com/web5/welcome/login)
 
+### 自有主机，docker安装Umami网站统计和Waline评论系统
+
+1.创建文件夹
+```
+mkdir website && cd website
+```
+2. 创建如下文件运行```docker-compose up -d``` 
+```yaml
+version: "3"
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=PASSWORD
+      - MYSQL_PASSWORD=PASSWORD
+      - MYSQL_DATABASE=umami
+      - MYSQL_USER=user
+    command: --default-authentication-plugin=mysql_native_password --transaction-isolation=READ-COMMITTED --binlog-format=ROW #解决外部无法访问
+    volumes:
+      - ./conf:/etc/mysql/conf.d
+      - ./data:/var/lib/mysql
+    network_mode: "host"
+  unami:
+    image: ghcr.io/umami-software/umami:mysql-latest
+    network_mode: "host"
+    environment:
+      DATABASE_URL: mysql://user:PASSWORD@localhost:3306/umami
+      DATABASE_TYPE: mysql
+      HASH_SALT: replace-me-with-a-random-string
+    restart: always
+
+  waline:
+    container_name: waline
+    image: lizheming/waline:latest
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ${PWD}/data:/app/data
+    environment:
+      TZ: 'Asia/Shanghai'
+      MYSQL_HOST: localhost
+      MYSQL_DB: waline
+      MYSQL_USER: user
+      MYSQL_PASSWORD: PASSWORD
+      SITE_NAME: "SivanLaai's Blog"
+      SITE_URL: 'http://www.sivanlaai.top'
+      SECURE_DOMAINS: 'www.sivanlaai.top'
+      AUTHOR_EMAIL: 'eamil@163.com'
+      SMTP_PASS: SMTP_PASSWORD
+      SMTP_USER: qqid@qq.com
+      SMTP_SERVICE: QQ
+```
+3 初始化waline数据库
+```sql
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+SET NAMES utf8mb4;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table wl_Comment
+# ------------------------------------------------------------
+
+CREATE TABLE `wl_Comment` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `comment` text,
+  `insertedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `ip` varchar(100) DEFAULT '',
+  `link` varchar(255) DEFAULT NULL,
+  `mail` varchar(255) DEFAULT NULL,
+  `nick` varchar(255) DEFAULT NULL,
+  `pid` int(11) DEFAULT NULL,
+  `rid` int(11) DEFAULT NULL,
+  `sticky` boolean DEFAULT NULL,
+  `status` varchar(50) NOT NULL DEFAULT '',
+  `like` int(11) DEFAULT NULL,
+  `ua` text,
+  `url` varchar(255) DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+# Dump of table wl_Counter
+# ------------------------------------------------------------
+
+CREATE TABLE `wl_Counter` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `time` int(11) DEFAULT NULL,
+  `reaction0` int(11) DEFAULT NULL,
+  `reaction1` int(11) DEFAULT NULL,
+  `reaction2` int(11) DEFAULT NULL,
+  `reaction3` int(11) DEFAULT NULL,
+  `reaction4` int(11) DEFAULT NULL,
+  `reaction5` int(11) DEFAULT NULL,
+  `reaction6` int(11) DEFAULT NULL,
+  `reaction7` int(11) DEFAULT NULL,
+  `reaction8` int(11) DEFAULT NULL,
+  `url` varchar(255) NOT NULL DEFAULT '',
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+# Dump of table wl_Users
+# ------------------------------------------------------------
+
+CREATE TABLE `wl_Users` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `display_name` varchar(255) NOT NULL DEFAULT '',
+  `email` varchar(255) NOT NULL DEFAULT '',
+  `password` varchar(255) NOT NULL DEFAULT '',
+  `type` varchar(50) NOT NULL DEFAULT '',
+  `label` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `github` varchar(255) DEFAULT NULL,
+  `twitter` varchar(255) DEFAULT NULL,
+  `facebook` varchar(255) DEFAULT NULL,
+  `google` varchar(255) DEFAULT NULL,
+  `weibo` varchar(255) DEFAULT NULL,
+  `qq` varchar(255) DEFAULT NULL,
+  `2fa` varchar(32) DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+```
+4. 验证后台
+- umami后台为[localhost:3000](localhost:3000),初始帐号 admin 密码 umami
+- waline后台为[localhost:8360](localhost:8360)
+
 
 # 参考文章
 1. [Obsidian + Hugo 最佳配置推荐 | 胡说 (zhangyingwei.com)](https://blog.zhangyingwei.com/posts/2022m4d12h13m13s22/)

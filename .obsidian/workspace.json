@@ -13,13 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/posts/misc/random_note.md",
+                "file": "content/posts/technology/latex.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "81a146f5f2eb00d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/posts/technology/auto_deploy_with_obsidian.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "536e65193559392f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/posts/technology/auto_deploy_with_obsidian.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -85,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/posts/misc/random_note.md",
+                "file": "content/posts/technology/auto_deploy_with_obsidian.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/posts/misc/random_note.md",
+                "file": "content/posts/technology/auto_deploy_with_obsidian.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/posts/misc/random_note.md"
+                "file": "content/posts/technology/auto_deploy_with_obsidian.md"
               }
             }
           }
@@ -136,17 +161,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "c9477dac43125f11",
+  "active": "536e65193559392f",
   "lastOpenFiles": [
-    "content/posts/_index.md",
-    "content/about.md",
+    "content/posts/technology/apache2_and_nginx.md",
+    "content/posts/technology/docker_umami_waline_install.md",
+    "content/posts/technology/auto_deploy_with_obsidian.md",
+    "content/posts/technology/latex.md",
+    "content/posts/misc/collection.md",
+    "content/posts/technology/ufw_config.md",
     "content/posts/misc/random_note.md",
-    "content/articles/learning/ucas_pu_2021_algorithm_assignment/conquer_divide.md",
-    "content/articles/learning/ucas_pu_2021_algorithm_assignment/greedy.md",
-    "content/articles/learning/ucas_pu_2021_algorithm_assignment/dynamic_programing.md",
-    "content/articles/_index.md",
-    "pages/7128fc.md",
-    "content/articles/technology/apache2_and_nginx.md",
-    "content/articles/technology/python.md"
+    "content/posts/technology/apt.md",
+    "content/posts/technology/Untitled 1.md",
+    "content/posts/_index.md"
   ]
 }
