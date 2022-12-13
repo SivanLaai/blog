@@ -42,5 +42,5 @@ CS博士在读。
 ---
 
 > 作者: [SivanLaai](https://www.sivanlaai.top)  
-> URL: https://www.sivanlaai.top/about/  
+> URL: https://www.sivanlaai.top/about/about/  
 
