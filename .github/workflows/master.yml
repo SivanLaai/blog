@@ -47,14 +47,14 @@ jobs:
 
       - name: rm all html
         run: find public -name "*.html" | xargs rm -f
-      - name: Upload to DogeCloud
-        uses: zu1k/dogecloud-cos-action@v0.1.3
-        with:
-          access_key: ${{ secrets.ACCESS_KEY }}
-          secret_key: ${{ secrets.SECRET_KEY }}
-          bucket: ${{ secrets.BUCKET }}
-          region: ${{ secrets.REGION }}
-          local_path: public
-          remote_path: /
-          clean: false
-          accelerate: false
+      # - name: Upload to DogeCloud
+      #   uses: zu1k/dogecloud-cos-action@v0.1.3
+      #   with:
+      #     access_key: ${{ secrets.ACCESS_KEY }}
+      #     secret_key: ${{ secrets.SECRET_KEY }}
+      #     bucket: ${{ secrets.BUCKET }}
+      #     region: ${{ secrets.REGION }}
+      #     local_path: public
+      #     remote_path: /
+      #     clean: false
+      #     accelerate: false
