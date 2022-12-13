@@ -18,7 +18,7 @@
     {
       "id": "39q0qtvbzd",
       "platform_specific_commands": {
-        "default": "git add content\ngit commit -m \"update passages\"\ngit pull\ngit push"
+        "default": "git add * && git commit -m \"update passages\" && git pull && git push"
       },
       "shells": {
         "linux": "/bin/bash"
