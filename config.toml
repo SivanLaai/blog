@@ -668,7 +668,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
   # Umami count add by SivanLaai
   [params.umami]
-    enable = true
+    enable = false
     url = 'https://count.sivanlaai.top/umami.js'
   [params.baiduStastics]
     enable = true
