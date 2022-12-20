@@ -1,6 +1,6 @@
 ---
 title: "友情链接"
-subtitle: 致有缘的你，热爱生活的你，或者是想学吉他的你，欢迎留言。
+subtitle: 致有缘的你，热爱生活的你，欢迎交换友链。
 type: "friends"
 keywords: 
   - Hugo

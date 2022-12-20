@@ -246,9 +246,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # site creation year
     # 网站创立年份
     since = 2018
-    # Site creation time since v0.2.14
-    # 网站创立时间 since v0.2.14
-    siteTime = "2018-12-18T16:15:22+08:00"
+    
     # TODO whether to show total word count of site content
     # TODO 是否显示网站内容总字数
     wordCount = true
@@ -261,6 +259,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     # license info (HTML format is supported)
     # 许可协议信息 (支持 HTML 格式)
     license = ''
+
+    [params.footer.siteTime]
+      # Site creation time since v0.2.14
+      # 网站创立时间 since v0.2.14
+      value = "2018-12-18T16:15:22+08:00"
+      animate = true
+      icon = "fa-solid fa-heartbeat"
+      pre = ""
 
   # Section (all posts) page config
   # Section (所有文章) 页面配置
