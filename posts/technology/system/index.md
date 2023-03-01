@@ -64,19 +64,19 @@ sudo mount -a
 ## linux开机自启动并服务化
 ### Ubuntu
 #### 开机启动
-#### 服务化（以qbittorrent服务化为例）
+#### 系统服务化（以qbittorrent服务化为例）
 不要在后面添加#的注释，不然会导致未知错误
 - 配置文件```/lib/systemd/system/qbittorrent.service```
 ```bash
 [Unit]
 Description=qbittorrent-nox service #服务描述
-After=network.target
+Documentation=man:qbittorrent-nox(1)
 
 [Service]
-User=root   #用户root
-Group=root  #用户组root
+User=username   #用户
+Group=usergroup  #用户组
 UMask=0000  #权限777
-Type=forking
+Type=simple
 #ExecStartPre=-cd /home/<span class="hljs-built_in">test</span>/ #启动前执行
 #WorkingDirectory=/home/<span class="hljs-built_in">test</span>/ #工作目录
 ExecStart=/usr/bin/qbittorrent-nox #启动时执行
@@ -84,40 +84,61 @@ ExecReload=/bin/kill -SIGHUP $MAINPID #重启时执行
 ExecStop=/bin/kill -SIGINT $MAINPID #停止时执行
 
 [Install]
-WantedBy=multi-user.target graphical.target
+WantedBy=default.target
 
 ```
 - 服务常用命令集合
 ```bash
 # 开机启动
-
 systemctl enable qbittorrent
 
 # 关闭开机启动
-
 systemctl disable qbittorrent
 
 # 启动服务
-
 systemctl start qbittorrent
 
 # 停止服务
-
 systemctl stop qbittorrent
 
 # 重启服务
-
 systemctl restart qbittorrent
 
 # 查看服务状态
-
 systemctl status qbittorrent
-
 systemctl is-active sshd.service
 
 # 结束服务进程(服务无法停止时)
-
 systemctl kill qbittorrent
+```
+#### 用户服务化（以v2ray服务化为例，不需要sudo也可以启动，在某个用户登录的时候启动）
+不要在后面添加#的注释，不然会导致未知错误
+- 配置文件~/.config/systemd/user/v2ray.service```
+```
+[Unit]
+Description=keep v2ray's servie alive
+
+[Service]
+Type=simple
+Restart=always
+WorkingDirectory=~/v2ray/
+ExecStart=bash v2ray.sh
+SystemCallArchitectures=native
+MemoryDenyWriteExecute=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target
+
+```
+- 启动服务在原来的基础上加```--user```
+```
+```bash
+# 开机启动
+systemctl --user enable --now v2ray
+# 关闭开机启动
+systemctl --user disable --now v2ray
+
 ```
 
 ## linux安装常见中文字体

@@ -24,6 +24,9 @@
 
 - ![visitors](https://visitor-badge.laobi.icu/badge?page_id=SivanLaai/rime-pure)
 
+## QQ群
+![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/Rime%20Pure%20%E4%BA%A4%E6%B5%81%E7%BE%A4%E7%BE%A4%E4%BA%8C%E7%BB%B4%E7%A0%81.png)
+
   
 
 ## 包含输入方案
@@ -227,9 +230,9 @@
 #### 2022-12-30
 
  - 1.移除九宫模式下ascii模式的切换
-
  - 2.优化九宫数字键盘布局
- ![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20221230200634.png)
+ 
+ ![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/ 20221230200634.png)
 
 
 #### 2022-11-4
