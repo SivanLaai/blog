@@ -956,13 +956,13 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       #   weight = 4
       #   [languages.en.menu.main.params]
       #     icon = "fa-solid fa-book"
-      [[languages.en.menu.main]]
-        identifier = "friends"
-        name = "Friends"
-        url = "friends/"
-        weight = 6
-        [languages.en.menu.main.params]
-          icon = "fa-solid fa-users"
+      # [[languages.en.menu.main]]
+      #   identifier = "friends"
+      #   name = "Friends"
+      #   url = "friends/"
+      #   weight = 6
+      #   [languages.en.menu.main.params]
+      #     icon = "fa-solid fa-users"
       [[languages.en.menu.main]]
         identifier = "about"
         name = "About"

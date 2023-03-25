@@ -7,7 +7,7 @@
 
 文章内容所见即所得。写完文章后快捷键 ```Crtl + U```快速发布文章，然后等待GitHub Action部署完成，刷新页面就可以看到新文章，如下为展示的效果：
 
-[点击预览](https://www.sivanlaai.top/video/obsdidian_hugo_auto_deploy.mp4)
+[点击预览](https://www.laais.cn/obsdidian_hugo_auto_deploy.mp4)
 
 
 # 快速开始
@@ -24,7 +24,7 @@ git clone --recursive git@github.com:SivanLaai/blog.git && cd blog
 ```
 git remote set-url origin git@github.com:SivanLaai/SivanLaai.github.io.git
 ```
-- (可选) - 添加Github项目环境变量```WEB_SITE```为你自己的域名如```www.sivanlaai.top```
+- (可选) - 添加Github项目环境变量```WEB_SITE```为你自己的域名如```www.sivanlaai.laais.cn
 - 利用obsidian打开blog文件夹，开始写博客
 - 快捷键 ```Crtl + U```快速发布文章（利用Obsidian Shell Command插件实现快速发布）
 - 打开你的网址，如```sivanlaai.github.io```

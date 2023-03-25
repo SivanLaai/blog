@@ -228,7 +228,7 @@ tags:
 
   
 
-- [查看安装方法](https://www.sivanlaai.top/posts/projects/rime/installation/)
+- [查看安装方法](https://www.sivlaais.cnsts/projects/rime/installation/)
 
   
 
@@ -392,7 +392,7 @@ tags:
 
   
 
-#### [以往全部历史](https://www.sivanlaai.top/posts/projects/rime/update_history/)
+#### [以往全部历史](https://www.sivlaais.cnsts/projects/rime/update_history/)
 
   
 
