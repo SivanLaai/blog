@@ -30,7 +30,7 @@ git clone --recursive git@github.com:SivanLaai/blog.git
 ```
 git remote set-url origin git@github.com:SivanLaai/SivanLaai.github.io.git
 ```
-- (可选) - 添加Github项目环境变量```WEB_SITE```为你自己的域名如```www.sivanlaai.top```
+- (可选) - 添加Github项目环境变量```WEB_SITE```为你自己的域名如```www.sivanlaai.laais.cn
 - 利用obsidian打开blog文件夹，开始写博客
 - 快捷键 ```Crtl + U```快速发布文章（利用Obsidian Shell Command插件实现快速发布）
 - 打开你的网址，如```sivanlaai.github.io```
@@ -97,8 +97,8 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: PASSWORD
       SITE_NAME: "SivanLaai's Blog"
-      SITE_URL: 'http://www.sivanlaai.top'
-      SECURE_DOMAINS: 'www.sivanlaai.top'
+      SITE_URL: 'http://www.laais.cn'
+      SECURE_DOMAINS: 'www.laais.cn'
       AUTHOR_EMAIL: 'eamil@163.com'
       SMTP_PASS: SMTP_PASSWORD
       SMTP_USER: qqid@qq.com

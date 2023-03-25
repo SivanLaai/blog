@@ -56,7 +56,7 @@ upstream php-handler {
 server {
     listen 80;
     listen [::]:80;
-    server_name nextcloud.sivanlaai.top;
+    server_name nextcloud.laais.cn;
 
     # Path to the root of your installation
     root /var/www/nextcloud;

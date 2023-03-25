@@ -108,9 +108,9 @@ LoadModule proxy_module modules/mod_proxy.so
                 CustomLog ${APACHE_LOG_DIR}/access.log combined
 
                 SSLEngine on
-                SSLCertificateFile      /etc/apache2/ssl/cloud.sivanlaai.top.pem
-                SSLCertificateKeyFile /etc/apache2/ssl/cloud.sivanlaai.top.key
-                SSLCertificateChainFile /etc/apache2/ssl/cloud.sivanlaai.top.crt
+                SSLCertificateFile      /etc/apache2/ssl/cloud.laais.cn.pem
+                SSLCertificateKeyFile /etc/apache2/ssl/cloud.laais.cn.key
+                SSLCertificateChainFile /etc/apache2/ssl/cloud.laais.cn.crt
 				SSLCACertificatePath /etc/apache2/ssl
                 SSLCACertificateFile /etc/apache2/ssl.crt/root_bundle.crt                                        
         </VirtualHost>                                                          
