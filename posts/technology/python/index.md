@@ -32,6 +32,6 @@ python get-pip.py
 
 ---
 
-> 作者: [SivanLaai](https://www.sivanlaai.top)  
-> URL: https://www.sivanlaai.top/posts/technology/python/  
+> 作者: [SivanLaai](https://www.laais.cn)  
+> URL: https://www.laais.cn/posts/technology/python/  
 

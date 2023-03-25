@@ -209,6 +209,6 @@ CREATE TABLE `wl_Users` (
 
 ---
 
-> 作者: [SivanLaai](https://www.sivanlaai.top)  
-> URL: https://www.sivanlaai.top/posts/technology/auto_deploy_with_obsidian/  
+> 作者: [SivanLaai](https://www.laais.cn)  
+> URL: https://www.laais.cn/posts/technology/auto_deploy_with_obsidian/  
 

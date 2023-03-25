@@ -305,6 +305,6 @@ sudo apt install nvidia-driver-470-server
 
 ---
 
-> 作者: [SivanLaai](https://www.sivanlaai.top)  
-> URL: https://www.sivanlaai.top/posts/technology/compile_and_install/  
+> 作者: [SivanLaai](https://www.laais.cn)  
+> URL: https://www.laais.cn/posts/technology/compile_and_install/  
 

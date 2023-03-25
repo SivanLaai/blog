@@ -53,6 +53,6 @@ sudo apt install fontconfig
 
 ---
 
-> 作者: [SivanLaai](https://www.sivanlaai.top)  
-> URL: https://www.sivanlaai.top/posts/technology/latex/  
+> 作者: [SivanLaai](https://www.laais.cn)  
+> URL: https://www.laais.cn/posts/technology/latex/  
 

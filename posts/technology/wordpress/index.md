@@ -48,6 +48,6 @@ LoadModule proxy_http_module modules/mod_proxy_http.so
 
 ---
 
-> 作者: [SivanLaai](https://www.sivanlaai.top)  
-> URL: https://www.sivanlaai.top/posts/technology/wordpress/  
+> 作者: [SivanLaai](https://www.laais.cn)  
+> URL: https://www.laais.cn/posts/technology/wordpress/  
 

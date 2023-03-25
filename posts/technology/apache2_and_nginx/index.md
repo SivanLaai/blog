@@ -180,6 +180,6 @@ sudo vim /etc/nginx/conf.d/jellyfin.conf
 
 ---
 
-> 作者: [SivanLaai](https://www.sivanlaai.top)  
-> URL: https://www.sivanlaai.top/posts/technology/apache2_and_nginx/  
+> 作者: [SivanLaai](https://www.laais.cn)  
+> URL: https://www.laais.cn/posts/technology/apache2_and_nginx/  
 
