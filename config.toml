@@ -1,5 +1,5 @@
 title = "Sivanlaai's Blog"
-baseURL = "https://www.sivanlaai.top"
+baseURL = "https://www.laais.cn"
 # theme
 # 主题
 theme = "FixIt"
@@ -669,10 +669,10 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # Umami count add by SivanLaai
   [params.umami]
     enable = false
-    url = 'https://count.sivanlaai.top/umami.js'
+    url = 'https://count.laais.cn/umami.js'
   [params.baiduStastics]
     enable = true
-    url = 'https://hm.baidu.com/hm.js?d4bc2287f77d75f390f7b7e5f5737a9e'
+    url = 'https://hm.baidu.com/hm.js?aa4e404535364259553aa4bd8f89bb3a'
 
   # Busuanzi count since v0.2.12
   # 不蒜子统计 since v0.2.12
@@ -858,7 +858,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 [author]
   name = "SivanLaai"
   email = "lyhhap@163.com"
-  link = "https://www.sivanlaai.top"
+  link = "https://www.laais.cn"
 
 # Sitemap config
 # 网站地图配置
