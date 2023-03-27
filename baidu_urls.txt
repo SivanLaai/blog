@@ -1,4 +1,5 @@
 https://www.laais.cn/posts/research/eplace/
+https://www.laais.cn/posts/research/read_paper/
 https://www.laais.cn/posts/misc/collection/
 https://www.laais.cn/posts/technology/auto_deploy_with_obsidian/
 https://www.laais.cn/posts/technology/nextcloud/
