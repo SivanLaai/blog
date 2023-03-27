@@ -20,11 +20,13 @@ $$HPWL(\mathbf{v}) = \sum_{e \in E} HPWL_e(\mathbf{v})$$
 布局问题定义为如下：
 $$\min_\mathbf{v}HPWL(\mathbf{v})，使得\mathbf{v}是一个合法的布局方案 \tag 2$$
 ### 全局布局的定义
+
 把布局区域$R$按$m*m$划分成一个一个的格子（称作bin），这些格子的集合是B，其中$\rho_b(\mathbf{v})$表示每个b的密度，其定义如下：
 $$\rho_b(\mathbf{v}) = \sum_{i \in V} l_x(b,i)l_y(b,i) \tag 3$$
 其中$l_x(b,i)$和$l_y(b,i)$分别表示元器件i和格子b之间的水平和垂直重合，全局布局的定义如下：
 $$\min_\mathbf{v}HPWL(\mathbf{v})\ s.t.\rho_b(\mathbf{v})\leq \rho_t, \forall b \in B \tag 4$$
 #### 线长平滑化
+
 每一个网表$e={(x_1,y_1),(x_2,y_2),\cdots,(x_n,y_n)}$有n个引脚 ,对数和指数（LSE）在水平轴x方向的线长平滑公式如下：
 $$W_e(\mathbf{v}) =\gamma 
 \begin{pmatrix}
