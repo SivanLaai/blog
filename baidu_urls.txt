@@ -1,3 +1,4 @@
+https://www.laais.cn/posts/research/eplace/
 https://www.laais.cn/posts/misc/collection/
 https://www.laais.cn/posts/technology/auto_deploy_with_obsidian/
 https://www.laais.cn/posts/technology/nextcloud/
@@ -24,4 +25,3 @@ https://www.laais.cn/posts/projects/rime/installation/
 https://www.laais.cn/posts/projects/rime/info/
 https://www.laais.cn/offline/
 https://www.laais.cn/posts/technology/vnc_server/
-https://www.laais.cn/posts/research/eplace/
