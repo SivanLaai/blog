@@ -86,8 +86,10 @@ $$\rho(x,y)=\nabla \cdot \xi(x,y)=-\nabla \cdot \nabla\psi(x,y)=-
 ### 密度惩罚和梯度
 势能的总和等于新的元器件集合$V^{'}$中所有带电元素的势能之和，这些元素包含了来自$V$中的可移动节点、固定宏节点，也包含了下一步要讨论的填充节点和暗节点。
 #### 填充节点插入
+
 ![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230327191136.png)
 ![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230327191149.png)
+
 上图中的黑色长方形表示宏元器件，红点表示标准元器件，蓝点表示填充节点，随着填充节点充斥在空白区域，有了更小的总线长，同时器件也挤压在了一起，相互离的更近。
 
 $A_m$表示可移动节点的总面积，$A_{ws}$表示空白空间的总面积。如果目标密度是$\rho_t \geq \frac{A_m}{A_{ws}}$，均匀密度分布会过度的把器件平铺，引起了不必要的线长增加。填充节点（filler cell）都是等尺寸（距形）的，可以移动和并且是断连（0引脚）。$A_{fc}$表示填充节点的总面积，定义如下：
