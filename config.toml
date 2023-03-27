@@ -1030,14 +1030,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       #   weight = 4
       #   [languages.zh-cn.menu.main.params]
       #     icon = "fa-solid fa-book"
-      [[languages.zh-cn.menu.main]]
-        identifier = "friends"
-        name = "友链"
-        url = "friends/"
-        title = "友情链接"
-        weight = 6
-        [languages.zh-cn.menu.main.params]
-          icon = "fa-solid fa-users"
+      # [[languages.zh-cn.menu.main]]
+      #   identifier = "friends"
+      #   name = "友链"
+      #   url = "friends/"
+      #   title = "友情链接"
+      #   weight = 6
+      #   [languages.zh-cn.menu.main.params]
+      #     icon = "fa-solid fa-users"
       [[languages.zh-cn.menu.main]]
         identifier = "about"
         name = "关于"
