@@ -34,20 +34,22 @@ $$\min_\mathbf{v}HPWL(\mathbf{v})\ s.t.\rho_b(\mathbf{v})\leq \rho_t, \forall b 
 #### 线长平滑化
 
 每一个网表$e={(x_1,y_1),(x_2,y_2),\cdots,(x_n,y_n)}$有n个引脚 ,对数和指数（LSE）在水平轴x方向的线长平滑公式如下：
+
 $$W_e(\mathbf{v}) =\gamma 
 \begin{pmatrix}
 ln\sum_{i \in e} exp(\frac{x_i}{\gamma})+ln\sum_{i \in e} exp(\frac{-x_i}{\gamma})
 \end{pmatrix}
-\tag 5$$
+\tag{5}$$
+
 其中${\gamma}$是平滑参数，不能随意设置的足够小。
+
 权重平均（WA）在水平轴x方向的线长平滑公式如下：
+
 $$W_e(\mathbf{v}) =
 \begin{pmatrix}
-\frac{\sum_{i \in e} x_iexp(\frac{x_i}{\gamma})}{\sum_{i \in e} exp(\frac{x_i}{\gamma})}
--
-\frac{\sum_{i \in e} x_iexp(-\frac{x_i}{\gamma})}{\sum_{i \in e} exp(-\frac{x_i}{\gamma})}
+\frac{\sum_{i \in e} x_iexp(\frac{x_i}{\gamma})}{\sum_{i \in e} exp(\frac{x_i}{\gamma})}-\frac{\sum_{i \in e} x_iexp(-\frac{x_i}{\gamma})}{\sum_{i \in e} exp(-\frac{x_i}{\gamma})}
 \end{pmatrix}
-\tag 6$$
+\tag{6}$$
 ### 密度惩罚
 在实际的布局当中，$|B|$个格子的密度都需要满足限制，我们把这些限制用一个惩罚项$N(\mathbf{v})$来表示，当惩罚项$N(\mathbf{v})=0$时所有的密度都满足，其定义如下：
 $$\rho_b(\mathbf{v})\leq \rho_t, \forall b \in B \iff N(\mathbf{v})=0 \tag 7$$
