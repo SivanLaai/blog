@@ -1,16 +1,11 @@
 ---
-title: 基于电势的解析布局
+title: Dreamplace
 draft: true
 password: 1233
 tag:
   - hide
 ---
-# 基于电势的解析布局
 
-## 基本概念
-
-## 泊松方程
-$$\grad*123$$
 # 变量说明
 
 num_filler_nodes:  待填充节点的个数，filler cell是一些不存在的节点，用来填充初始区域的节点。
