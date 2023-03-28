@@ -1,6 +1,6 @@
-# 
-
 # Ubuntu安装VNCServer
+
+
 
 ### Step1 （安装GNOME桌面）
 ```bash
