@@ -32,7 +32,7 @@ git remote set-url origin git@github.com:SivanLaai/SivanLaai.github.io.git
 ## 评论功能（可选）
 **建议新手根据自己的时间来衡量是否加入，不然折腾起来也挺费劲，容易遇到这种问题。确实有时间的可以尝试**
 
-本教程中使用的hugo主题是papermod，同时加入了评论功能，使用的是Waline评论系统，比较推荐使用这个评论系统，支持自建后端也可以使用免费的后端云服务，有评论管理功能，安全，支持登录和匿名模式，爆吹。
+本教程中使用的hugo主题是papermod，同时加入了评论功能，使用的是Waline评论系统，比较推荐使用这个评论系统，支持自建后端也可以使用免费的后端云服务，有评论管理功能，安全，支持登录和匿名模式。
 
 对于Waline的详细使用请看[官方教程](https://waline.js.org/guide/get-started/)，根据官方教程配置好Waline后端好，在```config.yml```里面如下：
 ```

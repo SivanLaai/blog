@@ -1,4 +1,10 @@
-# Ubuntu安装VNCServer
+---
+title: Ubuntu安装VNCServer
+date: 2023-03-28T13:48:48+08:00
+categories:
+tags:
+---
+
 
 ### Step1 （安装GNOME桌面）
 ```bash

@@ -84,7 +84,7 @@
       "confirm_execution": false,
       "ignore_error_codes": [],
       "output_channels": {
-        "stdout": "notification",
+        "stdout": "status-bar",
         "stderr": "notification"
       },
       "output_wrappers": {

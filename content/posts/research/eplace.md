@@ -2,11 +2,10 @@
 title: 基于电势的解析布局
 date: 2023-03-27T16:33:04+08:00
 categories:
-  - 研究
+  - 笔记
 tags:
   - 电势
 ---
-# 基于电势的解析布局
 
 ## 基本概念
 ### 布局的定义
@@ -31,7 +30,7 @@ $$\min_\mathbf{v}HPWL(\mathbf{v})，使得\mathbf{v}是一个合法的布局方�
 $$\rho_b(\mathbf{v}) = \sum_{i \in V} l_x(b,i)l_y(b,i) \tag 3$$
 其中$l_x(b,i)$和$l_y(b,i)$分别表示元器件i和格子b之间的水平和垂直重合，全局布局的定义如下：
 $$\min_\mathbf{v}HPWL(\mathbf{v})\ s.t.\rho_b(\mathbf{v})\leq \rho_t, \forall b \in B \tag 4$$
-#### 线长平滑化
+### 线长平滑化
 
 每一个网表$e={(x_1,y_1),(x_2,y_2),\cdots,(x_n,y_n)}$有n个引脚 ,对数和指数（LSE）在水平轴x方向的线长平滑公式如下：
 
@@ -75,12 +74,12 @@ $$\min_\mathbf{v} f(\mathbf{v}) = W(\mathbf{v})+\sum_{b \in B}\lambda_b|\widetil
 根据建模规则，把均匀分布的全局布局约束同静电平衡的系统状态联系起来，电力为帮助指引电苛（元器件）的向着平衡状态的方向移动。根据高斯法则，电场等于电势的负梯度，如下定义：
 $$\xi(x,y)=(\xi_x,\xi_y)=-\nabla\psi(x,y)=
 \begin{pmatrix}
--\frac{∂\psi(x,y)}{∂x},-\frac{∂\psi(x,y)}{∂y}
+-\frac{\partial \psi(x,y)}{\partial x},-\frac{\partial \psi(x,y)}{\partial y}
 \end{pmatrix} \tag{11}$$
 电苛的密度函数等于电场函数的散度
 $$\rho(x,y)=\nabla \cdot \xi(x,y)=-\nabla \cdot \nabla\psi(x,y)=-
 \begin{pmatrix}
-\frac{∂^2\psi(x,y)}{∂x^2}+\frac{∂^2\psi(x,y)}{∂y^2}
+\frac{\partial ^2\psi(x,y)}{\partial x^2}+\frac{\partial ^2\psi(x,y)}{\partial y^2}
 \end{pmatrix} \tag{12}$$
 静电系统如果只有正电苛那么只会产生排斥力，相应的静电平衡状态会把所有的器件沿着边界进行分布，因为在边界上可以违反布局约束。因此需要从密度分布当中移除直流组件（即0频率组件）去产生负电苛，从而整个布局区域的密度函数整体变为0。
 具体一点说，因为密度函数把所有的对象转化成了正电苛，因此就产生了一个正电苛密度分布。然后就是当直流电移除后，需要填充的区域的电量会比原来有直流电的时候的电量更小，因此就变成了负电苛。同时过于填充的区域依然是正电苛（但是电量比原来小了）。正电苛多的地方会向着负电苛区域移动，相互中和，从而达到一个静电平衡的状态。使得整个系统在布局区域内达到电苛密度为0并且电势也降到0。
@@ -111,8 +110,27 @@ $$\min_\mathbf{v} f = W(\mathbf{v})+\lambda N(\mathbf{v}) \tag{15}$$
 其中$W(\mathbf{v})$是来自方程6，$f(\mathbf{v})$表示的是最小化的代价函数。因为$W(\mathbf{v})$和$N(\mathbf{v})$都是平滑的，我们可以通过求微分得到如下的梯度向量$\nabla f(\mathbf{v})$：
 $$\nabla f(\mathbf{v}) = \nabla W(\mathbf{v})+\lambda\nabla N(\mathbf{v})=
 \begin{pmatrix}
-\frac{∂W}{∂x_1},\frac{∂W}{∂y_1},\cdots
+\frac{\partial W}{\partial x_1},\frac{\partial W}{\partial y_1},\cdots
 \end{pmatrix}^T - \lambda(q_1{\xi_1}_x,q_1{\xi_1}_y,\cdots)^T
 \tag{16}$$
-## 泊松方程
-用来解决优化问题内部的计算，主要用于求解FFT计算
+## 泊松方程和数值计算
+根据在3里面定义的eDensity（电密度）公式，使用泊松方程去解决带电势和电场的电苛密度问题。诺伊曼边界条件（the Neumann boundary condition）是用来去合法化全局布局方案。泊松方程是可以数值求解的，其用到了谱方法，有着高精确度并且简单。**因此，我们提出该技术在离散网格上局部平滑化电密度。**
+### 明确定义的泊松方程
+根据高斯准则，电势分布$\psi(x,y)$可以借助泊松方程使用电密度函数$\rho(x,y)$来求解，方程如下所示：
+
+
+$$\nabla \cdot \nabla\psi(x,y)=-\rho(x,y),(x,y) \in R\tag{17}$$
+
+令$\mathbf{\hat n}$是布局区域的外法向量，$\partial R$是边界。当器件向布局区域的边界上移动时，为了阻止元器件向边界外移动，会停止或者减慢器件的继续向外运动。当器件到达密度函数值域的边界时电密度力会减少到0。因此借助诺伊曼边界条件，边界上就需要定义一个0梯度。
+$$\mathbf{\hat n} \cdot \nabla\psi(x,y)=0,(x,y) \in \partial R\tag{18}$$
+此外，在整个布局区域R上电势函数和密度函数的积分都需要为0，如下所示
+$$\iint_{R} \rho(x,y)=\iint_R\psi(x,y)=0\tag{19}$$
+因此，所有来自电场和电势密度的不定积分所引入的常量因子都是0。方程19也保证了方程17中的偏微分方程有唯一解。克服了定义了在Eisenmann and Johannes [1998]中因定义不清晰的偏微分方程所引起的问题。
+基于先前的定义和讨论，整个泊松方程的构建如下：
+$$\begin{cases}
+sfasdf \\
+asdf \\
+asdf \\
+\end{cases}$$
+## 相关文献
+[1] Lu J, Chen P, Chang C C, et al. ePlace: Electrostatics-Based Placement Using Fast Fourier Transform and Nesterov’s Method[J]. ACM Transactions on Design Automation of Electronic Systems, 2015, 20(2): 1-34.
