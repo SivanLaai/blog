@@ -1,4 +1,4 @@
-title = "Sivanlaai's Blog"
+title = "laai's Blog"
 baseURL = "https://www.laais.cn"
 # theme
 # 主题
@@ -331,7 +331,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       title = "SivanLaai"
       # subtitle shown in home page
       # 主页显示的网站副标题
-      subtitle = "It will blossome finally."
+      subtitle = "It will blossom finally."
       # whether to use typeit animation for subtitle
       # 是否为副标题显示打字机动画
       typeit = true
@@ -354,9 +354,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # 主页的社交信息设置
   [params.social]
     GitHub = "SivanLaai"
-    QQ = "328265858"
-    # QQGroup = "awbwdTtSQ_-H5QGzeJxdWgv6JMbNehNM" # https://qun.qq.com/join.html
-    Email = "lyhhap@163.com"
+    #QQ = "328265858"
+    ## QQGroup = "awbwdTtSQ_-H5QGzeJxdWgv6JMbNehNM" # https://qun.qq.com/join.html
+    #Email = "lyhhap@163.com"
     RSS = true
 
   # Page config

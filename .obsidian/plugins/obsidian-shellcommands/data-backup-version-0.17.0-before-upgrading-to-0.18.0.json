@@ -1,5 +1,5 @@
 {
-  "settings_version": "0.18.0",
+  "settings_version": "0.17.0",
   "debug": false,
   "obsidian_command_palette_prefix": "Execute: ",
   "preview_variables_in_command_palette": true,
@@ -40,10 +40,7 @@
       "events": {},
       "command_palette_availability": "enabled",
       "preactions": [],
-      "variable_default_values": {},
-      "input_contents": {
-        "stdin": null
-      }
+      "variable_default_values": {}
     },
     {
       "id": "g0v9fxd6oj",
@@ -68,10 +65,7 @@
       "events": {},
       "command_palette_availability": "enabled",
       "preactions": [],
-      "variable_default_values": {},
-      "input_contents": {
-        "stdin": null
-      }
+      "variable_default_values": {}
     },
     {
       "id": "z1g5b9t50s",
@@ -96,14 +90,10 @@
       "events": {},
       "command_palette_availability": "enabled",
       "preactions": [],
-      "variable_default_values": {},
-      "input_contents": {
-        "stdin": null
-      }
+      "variable_default_values": {}
     }
   ],
   "prompts": [],
-  "builtin_variables": {},
   "custom_variables": [],
   "output_wrappers": []
 }
