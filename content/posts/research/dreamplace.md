@@ -5,7 +5,7 @@ password: 1233
 date: 2023-03-27T16:32:20+08:00
 draft: true
 categories:
-
+  - 笔记
 ---
 
 # 变量说明

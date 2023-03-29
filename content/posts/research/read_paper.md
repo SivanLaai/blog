@@ -3,8 +3,9 @@ title: 论文阅读总结
 date: 2023-03-25T21:29:01+08:00
 draft: false
 categories:
+ - 笔记
 tags:
-- 论文阅读
+ - 阅读方法
 ---
 # 论文的文章结构
 1.title  
