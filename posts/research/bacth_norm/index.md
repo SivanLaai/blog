@@ -1,4 +1,4 @@
-# bacth normlization
+# 批量标准化
 
 ## bacth normlization中的前向传播
 input:X_{ij}(本层所有的样本矩阵为X维度为mxD，m为样本数，D为神经元的个数，其中X_{ij}为X中的某一个样本)
@@ -84,5 +84,5 @@ $$
 ---
 
 > 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/research/bacth-normlization/  
+> URL: https://www.laais.cn/posts/research/bacth_norm/  
 
