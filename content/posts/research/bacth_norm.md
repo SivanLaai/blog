@@ -1,5 +1,5 @@
 ---
-title: bacth normlization
+title: 批量标准化
 date: 2018-04-28 16:38:00
 categories:
   - 笔记
