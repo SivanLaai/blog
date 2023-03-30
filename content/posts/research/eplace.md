@@ -72,7 +72,7 @@ $$\min_\mathbf{v} f(\mathbf{v}) = W(\mathbf{v})+\sum_{b \in B}\lambda_b|\widetil
 
 ![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230327165122.png)
 
-根据建模规则，把均匀分布的全局布局约束同静电平衡的系统状态联系起来，电力为帮助指引电苛（元器件）的向着平衡状态的方向移动。根据高斯法则，电场等于电势的负梯度，如下定义：
+根据建模规则，把均匀分布的全局布局约束同静电平衡的系统状态联系起来，电力会指引电苛（元器件）向着平衡状态的方向移动。根据高斯法则，电场等于电势的负梯度，如下定义：
 $$\xi(x,y)=(\xi_x,\xi_y)=-\nabla\psi(x,y)=
 \begin{pmatrix}
 -\frac{\partial \psi(x,y)}{\partial x},-\frac{\partial \psi(x,y)}{\partial y}
@@ -186,6 +186,7 @@ $$\hat l_x(i,b)=\begin{cases}
 - **如果$w_i< w_b$，把器件的宽度从$w_i$拉长到$w_b$，并且把器件密度从1.0减少到$w_i/w_b$**
 - **如果$w_i\ge w_b$，保持原来的细胞宽度和密度**
 这种平滑技术在不同的粒度和器件尺寸上都是一样的，在每个迭代更新密度图的时候都会用到这种平滑技术。因为对于每个器件来说只有有限个邻近的单元格会被该器件影响到，所以其时间复杂度是恒定不变的，因此计算复杂度并未发生变化。
+
 ## 非线性优化
 布局问题是NP完全问题。如方程9中所示，目标函数由一个凸线长函数和一个非凸密度函数组成，非凸函数加大了现代凸规划方法求解的难度。本部分先介绍先前非线性布局当中使用到的共轭梯度方法，讨论线搜索的效率瓶颈。这篇论文是**首次在全局布局优化中使用Nesterov’s方法和Lipschitz常数预测**。
 ### 共轭梯度法
@@ -217,6 +218,10 @@ $$||\nabla f(\mathbf u)-\nabla f(\mathbf v)||\leq L||\mathbf v-\mathbf u||, \tag
 因为上述特性，全局布局函数是非凸且动态变化的，所以需要一个随着迭代去动态估计Lipschitz常数为$\widetilde L$。基于方程28，分别设定函数$\mathbf x$和$\mathbf y$的值为当前参考值$\mathbf y_k$和上一次迭代的参考值$\mathbf y_{k-1}$，则$\nabla f(\mathbf y_k)$Lipschitz常数可以用如下公式逼近：
 
 $$\widetilde L_k = \frac {||\nabla f(\mathbf y_k)-\nabla f(\mathbf y_{k-1})||} {||\mathbf y_k-\mathbf y_{k-1}||} \tag{29}$$
+
+**则根据上述讨论可以知道步长为：**
+
+$$\alpha_k=-\widetilde L_k$$
 
 上述的方法是高效的，因为：
 - （1）都是已知的，没有额外的计算。
@@ -341,7 +346,7 @@ $$\gamma(\tau)=8.0w_b\times10^{k\tau+b} \tag{38}$$
 
 对算法的详细解释如下：
 - 输入参数：
-	- $v_0=v_{ip}$表示的是初始布局中的输出结果，标准器件是放置在区域中间，填充器件是随机的分布在整个布局区域$R$上。
+	- $\mathbf v_0=\mathbf v_{ip}$表示的是初始布局中的输出结果，标准器件是放置在区域中间，填充器件是随机的分布在整个布局区域$R$上。
 	- $m\times m$网格拆分规模
 	- 最小的密度溢出$\tau^{\min}$
 	- 最大的迭代次数为3000
