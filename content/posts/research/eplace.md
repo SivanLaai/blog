@@ -1,7 +1,7 @@
 ---
 title: 基于电势的解析布局
 date: 2023-03-27T16:33:04+08:00
-draft: true
+draft: false
 categories:
   - 笔记
 tags:
@@ -210,7 +210,7 @@ $$f(\mathbf u_k)-f(\mathbf u^*) \geq \frac{4L||\mathbf v_0-\mathbf u^＊||^2}{(k
 **定义 5.2**。给定一个函数$f \in C^{1,1}(H)$，并且$L$是梯度函数$\nabla f(\mathbf u)$的Lipschitz常数，则对于任意的$\mathbf u,\mathbf v \in H$有
 $$||\nabla f(\mathbf u)-\nabla f(\mathbf v)||\leq L||\mathbf v-\mathbf u||, \tag{28}$$
 
-并且$\nabla f(\mathbf u)$是Lipschitz连续的。因为Nesterov法使用了二分查找法去计算最大步长所以，在每一个迭代中目标函数都需要评估$O(\log L)$次，则时间复杂度增加到了$O(n\log n\log L)$。相反，我们使用步长预测去加速我们的布局算法。正如在论文Nesterov [1983]中讨论的，如果梯度函数的Lipschitz常数已知，**我们可以设置步长为Lipschitz常数的相反数**去满足方程26，不会引起任何开销。但是预测准确全局布局梯度函数的Lipschitz常数往往会比较困难，因为有如下原因：
+并且$\nabla f(\mathbf u)$是Lipschitz连续的。因为Nesterov法使用了二分查找法去计算最大步长所以，在每一个迭代中目标函数都需要评估$O(\log L)$次，则时间复杂度增加到了$O(n\log n\log L)$。相反，我们使用步长预测去加速我们的布局算法。正如在论文Nesterov [1983]中讨论的，如果梯度函数的Lipschitz常数已知，**我们可以设置步长为Lipschitz常数的倒数**去满足方程26，不会引起任何开销。但是预测准确全局布局梯度函数的Lipschitz常数往往会比较困难，因为有如下原因：
 - 因为密度函数的加入，使得目标函数非凸，因此定理5.1不满足。
 - 因为要动态的调整平滑系数（方程6），线长函数会随着迭代而改变。
 - 因为要在运行的时候做力平衡，所以在密度函数上方程15中的惩罚因子$\lambda$会随着迭代而变化。 
@@ -221,11 +221,11 @@ $$\widetilde L_k = \frac {||\nabla f(\mathbf y_k)-\nabla f(\mathbf y_{k-1})||} {
 
 **则根据上述讨论可以知道步长为：**
 
-$$\alpha_k=-\widetilde L_k$$
+$$\alpha_k=\frac{1}{\widetilde L_k}$$
 
 上述的方法是高效的，因为：
 - （1）都是已知的，没有额外的计算。
-- （2）相比较于随机的选择$\mathbf x$和$\mathbf y$，前后迭代的$\mathbf y_k$和$\mathbf y_{k-1}$的值比较接近，则$||\mathbf y_k-\mathbf y_{k-1}||$值相对较小，可以防止对常数的估计精度过低，并且过度估计步长$\alpha_k$。
+- （2）相比较于随机的选择$\mathbf x$和$\mathbf y$，前后迭代的$\mathbf y_k$和$\mathbf y_{k-1}$的值比较接近，则$||\mathbf y_k-\mathbf y_{k-1}||$值相对较小，可以防止对Lipschitz常数的估计精度过低，并且防止过度估计步长$\alpha_k$。
 
 在实验当中也证实了，这种估计法有效的加速了计算过程。
 
@@ -289,7 +289,7 @@ $$\widetilde H_{\mathbf f_{\mathbf x,\mathbf x}}=\begin{Bmatrix}
 这篇论文中风格的尺寸大小是基于器件和填充器件的个数来计算，把网格的尺寸设定为$m=\min(\lceil \log_2\sqrt{n{'}} \rceil, 1024)$，设定最大为1024的原因是出于效率考虑。
 
 #### 步长
-在Nesterov法中根据方程29可以估计出步长为Lipschitz常数估计的相反数，即$\alpha_k = -\widetilde L_k$。在CG法中，步长由线搜索来决定的，在搜索间隔中，沿着共轭梯度的方向线搜索会找到局部最优，搜索的间隔$\alpha_k^{\max}$是动态的调整的。初始的间隔$\alpha_0^{\max}$和单元格的大小成线性关系$\alpha_0^{\max}=kw_b$，其中$w_b$是单元格宽度。实际设置$k=0.044$可以得到较好的布局质量，并且$\alpha_k^{\max}$需要基于当前最优步长$\alpha_{k-1}$进行更新，如下所示：
+在Nesterov法中根据方程29可以估计出步长为Lipschitz常数估计的倒数，即$\alpha_k=\frac{1}{\widetilde L_k}$。在CG法中，步长由线搜索来决定的，在搜索间隔中，沿着共轭梯度的方向线搜索会找到局部最优，搜索的间隔$\alpha_k^{\max}$是动态的调整的。初始的间隔$\alpha_0^{\max}$和单元格的大小成线性关系$\alpha_0^{\max}=kw_b$，其中$w_b$是单元格宽度。实际设置$k=0.044$可以得到较好的布局质量，并且$\alpha_k^{\max}$需要基于当前最优步长$\alpha_{k-1}$进行更新，如下所示：
 
 $$\alpha_k^{\max}=\max(\alpha_0^{\max},2\alpha_{k-1})，\alpha_k^{\min}=0.01\alpha_k^{\max} \tag{34}$$
 通过方程34，如算法1的第4行所示，GSS可以计算出第k次迭代的步长$\alpha_k$。线搜索会在间隔缩小到$\alpha_k^{\min}$时停止，所以得到的步长$\alpha_k$不一定是局部最优。

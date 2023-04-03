@@ -128,6 +128,36 @@ LoadModule proxy_module modules/mod_proxy.so
 
 ```
 
+## apache 配置websocket代理
+
+```bash
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+<VirtualHost *:80>
+        ServerName www.hfsurrogacy.com
+
+        ServerAdmin webmaster@hfsurrogacy.com
+        DocumentRoot /var/www/html
+        <Directory /var/www/html>
+            AllowOverride All
+            Require all granted
+        </Directory>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        <LocationMatch "/web">
+            ProxyPass http://127.0.0.1:10086/web upgrade=WebSocket
+            ProxyAddHeaders Off
+            ProxyPreserveHost On
+            RequestHeader set Host %{HTTP_HOST}s
+            RequestHeader set X-Forwarded-For %{REMOTE_ADDR}s
+        </LocationMatch>
+
+</VirtualHost>
+```
+
+
 ## 阿里云ssl证书安装错误
 - 根据阿里云的教程[在Apache服务器上安装SSL证书 (aliyun.com)](https://help.aliyun.com/document_detail/98727.html?spm=0.2020520163.help.dexternal.172bmN0amN0aZT)
 1.在服务器上更新证书apache2会报错
