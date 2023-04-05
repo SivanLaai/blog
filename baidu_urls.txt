@@ -1,3 +1,4 @@
+https://www.laais.cn/posts/technology/nvim_debug_mixed_cpp_python/
 https://www.laais.cn/posts/technology/vnc_server/
 https://www.laais.cn/posts/research/eplace/
 https://www.laais.cn/posts/misc/collection/
