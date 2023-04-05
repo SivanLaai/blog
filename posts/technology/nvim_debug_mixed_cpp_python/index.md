@@ -32,7 +32,7 @@ end
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
-  command = '/home/ccip/.local/share/nvim/mason/bin/OpenDebugAD7',
+  command = '~/.local/share/nvim/mason/bin/OpenDebugAD7',
 }
 dap.configurations.cpp = {
   {
@@ -129,7 +129,7 @@ gdbserver localhost:1234 ~/anaconda3/bin/python unittest/ops/lpabs_wirelength_un
 
 显示如下则成功进入调试模式：
 
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230405193406.png)
+![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230405194205.png)
 
 
 ---
