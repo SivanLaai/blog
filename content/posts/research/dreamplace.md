@@ -22,3 +22,7 @@ num_physical_nodes = num_movable_cells + num_macro_cells
 Fence是Floorplan中作用于module或者instance group的一种约束。在Innovus中，当你希望某个模块里面的instance放在某个特定的区域的话，我们就可以给module或者instance group添加约束，约束可以分为四种：按照约束由强到弱，可以分为是Fence，Region，Guide，SoftGuide。
 
 regions，一维坐标，像围栏和
+
+
+一些变量的说明
+![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230403100641.png)
