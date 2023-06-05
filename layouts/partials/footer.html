@@ -70,7 +70,7 @@
 
           {{- /* ICP */ -}}
           {{- with .Site.Params.footer.icp -}}
-            <span class="icp footer-divider">{{ . | safeHTML }}</span>
+            <a href="https://beian.miit.gov.cn" class="icp footer-divider">{{ . | safeHTML }}</a>
           {{- end -}}
         </div>
       {{- end -}}
