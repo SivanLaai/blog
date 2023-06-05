@@ -23,6 +23,11 @@ Fence是Floorplan中作用于module或者instance group的一种约束。在Inno
 
 regions，一维坐标，像围栏和
 
-
 一些变量的说明
 ![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230403100641.png)
+
+## 线长平滑函数LPABSWL网表梯度
+
+对于某个网表e，该网表有n个节点，$i\leq i < j \leq n$和$j - i + 1 > 2$ ，在该网表上其梯度为$g(x,p)=\lbrack \frac{\partial f(x,p)}{\partial x_1},\dots, \frac{\partial f(x,p)}{\partial x_n}\rbrack$，对于任意点l有如下求导公式：
+
+$$ \frac{\partial f_{i,j}(x,p)}{\partial x_l}= \frac{\partial f_{i,k}(x,p)}{\partial f_{i,k}}\frac{\partial f_{i,k}(x,p)}{\partial x_l} + \frac{\partial f_{k+1,j}(x,p)}{\partial f_{k+1,j}}\frac{\partial f_{k+1,j}(x,p)}{\partial x_l}$$
