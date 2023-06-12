@@ -255,7 +255,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     gov = ""
     # ICP info only in China (HTML format is supported)
     # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
-    icp = ""
+    icp = "京ICP备2023014024号-1"
     # license info (HTML format is supported)
     # 许可协议信息 (支持 HTML 格式)
     license = ''
