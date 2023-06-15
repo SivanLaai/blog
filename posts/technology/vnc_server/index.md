@@ -15,7 +15,7 @@ sudo apt-get -y install xfonts-100dpi xfonts-100dpi-transcoded xfonts-75dpi xfon
 ```
 ### Step3
 ```bash
-sudo apt-get install tightvncserver
+sudo apt install tigervnc-standalone-server
 ```
 ### Step4：配置密码
 ```bash
@@ -28,46 +28,17 @@ vim ~/.vnc/xstartup
 内容如下：
 ```bash
 #!/bin/sh
-# Uncomment the following two lines for normal desktop:
-# unset SESSION_MANAGER
-# exec /etc/X11/xinit/xinitrc
+# Start Gnome 3 Desktop
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
-xsetroot -solid grey
 vncconfig -iconic &
-#x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
-#x-window-manager &
-dbus-launch gnome-panel &
-dbus-launch gnome-settings-daemon &
-metacity &
-nautilus &
-dbus-launch gnome-terminal &
+dbus-launch --exit-with-session gnome-session &
 ```
-以上配置服务器可能会卡，不卡的配置尝试如下：
-```bash
-#!/bin/sh
-# Uncomment the following two lines for normal desktop:
-# unset SESSION_MANAGER
-# exec /etc/X11/xinit/xinitrc
 
-[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
-[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
-xsetroot -solid grey
-vncconfig -iconic &
-#x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
-#x-window-manager &
-gnome-session &
-gnome-panel &
-gnome-settings-daemon &
-metacity &
-nautilus &
-gnome-terminal &
-```
 ### Step6:重启TigerVNC
 ```bash
 tightvncserver -kill :1 
-reboot 
-tightvncserver
+vncserver -depth 24 -name mydesktop -localhost no :1
 ```
 
 
