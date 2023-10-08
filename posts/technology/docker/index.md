@@ -60,6 +60,14 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
+## Docker 权限问题 
+### 添加当前用户到Docker用户组
+```bash
+sudo groupadd docker #添加docker用户组，这个用户组应该是已存在了`
+sudo gpasswd -a $USER docker #将当前用户加入到docker用户组中`
+newgrp docker #更新用户组docker`
+```
+
 ## qBittorrent Docker运行
 ### Docker Compose 配置qBittorrent
 #### 新建项目

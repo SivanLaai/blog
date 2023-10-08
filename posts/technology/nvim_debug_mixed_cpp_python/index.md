@@ -114,22 +114,22 @@ gdbserver localhost:1234 ~/anaconda3/bin/python unittest/ops/lpabs_wirelength_un
 
 - 按F5进入调试运行模式，选2回车
 
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230405192735.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230405192735.png)
 
 - 输入运行参数回车
 
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230405193133.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230405193133.png)
 
 
 - 输入对应的python路径回车
 
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230405193213.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230405193213.png)
 
 ### 调试界面
 
 显示如下则成功进入调试模式：
 
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230405194205.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230405194205.png)
 
 
 ---

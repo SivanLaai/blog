@@ -59,11 +59,11 @@ $$\min_\mathbf{v} f(\mathbf{v}) = W(\mathbf{v})+\sum_{b \in B}\lambda_b|\widetil
 ## 静电系统建模（eDensity）
 电势和电场分布由系统中的所有元素决定，在网表中的每个节点（元器件或者宏块）带正电苛的粒子i。粒子的带电量$q_i$表示为节点的面积$A_i$，根据洛仁力量定律(Lorentz force law)定义的电力$F_i=q_i \xi_i$，会引起可移动的节点i的运动，$\xi_i$表示节点i的布局电场。同样的$N_i=q_i \psi_i$表示节点的势能，$\psi_i$表示器件i的电势大小。根据库仑定律，器件i的电场和电势是系统中剩余器件共同作用的叠加。
 整个布局的电苛密度分布表示为$\rho(x,y)$，$\xi_x(x,y)$表示水平电场的分布函数，表示$\psi(x,y)$电势分布函数。
-![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230327164926.png)
+![](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230327164926.png)
 ### 静电平衡系统建模
 布局系统和静电系统的建模图：
 
-![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230327165122.png)
+![](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230327165122.png)
 
 根据建模规则，把均匀分布的全局布局约束同静电平衡的系统状态联系起来，电力会指引电苛（元器件）向着平衡状态的方向移动。根据高斯法则，电场等于电势的负梯度，如下定义：
 $$\xi(x,y)=(\xi_x,\xi_y)=-\nabla\psi(x,y)=
@@ -82,8 +82,8 @@ $$\rho(x,y)=\nabla \cdot \xi(x,y)=-\nabla \cdot \nabla\psi(x,y)=-
 势能的总和等于新的元器件集合$V^{'}$中所有带电元素的势能之和，这些元素包含了来自$V$中的可移动节点、固定宏节点，也包含了下一步要讨论的填充节点和暗节点。
 #### 填充节点插入
 
-![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230327191136.png)
-![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230327191149.png)
+![](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230327191136.png)
+![](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230327191149.png)
 
 上图中的黑色长方形表示宏元器件，红点表示标准元器件，蓝点表示填充节点，随着填充节点充斥在空白区域，有了更小的总线长，同时器件也挤压在了一起，相互离的更近。
 
@@ -94,7 +94,7 @@ $$A_{fc} = \rho_tA_{ws}-A_m \tag{13}$$
 用一个均匀的网格$R(m\times m)$铺在所有的布局区域上，$R$里面不属于任何布局区域的所有空间都会被划分成一个包含很多长方形格子的集合，每一个格子就是一个暗节点， 对于暗节点的处理方式和固定器件的处理方式一致。$V_d$表示所有的暗节点集合，$A_d$表示所有的节点的总面积。当可移动节点到达布局的边界上时，可移动节点会因为受到暗节点的排斥力而停止。
 ### 密度缩放
 填充节点插入后，目标密度就变成了$\rho_t = \frac{A_m+A_{fc}}{A_{ws}}$。为了去维持全局等效的密度分布，每一个固定节点或者暗节点$i$的面积$A_i$都需要通过$\rho_t$进行缩放，否则密度力会变得比填充物的密度力更大，并把器件排斥开，固定结点周围的空白区域会被置空，也会增加下图所示的线长开销。
-![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230327200255.png)
+![](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230327200255.png)
 上图中(a)和(b)在没有密度缩放的情况下，在大组件上网格的密度会高于目标密度，从而密度力会把器件从大组件周围推开，从而引起了宏组件周围更多待填充的空白区域和线长开销。
 ### 势能计算
 $V^{'}=V_m \bigcup V_f \bigcup V_{fc} \bigcup V_d$表示系统中所有元素的集合，对于每一个节点$i \in V^{'}$，$\rho_i$、$\xi_i$和$\psi_i$分别表示该节点的电密度、电场和电势。给定一个可移动器件集合$V_m$和填充节点集合$V_{fc}$的布局方案$\mathbf{v}$，其总的势能如下表示：
@@ -154,7 +154,7 @@ $$\begin{cases}
 ### 行为和复杂度分析
 
 下图表示了一个二维平面的离散密度的电场分布，随着迭代的进行密度的分布也会发生变化，电场的分布也会改变，因此电场会动态的指引器件向欠填充区域流动。从下图当中我们也发现到，在布局区域的边界上，电场变为0。这样的行为就满足了边界条件和全局布局的要求。下图当中的灰点是密度分布，红箭头是电场方向。
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230328164949.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230328164949.png)
 
 假定布局区域上总的有$n^{'}$个器件（$n^{'}=|V_m|+|V_{fc}|$）和一个$m\times m$的网格。本方法的总的复杂度主要来自两个方面， 一是密度计算，二是势能和电场的计算。
 
@@ -169,7 +169,7 @@ $$\begin{cases}
 
 ### 离散网格上的局部平滑
 电密度的全局平滑可以通过方程11和方程12得到。因为每个单元网格的大小通常会比器件的尺寸要大，所以单元网格内部的局部运动是不能在密度函数上反应出来的，从而使平滑性变差。因此我们提出了一种局部平滑技术使得方程14中的密度函数可以反应出每个单元网格内部的任何细微的运动。如下图表示的是一个一维的例子，其中$w_i$表示的是器件的宽度，$w_b$表示的是单元格的宽度；然后，$c_i$表示的是器件中心的坐标，$c_b$单元格中心的坐标。
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230328192012.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230328192012.png)
 $l_x(i,b)$表示的是原始的器件和单元格在水平方向上的重叠，$\hat l_x(i,b)$表示的是平滑后的水平方向上的重叠。则有如下：
 $$\hat l_x(i,b)=\begin{cases}
 (1.0-\frac {c_i-c_b}{w_b})\times w_i:c_i \in [c_b-w_b,c_b+w_b]\\
@@ -184,11 +184,11 @@ $$\hat l_x(i,b)=\begin{cases}
 布局问题是NP完全问题。如方程9中所示，目标函数由一个凸线长函数和一个非凸密度函数组成，非凸函数加大了现代凸规划方法求解的难度。本部分先介绍先前非线性布局当中使用到的共轭梯度方法，讨论线搜索的效率瓶颈。这篇论文是**首次在全局布局优化中使用Nesterov’s方法和Lipschitz常数预测**。
 ### 共轭梯度法
 下图为第k个迭代的时候的算法，其中第4行是线搜索算法，存在较多的问题。
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230328203451.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230328203451.png)
 ### 使用Lipschitz常数预测的Nesterov’s方法
 
 和CG法类似，但是Nesterov法只需要一阶导数和线性的内存开销。Nesterov法旨在解决Hilbert空间$H$里的凸规划问题。和大多数和凸规划方法不同，Nesterov法构建了一个不松弛的最小化的点序列$\{\mathbf{u}_k\}_0^\infty$。算法2如下所示，表示了第k次迭代的处理算法，这次迭代主要聚焦在$\min\{f(\mathbf{u})|\mathbf{u} \in H\}$这个问题上，该问题有非空的最小值集合$U^*$。算法2如下所示：
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230328210550.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230328210550.png)
 
 上述算法中，$\mathbf{u}$是凸规划问题的解，$\mathbf{v}$是用来计算步长的参考解，$a$是优化参数，$\alpha$是步长。迭代开始时($k=0$)，该方法会初始化$\mathbf{v}_0 \in H,a_0=1,\alpha_0=\frac{||\nabla f(\mathbf{v}_0)-\nabla f(\mathbf{z})||}{||\mathbf{v}_0-\mathbf{z}||}$。其中$\mathbf{z}$是$H$中的任意一个点且$\mathbf{z}\neq\mathbf{v}_0$。Nesterov法的收敛率是$O(1/k^2)$，上述算法的第2行主要就是加速收敛，如果要达到预期的收敛率，则步长$\alpha_k$在每一个迭代中都要满足下列方程：
 
@@ -266,7 +266,7 @@ $$\widetilde H_{\mathbf f_{\mathbf x,\mathbf x}}=\begin{Bmatrix}
 ## 全局布局算法
 
 如下图8所示表示的是，ePlace的整个布局流程：
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230329122412.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230329122412.png)
 其中分为三个阶段：
 - （1）初始布局 ：使用B2B网络模型最小化二次项线长函数，得到初始布局的输出结果$\mathbf v_{ip}$。
 - （2）全局布局：根据电势理论优化器件的位置
@@ -304,7 +304,7 @@ $$u_k=u_{0}^{-\frac{\Delta HPWL_k}{\Delta HPWL_{ref}}+1.0}(u_0=1.1,\Delta HPWL_{
 
 如下图所示，不管是在CG法和Nesterov法上，随着迭代的进行因子的值在增加。
 
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230329150153.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230329150153.png)
 
 #### 密度溢出
 
@@ -315,7 +315,7 @@ $$\tau=\frac {\sum_{b \in B}\max(\rho_b^{'}-\rho_t,0) A_{b}} {\sum_{i \in V_m}A_
 
 其中，$A_{b}$是单元格面积，$A_{i}$是可移动器件面积。$\rho_b^{'}$是只和可移动器件相关的单元格$b$的密度。当密度溢出的值$\tau\leq\tau_{min}$时，全局布局停止。
 
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230329152627.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230329152627.png)
 
 #### 线长系数
 
@@ -323,7 +323,7 @@ $$\tau=\frac {\sum_{b \in B}\max(\rho_b^{'}-\rho_t,0) A_{b}} {\sum_{i \in V_m}A_
 
 同时较小尺寸的单元格密度对于器件的运动会更加敏感，相反越的尺寸就越不敏感。因此设置平滑参数$\gamma$为密度溢出和单元格宽度的函数。通过减少平滑参数的值，为了去减少剩余的重叠，只需要允许可以局部移动的HPWL不敏感的器件运动。我们所提到的这些HPWL不敏感的器件，指的是它们的运动不会改变器件相关网表的HPWL值，也可以理解成这些器件离网表的边界相对而言比较远。对于 迭代的后期，为了使得线长平滑的收敛，只允许在布局平面上有较小的扰动。所以，因为我们的目的是增加线长建模的准确性，对应的线长力会变得更强去只允许有小规模的运动，也就是较小的平面扰动。如下图所示，最终平滑的HPWL收敛到了HPWL：
 
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230329152637.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230329152637.png)
 
 在本论文的实验中显示，如下公式建模平滑系数会有比较好的布局结果，公式如下：
 
@@ -335,7 +335,7 @@ $$\gamma(\tau)=8.0w_b\times10^{k\tau+b} \tag{38}$$
 
 下图为ePlace全局布局算法的整体流程：
 
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230329161454.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230329161454.png)
 
 对算法的详细解释如下：
 - 输入参数：

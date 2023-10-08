@@ -1,3 +1,5 @@
+https://www.laais.cn/posts/learning/rl/q_learning/
+https://www.laais.cn/posts/learning/rl/rl_basic/
 https://www.laais.cn/posts/technology/nvim_debug_mixed_cpp_python/
 https://www.laais.cn/posts/technology/vnc_server/
 https://www.laais.cn/posts/research/eplace/
@@ -31,4 +33,5 @@ https://www.laais.cn/posts/research/bacth_norm/
 https://www.laais.cn/posts/research/neural_network/
 https://www.laais.cn/posts/research/softmax/
 https://www.laais.cn/offline/
+https://www.laais.cn/posts/projects/surrogacy-website/
 https://www.laais.cn/posts/research/desity_modeling/
