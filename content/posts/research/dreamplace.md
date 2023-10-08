@@ -24,7 +24,7 @@ Fence是Floorplan中作用于module或者instance group的一种约束。在Inno
 regions，一维坐标，像围栏和
 
 一些变量的说明
-![image.png](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20230403100641.png)
+![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230403100641.png)
 
 ## 线长平滑函数LPABSWL网表梯度
 

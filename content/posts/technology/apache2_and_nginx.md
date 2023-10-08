@@ -173,7 +173,7 @@ ServerName 127.0.0.1
 看日志提示```SSL Library Error: error:0A0000B1:SSL routines::no certificate assigned```
 - 解决方案
 下载这两处的文件然后把其他文件里面的pem文件更新到```site.conf```中
-![](https://cdn.staticaly.com/gh/SivanLaai/image-store-rep@master/note/20221212231557.png)
+![](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20221212231557.png)
 
 
 # Nginx常见问题
