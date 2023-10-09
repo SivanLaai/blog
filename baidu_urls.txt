@@ -32,7 +32,7 @@ https://www.laais.cn/posts/research/multiclass_svm/
 https://www.laais.cn/posts/research/bacth_norm/
 https://www.laais.cn/posts/research/neural_network/
 https://www.laais.cn/posts/research/softmax/
-https://www.laais.cn/ccf/ccf/
+https://www.laais.cn/ccf/
 https://www.laais.cn/offline/
 https://www.laais.cn/posts/projects/surrogacy-website/
 https://www.laais.cn/posts/research/desity_modeling/

@@ -64,11 +64,11 @@
 |**13** | **CCF- THPC** | **CCF Transactions on High Performance Computing** |**CCF** |**https://dblp.org/db/journals/ccfthpc/index.html** |
 |**14** |**TSUSC** | **IEEE Transactions on Sustainable Computing** |**IEEE** |**https://dblp.org/db/journals/tsusc/index.html** |
 
-一、A 类
-
 # 中国计算机学会推荐国际学术会议
 
 计算机体系结构_/_并行与分布计算_/_存储系统
+
+一、A 类
 
 | 序号 | 会议简称 | 会议全称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -100,9 +100,7 @@
 | 11 | ICDCS | International Conference on Distributed Computing Systems | IEEE | [http://dblp.uni-trier.de/db/conf/icdcs/](http://dblp.uni-trier.de/db/conf/icdcs/) |
 |12| CODES+ISSS | International Conference on Hardware/Software Co-design andSystem Synthesis | ACM/ IEEE | [http://dblp.uni-trier.de/db/conf/codes/index.html](http://dblp.uni-trier.de/db/conf/codes/index.html) |
 | 13 | HiPEAC | International Conference on High Performance and EmbeddedArchitectures and Compilers | ACM | [http://dblp.uni-trier.de/db/conf/hipeac/](http://dblp.uni-trier.de/db/conf/hipeac/) |
-
 |14| SIGMETRICS | International Conference on Measurement and Modeling ofComputer Systems | ACM | [http://dblp.uni-trier.de/db/conf/sigmetrics/](http://dblp.uni-trier.de/db/conf/sigmetrics/) |
-| --- | --- | --- | --- | --- |
 |15| PACT | International Conference on Parallel Architectures andCompilation Techniques | IEEE/ACM | [http://dblp.uni-trier.de/db/conf/IEEEpact/](http://dblp.uni-trier.de/db/conf/IEEEpact/) |
 | 16 | ICPP | International Conference on Parallel Processing | | [http://dblp.uni-trier.de/db/conf/icpp/](http://dblp.uni-trier.de/db/conf/icpp/) |
 | 17 | ICS | International Conference on Supercomputing | ACM | [http://dblp.uni-trier.de/db/conf/ics/](http://dblp.uni-trier.de/db/conf/ics/) |
@@ -114,11 +112,7 @@
 | 23 | LISA | Large Installation System Administration Conference | USENIX | [http://dblp.uni-trier.de/db/conf/lisa/](http://dblp.uni-trier.de/db/conf/lisa/) |
 | 24 | MSST | Mass Storage Systems and Technologies | IEEE | [http://dblp.uni-trier.de/db/conf/mss/](http://dblp.uni-trier.de/db/conf/mss/) |
 | 25 | RTAS | Real-Time and Embedded Technology and ApplicationsSymposium | IEEE | [http://dblp.uni-trier.de/db/conf/rtas/](http://dblp.uni-trier.de/db/conf/rtas/) |
-| 26 |
-Euro-Par |
-European Conference on Parallel and Distributed Computing |
-Springer |
-[http://dblp.uni-trier.de/db/conf/europar/](http://dblp.uni-trier.de/db/conf/europar/) |
+| 26 | Euro-Par |European Conference on Parallel and Distributed Computing |Springer |[http://dblp.uni-trier.de/db/conf/europar/](http://dblp.uni-trier.de/db/conf/europar/) |
 
 三、C 类
 
@@ -153,9 +147,9 @@ Springer |
 
 # 中国计算机学会推荐国际学术期刊
 
-一、A 类
-
 （计算机网络）
+
+一、A 类
 
 | 序号 | 刊物简称 | 刊物全称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -192,9 +186,9 @@ Springer |
 
 # 中国计算机学会推荐国际学术会议
 
-一、A 类
-
 （计算机网络）
+
+一、A 类
 
 | 序号 | 会议简称 | 会议全称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -235,7 +229,6 @@ Springer |
 | 11 | WoWMoM | IEEE International Symposium on a World of Wireless, Mobile andMultimedia Networks | IEEE | [http://dblp.uni-trier.de/db/conf/wowmom/](http://dblp.uni-trier.de/db/conf/wowmom/) |
 | 12 | ISCC | IEEE Symposium on Computers and Communications | IEEE | [http://dblp.uni-trier.de/db/conf/iscc/](http://dblp.uni-trier.de/db/conf/iscc/) |
 | 13 | WCNC | IEEE Wireless Communications & Networking Conference | IEEE | [http://dblp.uni-trier.de/db/conf/wcnc/](http://dblp.uni-trier.de/db/conf/wcnc/) |
-
 | 14 | Networking | IFIP International Conferences on Networking | IFIP | http://dblp.uni-trier.de/db/conf/networking/index.html |
 | --- | --- | --- | --- | --- |
 | 15 | IM | IFIP/IEEE International Symposium on Integrated NetworkManagement | IFIP/IEEE | [http://dblp.uni-trier.de/db/conf/im/index.html](http://dblp.uni-trier.de/db/conf/im/index.html) |
@@ -247,9 +240,9 @@ Springer |
 
 # 中国计算机学会推荐国际学术期刊
 
-一、A 类
-
 （网络与信息安全）
+
+一、A 类
 
 | 序号 | 刊物简称 | 刊物全称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -282,9 +275,9 @@ Springer |
 
 # 中国计算机学会推荐国际学术会议
 
-一、A 类
-
 （网络与信息安全）
+
+一、A 类
 
 | 序号 | 会议简称 | 会议全称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -327,9 +320,7 @@ Springer |
 | 10 | [DFRWS](http://www.dfrws.org/) | Digital Forensic Research Workshop | Elsevier | [http://dblp.uni-trier.de/db/conf/dfrws/](http://dblp.uni-trier.de/db/conf/dfrws/) |
 | 11 | FC | Financial Cryptography and Data Security | Springer | [http://dblp.uni-trier.de/db/conf/fc/](http://dblp.uni-trier.de/db/conf/fc/) |
 | 12 | TrustCom | IEEE International Conference on Trust, Security and Privacyin Computing and Communications | IEEE | [http://dblp.uni-trier.de/db/conf/trustcom/](http://dblp.uni-trier.de/db/conf/trustcom/) |
-
 | 13 | SEC | IFIP International Information Security Conference | Springer | [http://dblp.uni-trier.de/db/conf/sec/](http://dblp.uni-trier.de/db/conf/sec/) |
-| --- | --- | --- | --- | --- |
 | 14 | [IFIP WG 11.9](http://www.ifip119.org/Conferences/) | IFIP WG 11.9 International Conference on Digital Forensics | Springer | [\*ht](http://www.ifip119.org/Conferences/)[tp://www.ifip119.org/Conferences/](http://www.ifip119.org/Conferences/) |
 | 15 | ISC | Information Security Conference | Springer | [http://dblp.uni-trier.de/db/conf/isw/](http://dblp.uni-trier.de/db/conf/isw/) |
 | 16 | ICDF2C | International Conference on Digital Forensics & Cyber Crime | Springer | [http://dblp.uni-trier.de/db/conf/icdf2c/](http://dblp.uni-trier.de/db/conf/icdf2c/) |
@@ -421,9 +412,7 @@ Springer |
 | 8 | MoDELS | International Conference on Model Driven Engineering Languages and Systems | ACM, IEEE | [http://dblp.uni-trier.de/db/conf/models/](http://dblp.uni-trier.de/db/conf/models/) |
 | 9 | CP | International Conference on Principles and Practice of Constraint Programming | Springer | [http://dblp.uni-trier.de/db/conf/cp/](http://dblp.uni-trier.de/db/conf/cp/) |
 | 10 | ICSOC | International Conference on Service Oriented Computing | Springer | [http://dblp.uni-trier.de/db/conf/icsoc/](http://dblp.uni-trier.de/db/conf/icsoc/) |
-
 | 11 | SANER | International Conference on Software Analysis, Evolution,and Reengineering | IEEE | [http://dblp.uni-trier.de/db/conf/wcre/](http://dblp.uni-trier.de/db/conf/wcre/) |
-| --- | --- | --- | --- | --- |
 | 12 | ICSME | International Conference on Software Maintenance and Evolution | IEEE | [http://dblp.uni-trier.de/db/conf/icsm/](http://dblp.uni-trier.de/db/conf/icsm/) |
 | 13 | VMCAI | International Conference on Verification, Model Checking, and Abstract Interpretation | Springer | [http://dblp.uni-trier.de/db/conf/vmcai/](http://dblp.uni-trier.de/db/conf/vmcai/) |
 | 14 | ICWS | International Conference on Web Services （Research Track） | IEEE | [http://dblp.uni-trier.de/db/conf/icws/](http://dblp.uni-trier.de/db/conf/icws/) |
@@ -447,9 +436,7 @@ Springer |
 | 8 | ISPASS | IEEE International Symposium on Performance Analysis of Systems and Software | IEEE | [http://dblp.uni-trier.de/db/conf/ispass/](http://dblp.uni-trier.de/db/conf/ispass/) |
 | 9 | SCAM | IEEE International Working Conference on Source CodeAnalysis and Manipulation | IEEE | [http://dblp.uni-trier.de/db/conf/scam/](http://dblp.uni-trier.de/db/conf/scam/) |
 | 10 | [COMPSAC](http://www.dimva.org/) | International Computer Software and Applications Conference | [IEEE](http://www.gi-fg-sidar.de/) | [http://dblp.uni-trier.de/db/conf/compsac/](http://dblp.uni-trier.de/db/conf/compsac/) |
-
 | 11 | ICFEM | International Conference on Formal Engineering Methods | Springer | [http://dblp.uni-trier.de/db/conf/icfem/](http://dblp.uni-trier.de/db/conf/icfem/) |
-| --- | --- | --- | --- | --- |
 | 12 | TOOLS | International Conference on Objects, Models, Components,Patterns | Springer | [http://dblp.uni-trier.de/db/conf/tools/index.html](http://dblp.uni-trier.de/db/conf/tools/index.html) |
 | 13 | SCC | International Conference on Service Computing | IEEE | [http://dblp.uni-trier.de/db/conf/IEEEscc/](http://dblp.uni-trier.de/db/conf/IEEEscc/) |
 | 14 | ICSSP | International Conference on Software and System Process | ACM | [http://dblp.uni-trier.de/db/conf/ispw/](http://dblp.uni-trier.de/db/conf/ispw/) |
@@ -569,9 +556,9 @@ Springer |
 
 # 中国计算机学会推荐国际学术期刊
 
-一、A 类
-
 （计算机科学理论）
+
+一、A 类
 
 | 序号 | 刊物简称 | 刊物全称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -616,9 +603,9 @@ Springer |
 
 # 中国计算机学会推荐国际学术会议
 
-一、A 类
-
 （计算机科学理论）
+
+一、A 类
 
 | 序号 | 会议简称 | 会议全称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -660,9 +647,9 @@ Springer |
 
 # 中国计算机学会推荐国际学术期刊
 
-一、A 类
-
 （计算机图形学与多媒体）
+
+一、A 类
 
 | 序号 | 刊物简称 | 刊物名称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -705,9 +692,9 @@ Springer |
 
 # 中国计算机学会推荐国际学术会议
 
-一、A 类
-
 （计算机图形学与多媒体）
+
+一、A 类
 
 | 序号 | 会议简称 | 会议名称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -732,9 +719,7 @@ Springer |
 | 10 | ICME | IEEE International Conference onMultimedia & Expo | IEEE | [http://dblp.uni-trier.de/db/conf/icmcs/](http://dblp.uni-trier.de/db/conf/icmcs/) |
 | 11 | ISMAR | International Symposium on Mixed and Augmented Reality | IEEE/ACM | [http://dblp.uni-trier.de/db/conf/ismar/](http://dblp.uni-trier.de/db/conf/ismar/) |
 | 12 | PG | Pacific Graphics: The Pacific Conference on Computer Graphics and Applications | Wiley/Blackwell | [http://dblp.uni-trier.de/db/conf/pg/index.html](http://dblp.uni-trier.de/db/conf/pg/index.html) |
-
 | 13 | SPM | Symposium on Solid and Physical Modeling | SMA/Elsevier | [http://dblp.uni-trier.de/db/conf/sma/](http://dblp.uni-trier.de/db/conf/sma/) |
-| --- | --- | --- | --- | --- |
 |**14** |**MICCAI** | **International Conference on Medical Image Computing and Computer-Assisted Intervention** |**Springer** |**https://dblp.org/db/conf/miccai/index.html** |
 
 三、C 类
@@ -763,9 +748,9 @@ Elsevier | |
 
 # 中国计算机学会推荐国际学术期刊
 
-一、A 类
-
 （人工智能）
+
+一、A 类
 
 | 序号 | 刊物简称 | 刊物全称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -792,9 +777,7 @@ Elsevier | |
 | 12 | TFS | IEEE Transactions on Fuzzy Systems | IEEE | [http://dblp.uni-trier.de/db/journals/tfs/](http://dblp.uni-trier.de/db/journals/tfs/) |
 | 13 | TNNLS | IEEE Transactions on Neural Networks andlearning systems | IEEE | [http://dblp.uni-trier.de/db/journals/tnn/](http://dblp.uni-trier.de/db/journals/tnn/) |
 | 14 | IJAR | International Journal of ApproximateReasoning | Elsevier | [http://dblp.uni-trier.de/db/journals/ijar/](http://dblp.uni-trier.de/db/journals/ijar/) |
-
 | 15 | JAIR | Journal of Artificial Intelligence Research | AAAI | [http://dblp.uni-trier.de/db/journals/jair/index.html](http://dblp.uni-trier.de/db/journals/jair/index.html) |
-| --- | --- | --- | --- | --- |
 | 16 | | Journal of Automated Reasoning | Springer | [http://dblp.uni-trier.de/db/journals/jar/](http://dblp.uni-trier.de/db/journals/jar/) |
 | 17 | JSLHR | Journal of Speech, Language, and Hearing Research | American Speech-Language Hearing Association | [http://jslhr.pubs.asha.org/](http://jslhr.pubs.asha.org/) |
 | 18 | | Machine Learning | Springer | [http://dblp.uni-trier.de/db/journals/ml/](http://dblp.uni-trier.de/db/journals/ml/) |
@@ -823,9 +806,7 @@ Elsevier | |
 | 14 | IET-CVI | IET Computer Vision | IET | [http://digital-library.theiet.org/content/journals/iet-cvi](http://digital-library.theiet.org/content/journals/iet-cvi) |
 | 15 | | IET Signal Processing | IET | \* [http://digital-library.theiet.org/content/journals/iet-spr](http://digital-library.theiet.org/content/journals/iet-spr) |
 | 16 | IVC | Image and Vision Computing | Elsevier | [http://dblp.uni-trier.de/db/journals/ivc/](http://dblp.uni-trier.de/db/journals/ivc/) |
-
 | 17 | IDA | Intelligent Data Analysis | [IOS Press](http://content.iospress.com/journals/intelligent-data-analysis/) | [http://dblp.uni-trier.de/db/journals/ida/](http://dblp.uni-trier.de/db/journals/ida/) |
-| --- | --- | --- | --- | --- |
 | 18 | IJCIA | International Journal of ComputationalIntelligence and Applications | World Scientific | [http://dblp.uni-trier.de/db/journals/ijcia/](http://dblp.uni-trier.de/db/journals/ijcia/) |
 | 19 | IJIS | International Journal of Intelligent Systems | Wiley | [http://dblp.uni-trier.de/db/journals/ijis/](http://dblp.uni-trier.de/db/journals/ijis/) |
 | 20 | IJNS | International Journal of Neural Systems | World Scientific | [http://dblp.uni-trier.de/db/journals/ijns/](http://dblp.uni-trier.de/db/journals/ijns/) |
@@ -841,9 +822,7 @@ Elsevier | |
 | 30 | NCA | Neural Computing & Applications | Springer | [http://dblp.uni-trier.de/db/journals/nca/](http://dblp.uni-trier.de/db/journals/nca/) |
 | 31 | NPL | Neural Processing Letters | Springer | [http://dblp.uni-trier.de/db/journals/npl/](http://dblp.uni-trier.de/db/journals/npl/) |
 | 32 | | Neurocomputing | Elsevier | [http://dblp.uni-trier.de/db/journals/ijon/](http://dblp.uni-trier.de/db/journals/ijon/) |
-
 | 33 | PAA | Pattern Analysis and Applications | Springer | [http://dblp.uni-trier.de/db/journals/paa/](http://dblp.uni-trier.de/db/journals/paa/) |
-| --- | --- | --- | --- | --- |
 | 34 | PRL | Pattern Recognition Letters | Elsevier | [http://dblp.uni-trier.de/db/journals/prl/](http://dblp.uni-trier.de/db/journals/prl/) |
 | 35 | | Soft Computing | Springer | [http://dblp.uni-trier.de/db/journals/soco/](http://dblp.uni-trier.de/db/journals/soco/) |
 | 36 | WI | Web Intelligence | IOS Press | [http://dblp.uni-trier.de/db/journals/wias/](http://dblp.uni-trier.de/db/journals/wias/) |
@@ -851,9 +830,9 @@ Elsevier | |
 
 # 中国计算机学会推荐国际学术会议
 
-一、A 类
-
 （人工智能）
+
+一、A 类
 
 | 序号 | 会议简称 | 会议全称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -877,9 +856,7 @@ Elsevier | |
 | 6 | ICAPS | International Conference onAutomated Planning and Scheduling | AAAI | [http://dblp.uni-trier.de/db/conf/aips/](http://dblp.uni-trier.de/db/conf/aips/) |
 | 7 | ICCBR | International Conference onCase-Based Reasoning and Development | Springer | [http://dblp.uni-trier.de/db/conf/iccbr/](http://dblp.uni-trier.de/db/conf/iccbr/) |
 | 8 | COLING | International Conference onComputational Linguistics | ACM | [http://dblp.uni-trier.de/db/conf/coling/](http://dblp.uni-trier.de/db/conf/coling/) |
-
 | 9 | KR | International Conference onPrinciples of Knowledge Representation andReasoning | Morgan Kaufmann | [http://dblp.uni-trier.de/db/conf/kr/](http://dblp.uni-trier.de/db/conf/kr/) |
-| --- | --- | --- | --- | --- |
 | 10 | UAI | International Conference on Uncertainty in ArtificialIntelligence | AUAI | [http://dblp.uni-trier.de/db/conf/uai/](http://dblp.uni-trier.de/db/conf/uai/) |
 | 11 | AAMAS | International Joint Conference on Autonomous Agents and Multi-agent Systems | Springer | [http://dblp.uni-trier.de/db/conf/atal/index.html](http://dblp.uni-trier.de/db/conf/atal/index.html) |
 | 12 | PPSN | Parallel Problem Solving fromNature | Springer | [http://dblp.uni-trier.de/db/conf/ppsn/](http://dblp.uni-trier.de/db/conf/ppsn/) |
@@ -901,9 +878,7 @@ Elsevier | |
 | 10 | ALT | International Conference onAlgorithmic Learning Theory | Springer | [http://dblp.uni-trier.de/db/conf/alt/](http://dblp.uni-trier.de/db/conf/alt/) |
 | 11 | ICANN | International Conference on ArtificialNeural Networks | Springer | [http://dblp.uni-trier.de/db/conf/icann/](http://dblp.uni-trier.de/db/conf/icann/) |
 | 12 | FG | International Conference on AutomaticFace and Gesture Recognition | IEEE | [http://dblp.uni-trier.de/db/conf/fgr/](http://dblp.uni-trier.de/db/conf/fgr/) |
-
 | 13 | ICDAR | International Conference on DocumentAnalysis and Recognition | IEEE | [http://dblp.uni-trier.de/db/conf/icdar/](http://dblp.uni-trier.de/db/conf/icdar/) |
-| --- | --- | --- | --- | --- |
 | 14 | ILP | International Conference on InductiveLogic Programming | Springer | [http://dblp.uni-trier.de/db/conf/ilp/](http://dblp.uni-trier.de/db/conf/ilp/) |
 | 15 | KSEM | International conference onKnowledgeScience, Engineering andManagement | Springer | [http://dblp.uni-trier.de/db/conf/ksem/](http://dblp.uni-trier.de/db/conf/ksem/) |
 | 16 | ICONIP | International Conference on NeuralInformation Processing | Springer | [http://dblp.uni-trier.de/db/conf/iconip/](http://dblp.uni-trier.de/db/conf/iconip/) |
@@ -914,9 +889,9 @@ Elsevier | |
 
 # 中国计算机学会推荐国际学术刊物
 
-一、A 类
-
 （人机交互与普适计算）
+
+一、A 类
 
 | 序号 | 刊物简称 | 刊物全称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -946,9 +921,9 @@ Elsevier | |
 
 # 中国计算机学会推荐国际学术会议
 
-一、A 类
-
 （人机交互与普适计算）
+
+一、A 类
 
 | 序号 | 会议简称 | 会议全称 | 出版社 | 网址 |
 | --- | --- | --- | --- | --- |
@@ -1078,5 +1053,5 @@ Elsevier | |
 ---
 
 > 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/ccf/ccf/  
+> URL: https://www.laais.cn/ccf/  
 
