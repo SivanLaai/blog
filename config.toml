@@ -955,8 +955,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         url = "ccf"
         title = "CCF Recommendation"
         weight = 4
-      #   [languages.en.menu.main.params]
-      #     icon = "fa-solid fa-book"
+        [languages.en.menu.main.params]
+          icon = "fa-solid fa-book"
       # [[languages.en.menu.main]]
       #   identifier = "friends"
       #   name = "Friends"
@@ -1029,8 +1029,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         url = "ccf"
         title = "CCF推荐"
         weight = 4
-      #   [languages.zh-cn.menu.main.params]
-      #     icon = "fa-solid fa-book"
+        [languages.zh-cn.menu.main.params]
+          icon = "fa-solid fa-book"
       # [[languages.zh-cn.menu.main]]
       #   identifier = "friends"
       #   name = "友链"
