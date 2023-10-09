@@ -47,7 +47,6 @@ Actor做出动作，Critic对动作进行打分
 - Deep Q Network
 
 
-
 ---
 
 > 作者: [SivanLaai](https://www.laais.cn)  
