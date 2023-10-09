@@ -78,6 +78,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     title = ""
     weight = 2
   [[menu.main]]
+
     identifier = "tags"
     pre = ""
     post = ""
@@ -948,12 +949,12 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         weight = 3
         [languages.en.menu.main.params]
           icon = "fa-solid fa-tags"
-      # [[languages.en.menu.main]]
-      #   identifier = "documentation"
-      #   name = "Docs"
-      #   url = "categories/documentation/"
-      #   title = "Theme Documentation"
-      #   weight = 4
+      [[languages.en.menu.main]]
+        identifier = "ccf"
+        name = "CCF"
+        url = "ccf"
+        title = "CCF Recommendation"
+        weight = 4
       #   [languages.en.menu.main.params]
       #     icon = "fa-solid fa-book"
       # [[languages.en.menu.main]]
@@ -1022,12 +1023,12 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         weight = 3
         [languages.zh-cn.menu.main.params]
           icon = "fa-solid fa-tags"
-      # [[languages.zh-cn.menu.main]]
-      #   identifier = "documentation"
-      #   name = "文档"
-      #   url = "categories/documentation/"
-      #   title = "主题文档"
-      #   weight = 4
+      [[languages.zh-cn.menu.main]]
+        identifier = "ccf"
+        name = "CCF"
+        url = "ccf"
+        title = "CCF推荐"
+        weight = 4
       #   [languages.zh-cn.menu.main.params]
       #     icon = "fa-solid fa-book"
       # [[languages.zh-cn.menu.main]]
