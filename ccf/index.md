@@ -2,10 +2,6 @@
 
 # 中国计算机学会推荐国际学术会议和期刊目录
 
-# **公示**
-
-#
-
 **（ 2022  年拟）**
 
 中国计算机学会
@@ -230,7 +226,6 @@
 | 12 | ISCC | IEEE Symposium on Computers and Communications | IEEE | [http://dblp.uni-trier.de/db/conf/iscc/](http://dblp.uni-trier.de/db/conf/iscc/) |
 | 13 | WCNC | IEEE Wireless Communications & Networking Conference | IEEE | [http://dblp.uni-trier.de/db/conf/wcnc/](http://dblp.uni-trier.de/db/conf/wcnc/) |
 | 14 | Networking | IFIP International Conferences on Networking | IFIP | http://dblp.uni-trier.de/db/conf/networking/index.html |
-| --- | --- | --- | --- | --- |
 | 15 | IM | IFIP/IEEE International Symposium on Integrated NetworkManagement | IFIP/IEEE | [http://dblp.uni-trier.de/db/conf/im/index.html](http://dblp.uni-trier.de/db/conf/im/index.html) |
 | 16 | MSN | International Conference on Mobile Ad-hoc and Sensor Networks | IEEE | https://dblp.uni-trier.de/db/conf/msn/ |
 | 17 | MSWiM | International Conference on Modeling, Analysis and Simulation ofWireless and Mobile Systems | ACM | [http://dblp.uni-trier.de/db/conf/mswim/](http://dblp.uni-trier.de/db/conf/mswim/) |
@@ -730,11 +725,7 @@
 | 2 | CASA | Computer Animation and Social Agents | Wiley | [http://dblp.uni-trier.de/db/conf/ca/](http://dblp.uni-trier.de/db/conf/ca/) |
 | 3 | CGI | Computer Graphics International | Springer | [http://dblp.uni-trier.de/db/conf/cgi/](http://dblp.uni-trier.de/db/conf/cgi/) |
 | 4 | INTERSPEECH | Conference of the International SpeechCommunication Association | | [http://dblp.uni-trier.de/db/conf/interspeech/index.html](http://dblp.uni-trier.de/db/conf/interspeech/index.html) |
-| |5| |
-GMP | |
-Geometric Modeling and Processing | |
-Elsevier | |
-[http://dblp.uni-trier.de/db/conf/gmp/](http://dblp.uni-trier.de/db/conf/gmp/) |
+| |5| | GMP | | Geometric Modeling and Processing | | Elsevier | | [http://dblp.uni-trier.de/db/conf/gmp/](http://dblp.uni-trier.de/db/conf/gmp/) |
 | 6 | PacificVis | IEEE Pacific Visualization Symposium | IEEE | [http://dblp.uni-trier.de/db/conf/apvis/](http://dblp.uni-trier.de/db/conf/apvis/) |
 | 7 | 3DV | International Conference on 3D Vision | IEEE | https://dblp.uni-trier.de/db/conf/3dim/ |
 | 8 | CAD/Graphics | International Conference on Computer-AidedDesign and Computer Graphics | IEEE | https://dblp.uni-trier.de/db/conf/cadgraphics/ |
