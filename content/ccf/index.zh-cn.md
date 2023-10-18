@@ -1,9 +1,7 @@
 ---
 title: 中国计算机学会推荐国际学术会议和期刊目录（2022）
 date: 2023-10-16T12:25:26+08:00
-draft: true
-categories: 
-tags:
+categories:
 ---
 
 
