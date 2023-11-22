@@ -1,19 +1,482 @@
-<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><meta name=robots content="noodp"><title>Q学习算法 - SivanLaai's Blog</title><meta name=author content="SivanLaai"><meta name=author-link content="https://www.laais.cn"><meta name=description content="状态$s_1,s_2$，动作$a_1,a_2$ 当前步的实现：$$Q(s_1,a_2)=r+\gamma \max_{a^}(Q(s^,a^))"><meta name=keywords content="Hugo,FixIt,Rime,learning"><meta itemprop=name content="Q学习算法"><meta itemprop=description content="状态$s_1,s_2$，动作$a_1,a_2$ 当前步的实现：$$Q(s_1,a_2)=r+\gamma \max_{a^}(Q(s^,a^))"><meta itemprop=datePublished content="2023-09-28T11:52:17+08:00"><meta itemprop=dateModified content="2023-10-08T17:07:08+08:00"><meta itemprop=wordCount content="448"><meta itemprop=image content="https://www.laais.cn/avatar.png"><meta itemprop=keywords content><meta property="og:title" content="Q学习算法"><meta property="og:description" content="状态$s_1,s_2$，动作$a_1,a_2$ 当前步的实现：$$Q(s_1,a_2)=r+\gamma \max_{a^}(Q(s^,a^))"><meta property="og:type" content="article"><meta property="og:url" content="https://www.laais.cn/posts/learning/rl/q_learning/"><meta property="og:image" content="https://www.laais.cn/avatar.png"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-09-28T11:52:17+08:00"><meta property="article:modified_time" content="2023-10-08T17:07:08+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://www.laais.cn/avatar.png"><meta name=twitter:title content="Q学习算法"><meta name=twitter:description content="状态$s_1,s_2$，动作$a_1,a_2$ 当前步的实现：$$Q(s_1,a_2)=r+\gamma \max_{a^}(Q(s^,a^))"><meta name=application-name content="Sivanlaai's blog"><meta name=apple-mobile-web-app-title content="Sivanlaai's blog"><meta name=theme-color data-light=#f8f8f8 data-dark=#252627 content="#f8f8f8"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://www.laais.cn/posts/learning/rl/q_learning/><link rel=prev href=https://www.laais.cn/posts/learning/rl/rl_basic/><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Q学习算法","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.laais.cn\/posts\/learning\/rl\/q_learning\/"},"image":["https:\/\/www.laais.cn\/apple-touch-icon.png"],"genre":"posts","wordcount":448,"url":"https:\/\/www.laais.cn\/posts\/learning\/rl\/q_learning\/","datePublished":"2023-09-28T11:52:17+08:00","dateModified":"2023-10-08T17:07:08+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"SivanLaai","logo":"https:\/\/www.laais.cn\/avatar.png"},"author":{"@type":"Person","name":"SivanLaai"},"description":""}</script></head><body data-header-desktop=sticky data-header-mobile=auto><script>(window.localStorage?.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("data-theme","dark")</script><div class=wrapper data-page-style=custom><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper data-github-corner=right><div class=header-title><a href=/ title="SivanLaai's Blog"><img loading=lazy src=/avatar.png srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" sizes=auto data-title="SivanLaai's Blog" data-alt="SivanLaai's Blog" class=logo style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'><span class=header-title-text>SivanLaai's blog</span></a><span class=header-subtitle></span></div><nav><ul class=menu><li class=menu-item><a class=menu-link href=/posts/><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> 所有文章</a></li><li class=menu-item><a class=menu-link href=/categories/><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden=true></i> 分类</a></li><li class=menu-item><a class=menu-link href=/tags/><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> 标签</a></li><li class=menu-item><a class=menu-link href=/ccf title=CCF推荐><i class="fa-solid fa-book fa-fw fa-sm" aria-hidden=true></i> CCF</a></li><li class=menu-item><a class=menu-link href=/about/><i class="fa-solid fa-info-circle fa-fw fa-sm" aria-hidden=true></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item language"><span role=button aria-label title>简体中文<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i></span><ul class=sub-menu><li class=menu-item></li></ul></li><li class="menu-item search" id=search-desktop><input type=text placeholder id=search-input-desktop>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title><i class="fa-solid fa-search fa-fw" aria-hidden=true></i></a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i></a>
-<span class="search-button search-loading" id=search-loading-desktop><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></li><li class="menu-item theme-switch" title><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></li></ul></nav></div></header><header class="mobile animate__faster" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="SivanLaai's Blog"><img loading=lazy src=/avatar.png srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" sizes=auto data-title=/avatar.png data-alt=/avatar.png class=logo style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'><span class=header-title-text>SivanLaai's blog</span></a><span class=header-subtitle></span></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><nav><ul class=menu id=menu-mobile><li class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder id=search-input-mobile>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title><i class="fa-solid fa-search fa-fw" aria-hidden=true></i></a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i></a>
-<span class="search-button search-loading" id=search-loading-mobile><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile></a></li><li class=menu-item><a class=menu-link href=/posts/><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> 所有文章</a></li><li class=menu-item><a class=menu-link href=/categories/><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden=true></i> 分类</a></li><li class=menu-item><a class=menu-link href=/tags/><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> 标签</a></li><li class=menu-item><a class=menu-link href=/ccf title=CCF推荐><i class="fa-solid fa-book fa-fw fa-sm" aria-hidden=true></i> CCF</a></li><li class=menu-item><a class=menu-link href=/about/><i class="fa-solid fa-info-circle fa-fw fa-sm" aria-hidden=true></i> 关于</a></li><li class="menu-item text-center"><a class=menu-link href=https://github.com/SivanLaai/blog title=GitHub rel="noopener noreferrer" target=_blank><i class='fa-brands fa-github fa-fw' aria-hidden=true></i></a></li><li class="menu-item theme-switch" title><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></li><li class="menu-item language"><span role=button aria-label title>简体中文<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i></span>
-<select class=language-select onchange="location=this.value"><option disabled></option></select></li></ul></nav></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><script>var _hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?aa4e404535364259553aa4bd8f89bb3a",e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script><main class=container><aside class=toc id=toc-auto></aside><aside class=aside-custom></aside><article class="page single"><div class=header><h1 class="single-title animate__animated animate__flipInX"><span>Q学习算法</span></h1></div><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://www.laais.cn title=作者 target=_blank rel="external nofollow noopener noreferrer author" class=author><i class="fa-solid fa-user-circle" aria-hidden=true></i>
+<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><meta name=robots content="noodp"><title>Q学习算法 - SivanLaai's Blog</title><meta name=author content="SivanLaai">
+<meta name=author-link content="https://www.laais.cn"><meta name=description content="on-policy version off-policy version 算法实现 Value update 需要使用behaviour进采行采样 每一个episode里面会对所有的样本行采样来计算$y_T$，这个是target网络"><meta name=keywords content="Hugo,FixIt,Rime,learning"><meta itemprop=name content="Q学习算法"><meta itemprop=description content="on-policy version off-policy version 算法实现 Value update 需要使用behaviour进采行采样 每一个episode里面会对所有的样本行采样来计算$y_T$，这个是target网络"><meta itemprop=datePublished content="2023-09-28T11:52:17+08:00"><meta itemprop=dateModified content="2023-11-22T16:19:17+08:00"><meta itemprop=wordCount content="691"><meta itemprop=image content="https://www.laais.cn/avatar.png"><meta itemprop=keywords content><meta property="og:title" content="Q学习算法"><meta property="og:description" content="on-policy version off-policy version 算法实现 Value update 需要使用behaviour进采行采样 每一个episode里面会对所有的样本行采样来计算$y_T$，这个是target网络"><meta property="og:type" content="article"><meta property="og:url" content="https://www.laais.cn/posts/learning/rl/q_learning/"><meta property="og:image" content="https://www.laais.cn/avatar.png"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-09-28T11:52:17+08:00"><meta property="article:modified_time" content="2023-11-22T16:19:17+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://www.laais.cn/avatar.png"><meta name=twitter:title content="Q学习算法"><meta name=twitter:description content="on-policy version off-policy version 算法实现 Value update 需要使用behaviour进采行采样 每一个episode里面会对所有的样本行采样来计算$y_T$，这个是target网络"><meta name=application-name content="Sivanlaai's blog"><meta name=apple-mobile-web-app-title content="Sivanlaai's blog"><meta name=theme-color data-light=#f8f8f8 data-dark=#252627 content="#f8f8f8"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://www.laais.cn/posts/learning/rl/q_learning/><link rel=prev href=https://www.laais.cn/posts/learning/rl/rl_basic/><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Q学习算法","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.laais.cn\/posts\/learning\/rl\/q_learning\/"},"image":["https:\/\/www.laais.cn\/apple-touch-icon.png"],"genre":"posts","wordcount":691,"url":"https:\/\/www.laais.cn\/posts\/learning\/rl\/q_learning\/","datePublished":"2023-09-28T11:52:17+08:00","dateModified":"2023-11-22T16:19:17+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"SivanLaai","logo":"https:\/\/www.laais.cn\/avatar.png"},"author":{"@type":"Person","name":"SivanLaai"},"description":""}</script></head><body data-header-desktop=sticky data-header-mobile=auto><script>(window.localStorage?.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("data-theme","dark")</script><div class=wrapper data-page-style=custom><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper data-github-corner=right><div class=header-title><a href=/ title="SivanLaai's Blog"><img loading=lazy src=/avatar.png srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" sizes=auto data-title="SivanLaai's Blog" data-alt="SivanLaai's Blog" class=logo style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'><span class=header-title-text>SivanLaai's blog</span></a><span class=header-subtitle></span></div><nav><ul class=menu><li class=menu-item><a class=menu-link href=/posts/><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> 所有文章</a></li><li class=menu-item><a class=menu-link href=/categories/><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden=true></i> 分类</a></li><li class=menu-item><a class=menu-link href=/tags/><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> 标签</a></li><li class=menu-item><a class=menu-link href=/ccf title=CCF推荐><i class="fa-solid fa-book fa-fw fa-sm" aria-hidden=true></i> CCF</a></li><li class=menu-item><a class=menu-link href=/about/><i class="fa-solid fa-info-circle fa-fw fa-sm" aria-hidden=true></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item language"><span role=button aria-label title>简体中文<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i></span><ul class=sub-menu><li class=menu-item></li></ul></li><li class="menu-item search" id=search-desktop><input type=text placeholder id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title><i class="fa-solid fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></li><li class="menu-item theme-switch" title><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></li></ul></nav></div></header><header class="mobile animate__faster" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="SivanLaai's Blog"><img loading=lazy src=/avatar.png srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" sizes=auto data-title=/avatar.png data-alt=/avatar.png class=logo style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'><span class=header-title-text>SivanLaai's blog</span></a><span class=header-subtitle></span></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><nav><ul class=menu id=menu-mobile><li class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title><i class="fa-solid fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile></a></li><li class=menu-item><a class=menu-link href=/posts/><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> 所有文章</a></li><li class=menu-item><a class=menu-link href=/categories/><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden=true></i> 分类</a></li><li class=menu-item><a class=menu-link href=/tags/><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> 标签</a></li><li class=menu-item><a class=menu-link href=/ccf title=CCF推荐><i class="fa-solid fa-book fa-fw fa-sm" aria-hidden=true></i> CCF</a></li><li class=menu-item><a class=menu-link href=/about/><i class="fa-solid fa-info-circle fa-fw fa-sm" aria-hidden=true></i> 关于</a></li><li class="menu-item text-center"><a class=menu-link href=https://github.com/SivanLaai/blog title=GitHub rel="noopener noreferrer" target=_blank><i class='fa-brands fa-github fa-fw' aria-hidden=true></i></a></li><li class="menu-item theme-switch" title><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></li><li class="menu-item language"><span role=button aria-label title>简体中文<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i>
+</span><select class=language-select onchange="location=this.value"><option disabled></option></select></li></ul></nav></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><script>var _hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?aa4e404535364259553aa4bd8f89bb3a",e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script><main class=container><aside class=toc id=toc-auto><h2 class=toc-title>目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden=true></i></h2><div class=toc-content id=toc-content-auto></div></aside><aside class=aside-custom></aside><article class="page single"><div class=header><h1 class="single-title animate__animated animate__flipInX"><span>Q学习算法</span></h1></div><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://www.laais.cn title=作者 target=_blank rel="external nofollow noopener noreferrer author" class=author><i class="fa-solid fa-user-circle" aria-hidden=true></i>
 SivanLaai</a></span>
-<span class=post-category>收录于 <a href=/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> 强化学习</a></span></div><div class=post-meta-line><span title="发布于 2023-09-28 11:52:17"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden=true></i><time datetime=2023-09-28>2023-09-28</time></span>&nbsp;<span title="更新于 2023-10-08 17:07:08"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden=true></i><time datetime=2023-10-08>2023-10-08</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden=true></i>约 448 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden=true></i>预计阅读 1 分钟</span>&nbsp;<span class=comment-visitors data-flag-title=Q学习算法>
+<span class=post-category>收录于 <a href=/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> 强化学习</a></span></div><div class=post-meta-line><span title="发布于 2023-09-28 11:52:17"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden=true></i><time datetime=2023-09-28>2023-09-28</time></span>&nbsp;<span title="更新于 2023-11-22 16:19:17"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden=true></i><time datetime=2023-11-22>2023-11-22</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden=true></i>约 691 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden=true></i>预计阅读 2 分钟</span>&nbsp;<span class=comment-visitors data-flag-title=Q学习算法>
 <i class="fa-regular fa-eye fa-fw me-1" aria-hidden=true></i><span data-path=/posts/learning/rl/q_learning/ class=waline-pageview-count>-</span>&nbsp;次阅读
-</span>&nbsp;</div></div><div class=content id=content><p><img loading=lazy src=https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230928170535.png srcset="https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230928170535.png, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230928170535.png 1.5x, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20230928170535.png 2x" sizes=auto data-title=image.png data-alt=image.png style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'></p><p>状态$s_1,s_2$，动作$a_1,a_2$
-当前步的实现：$$Q(s_1,a_2)=r+\gamma \max_{a^<code>}(Q(s^</code>,a^<code>))$$，其中$r$表示的是采取动作$a_2$到达状态$s^</code>$的奖励，所以当前步的现实是包含了对于下一步采取动作$a^<code>$的奖励估计，也包含了到达当前状态的奖励$r$。 当前步的估计：$$Q(s_1,a_2)$$ 当前状态的估计和现实之前的误差为：$$r+\gamma \max_{a^</code>}(Q(s^<code>,a^</code>))-Q(s_1,a_2)$$
-其中$\gamma$表示对未来奖励衰减参数，则更新对于$Q(s_1,a_2)$的估计：$$Q(s_1,a_2)=Q(s_1,a_2)+\alpha (r+\gamma \max_{a^<code>}(Q(s^</code>,a^`))-Q(s_1,a_2))$$
-其中$\alpha$表示误差学习参数</p><p>用$Q(S_1)$来简化表示从状态$S_1$出发的现实奖励，有以下推论：$$Q(S_1)=r_2+\gamma Q(S_2)=r_2+\gamma(r_3+\gamma Q(S_3))$$
-则有：$$Q(S_1)=r_2+\gamma r_3+\gamma^2 r_4+\gamma^3 r_5+\dots$$，则比较远的步骤能否学习和$\gamma$有关，$\gamma=1$则全部都能看到，为0则全部都看不到，正常情况在0到1之间。</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span title="更新于 2023-10-08 17:07:08">更新于 2023-10-08&nbsp;<a class=git-hash href=https://github.com/SivanLaai/blog/commit/32cbe1ac9c50c41b6d2ddfc7b9877da43e6d44f5 rel="external nofollow noopener noreferrer" target=_blank title="commit by SivanLaai(lyhhap@163.com) 32cbe1ac9c50c41b6d2ddfc7b9877da43e6d44f5: update passages"><i class="fa-solid fa-hashtag fa-fw" aria-hidden=true></i>32cbe1a</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a href=/posts/learning/rl/q_learning/index.md title=阅读原始文档 class=link-to-markdown>阅读原始文档</a></span><span><a href=https://github.com/SivanLaai/blog/edit/master/content/posts/learning/rl/q_learning.md title=编辑此页 target=_blank rel="external nofollow noopener noreferrer" class=link-to-edit>编辑此页</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://www.laais.cn/posts/learning/rl/q_learning/ data-title=Q学习算法><i class="fa-brands fa-twitter fa-fw" aria-hidden=true></i></a>
+</span>&nbsp;</div></div><div class="details toc" id=toc-static data-kept=false><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><ul><li><ul><li><a href=#value-update>Value update</a></li></ul></li><li><a href=#heading></a></li></ul></li><li><a href=#代码>代码</a></li></ul></nav></div></div><div class=content id=content><h1 id=on-policy-version>on-policy version</h1><p><img loading=lazy src=https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/1700639584120.png srcset="https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/1700639584120.png, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/1700639584120.png 1.5x, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/1700639584120.png 2x" sizes=auto data-title=1700639584120.png data-alt=1700639584120.png style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'></p><h1 id=off-policy-version>off-policy version</h1><p><img loading=lazy src=https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231122160253.png srcset="https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231122160253.png, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231122160253.png 1.5x, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231122160253.png 2x" sizes=auto data-title=1700639584120.png data-alt=1700639584120.png style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'></p><h1 id=算法实现>算法实现</h1><h4 id=value-update>Value update</h4><p>需要使用behaviour进采行采样
+每一个episode里面会对所有的样本行采样来计算$y_T$，这个是target网络计算来的值</p><h3 id=heading></h3><p>policy update
+主网络每次采样完成后进行参数更新，并达到一定次数后更新target网络的参数</p><h2 id=代码>代码</h2><div class=highlight id=id-1><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span><span class=lnt>179
+</span><span class=lnt>180
+</span><span class=lnt>181
+</span><span class=lnt>182
+</span><span class=lnt>183
+</span><span class=lnt>184
+</span><span class=lnt>185
+</span><span class=lnt>186
+</span><span class=lnt>187
+</span><span class=lnt>188
+</span><span class=lnt>189
+</span><span class=lnt>190
+</span><span class=lnt>191
+</span><span class=lnt>192
+</span><span class=lnt>193
+</span><span class=lnt>194
+</span><span class=lnt>195
+</span><span class=lnt>196
+</span><span class=lnt>197
+</span><span class=lnt>198
+</span><span class=lnt>199
+</span><span class=lnt>200
+</span><span class=lnt>201
+</span><span class=lnt>202
+</span><span class=lnt>203
+</span><span class=lnt>204
+</span><span class=lnt>205
+</span><span class=lnt>206
+</span><span class=lnt>207
+</span><span class=lnt>208
+</span><span class=lnt>209
+</span><span class=lnt>210
+</span><span class=lnt>211
+</span><span class=lnt>212
+</span><span class=lnt>213
+</span><span class=lnt>214
+</span><span class=lnt>215
+</span><span class=lnt>216
+</span><span class=lnt>217
+</span><span class=lnt>218
+</span><span class=lnt>219
+</span><span class=lnt>220
+</span><span class=lnt>221
+</span><span class=lnt>222
+</span><span class=lnt>223
+</span><span class=lnt>224
+</span><span class=lnt>225
+</span><span class=lnt>226
+</span><span class=lnt>227
+</span><span class=lnt>228
+</span><span class=lnt>229
+</span><span class=lnt>230
+</span><span class=lnt>231
+</span><span class=lnt>232
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch.nn</span> <span class=k>as</span> <span class=nn>nn</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>torch.nn.functional</span> <span class=k>as</span> <span class=nn>F</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>device</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>device</span><span class=p>(</span><span class=s2>&#34;cuda&#34;</span> <span class=k>if</span> <span class=n>torch</span><span class=o>.</span><span class=n>cuda</span><span class=o>.</span><span class=n>is_available</span> <span class=k>else</span> <span class=s2>&#34;cpu&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>NNet</span><span class=p>(</span><span class=n>nn</span><span class=o>.</span><span class=n>Module</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>n_actions</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>n_features</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>hidden_size</span><span class=o>=</span><span class=mi>10</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>fc1</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Linear</span><span class=p>(</span><span class=n>n_features</span><span class=p>,</span> <span class=n>hidden_size</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>fc1</span><span class=o>.</span><span class=n>weight</span><span class=o>.</span><span class=n>data</span><span class=o>.</span><span class=n>normal_</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mf>0.3</span><span class=p>)</span>   <span class=c1># initialization</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>fc1</span><span class=o>.</span><span class=n>bias</span><span class=o>.</span><span class=n>data</span><span class=o>.</span><span class=n>normal_</span><span class=p>(</span><span class=mf>0.1</span><span class=p>)</span>   <span class=c1># initialization</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>fc2</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>Linear</span><span class=p>(</span><span class=n>hidden_size</span><span class=p>,</span> <span class=n>n_actions</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>fc2</span><span class=o>.</span><span class=n>weight</span><span class=o>.</span><span class=n>data</span><span class=o>.</span><span class=n>normal_</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mf>0.3</span><span class=p>)</span>   <span class=c1># initialization</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>fc2</span><span class=o>.</span><span class=n>bias</span><span class=o>.</span><span class=n>data</span><span class=o>.</span><span class=n>normal_</span><span class=p>(</span><span class=mf>0.1</span><span class=p>)</span>   <span class=c1># initialization</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>forward</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>x</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>x</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>fc1</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>x</span> <span class=o>=</span> <span class=n>F</span><span class=o>.</span><span class=n>relu</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>fc2</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>torch</span> <span class=kn>import</span> <span class=n>optim</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>DeepQNetwork</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>n_actions</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>n_features</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>alpha</span><span class=o>=</span><span class=mf>0.01</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>reward_decay</span><span class=o>=</span><span class=mf>0.9</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>e_greedy</span><span class=o>=</span><span class=mf>0.9</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>hidden_size</span><span class=o>=</span><span class=mi>10</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>memory_size</span><span class=o>=</span><span class=mi>500</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>replace_iter</span><span class=o>=</span><span class=mi>300</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=n>e_greedy_increment</span><span class=o>=</span><span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                 <span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>lr</span> <span class=o>=</span> <span class=n>alpha</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>n_actions</span> <span class=o>=</span> <span class=n>n_actions</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>n_features</span> <span class=o>=</span> <span class=n>n_features</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>evalNet</span> <span class=o>=</span> <span class=n>NNet</span><span class=p>(</span><span class=n>n_actions</span><span class=o>=</span><span class=n>n_actions</span><span class=p>,</span> <span class=n>n_features</span><span class=o>=</span><span class=n>n_features</span><span class=p>,</span> <span class=n>hidden_size</span><span class=o>=</span><span class=n>hidden_size</span><span class=p>)</span><span class=o>.</span><span class=n>to</span><span class=p>(</span><span class=n>dtype</span><span class=o>=</span><span class=n>torch</span><span class=o>.</span><span class=n>double</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>targetNet</span> <span class=o>=</span> <span class=n>NNet</span><span class=p>(</span><span class=n>n_actions</span><span class=o>=</span><span class=n>n_actions</span><span class=p>,</span> <span class=n>n_features</span><span class=o>=</span><span class=n>n_features</span><span class=p>,</span> <span class=n>hidden_size</span><span class=o>=</span><span class=n>hidden_size</span><span class=p>)</span><span class=o>.</span><span class=n>to</span><span class=p>(</span><span class=n>dtype</span><span class=o>=</span><span class=n>torch</span><span class=o>.</span><span class=n>double</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>memory_size</span> <span class=o>=</span> <span class=n>memory_size</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>replace_iter</span> <span class=o>=</span> <span class=n>replace_iter</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>train_step_counter</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>gamma</span> <span class=o>=</span> <span class=n>reward_decay</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>batch_size</span> <span class=o>=</span> <span class=mi>64</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>epsilon_max</span> <span class=o>=</span> <span class=n>e_greedy</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>epsilon</span> <span class=o>=</span> <span class=mi>0</span> <span class=k>if</span> <span class=n>e_greedy_increment</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span> <span class=k>else</span> <span class=bp>self</span><span class=o>.</span><span class=n>epsilon_max</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># initialize zero memory [s, a, r, s_]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>memory</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>((</span><span class=bp>self</span><span class=o>.</span><span class=n>memory_size</span><span class=p>,</span> <span class=n>n_features</span> <span class=o>*</span> <span class=mi>2</span> <span class=o>+</span> <span class=mi>2</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>trainStep</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>train_step_counter</span> <span class=o>%</span> <span class=bp>self</span><span class=o>.</span><span class=n>replace_iter</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>targetNet</span><span class=o>.</span><span class=n>load_state_dict</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>evalNet</span><span class=o>.</span><span class=n>state_dict</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=c1># print(&#39;\ntarget_params_replaced\n&#39;)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># sample batch memory from all memory</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>memory_counter</span> <span class=o>&gt;</span> <span class=bp>self</span><span class=o>.</span><span class=n>memory_size</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>sample_index</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>choice</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>memory_size</span><span class=p>,</span> <span class=n>size</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>batch_size</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>sample_index</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>choice</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>memory_counter</span><span class=p>,</span> <span class=n>size</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>batch_size</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1>#eval_optimizer = optim.SGD(self.evalNet.parameters(), lr=self.lr)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>eval_optimizer</span> <span class=o>=</span> <span class=n>optim</span><span class=o>.</span><span class=n>Adam</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>evalNet</span><span class=o>.</span><span class=n>parameters</span><span class=p>(),</span> <span class=n>lr</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>lr</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>criterion</span> <span class=o>=</span> <span class=n>nn</span><span class=o>.</span><span class=n>MSELoss</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>eval_optimizer</span><span class=o>.</span><span class=n>zero_grad</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># ------------------</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>N_STATES</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>n_features</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>b_memory</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>memory</span><span class=p>[</span><span class=n>sample_index</span><span class=p>,</span> <span class=p>:]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>b_s</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>DoubleTensor</span><span class=p>(</span><span class=n>b_memory</span><span class=p>[:,</span> <span class=p>:</span><span class=n>N_STATES</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>b_a</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>LongTensor</span><span class=p>(</span><span class=n>b_memory</span><span class=p>[:,</span> <span class=n>N_STATES</span><span class=p>:</span><span class=n>N_STATES</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span><span class=o>.</span><span class=n>astype</span><span class=p>(</span><span class=nb>int</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>b_r</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>DoubleTensor</span><span class=p>(</span><span class=n>b_memory</span><span class=p>[:,</span> <span class=n>N_STATES</span><span class=o>+</span><span class=mi>1</span><span class=p>:</span><span class=n>N_STATES</span><span class=o>+</span><span class=mi>2</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>b_s_</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>DoubleTensor</span><span class=p>(</span><span class=n>b_memory</span><span class=p>[:,</span> <span class=o>-</span><span class=n>N_STATES</span><span class=p>:])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=n>np</span><span class=o>.</span><span class=n>shape</span><span class=p>(</span><span class=n>b_a</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># q_eval w.r.t the action in experience</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>q_eval</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>evalNet</span><span class=p>(</span><span class=n>b_s</span><span class=p>)</span><span class=o>.</span><span class=n>gather</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=n>b_a</span><span class=p>)</span>  <span class=c1># shape (batch, 1)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>q_next</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>targetNet</span><span class=p>(</span><span class=n>b_s_</span><span class=p>)</span><span class=o>.</span><span class=n>detach</span><span class=p>()</span>     <span class=c1># detach from graph, don&#39;t backpropagate</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>q_target</span> <span class=o>=</span> <span class=n>b_r</span> <span class=o>+</span> <span class=bp>self</span><span class=o>.</span><span class=n>gamma</span> <span class=o>*</span> <span class=n>q_next</span><span class=o>.</span><span class=n>max</span><span class=p>(</span><span class=mi>1</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>view</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>batch_size</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>   <span class=c1># shape (batch, 1)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>loss</span> <span class=o>=</span> <span class=n>criterion</span><span class=p>(</span><span class=n>q_eval</span><span class=p>,</span> <span class=n>q_target</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>        <span class=n>loss</span><span class=o>.</span><span class=n>backward</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>eval_optimizer</span><span class=o>.</span><span class=n>step</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>train_step_counter</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>loss</span><span class=o>.</span><span class=n>item</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>store_transition</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>s</span><span class=p>,</span> <span class=n>a</span><span class=p>,</span> <span class=n>r</span><span class=p>,</span> <span class=n>s_</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=ow>not</span> <span class=nb>hasattr</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=s1>&#39;memory_counter&#39;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>memory_counter</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>        <span class=n>transition</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>hstack</span><span class=p>((</span><span class=n>s</span><span class=p>,</span> <span class=p>[</span><span class=n>a</span><span class=p>,</span> <span class=n>r</span><span class=p>],</span> <span class=n>s_</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>        <span class=n>index</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>memory_counter</span> <span class=o>%</span> <span class=bp>self</span><span class=o>.</span><span class=n>memory_size</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>memory</span><span class=p>[</span><span class=n>index</span><span class=p>,</span> <span class=p>:]</span> <span class=o>=</span> <span class=n>transition</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>memory_counter</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>choose_action</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>observation</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># to have batch dimension when feed into tf placeholder</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>observation</span> <span class=o>=</span> <span class=n>observation</span><span class=p>[</span><span class=n>np</span><span class=o>.</span><span class=n>newaxis</span><span class=p>,</span> <span class=p>:]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>observation</span> <span class=o>=</span> <span class=n>torch</span><span class=o>.</span><span class=n>tensor</span><span class=p>(</span><span class=n>observation</span><span class=p>,</span> <span class=n>dtype</span><span class=o>=</span><span class=n>torch</span><span class=o>.</span><span class=n>double</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>uniform</span><span class=p>()</span> <span class=o>&lt;</span> <span class=bp>self</span><span class=o>.</span><span class=n>epsilon</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=c1># forward feed the observation and get q value for every actions</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>actions_value</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>evalNet</span><span class=p>(</span><span class=n>observation</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>action</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>argmax</span><span class=p>(</span><span class=n>actions_value</span><span class=o>.</span><span class=n>detach</span><span class=p>()</span><span class=o>.</span><span class=n>numpy</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>action</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>n_actions</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>action</span></span></span></code></pre></td></tr></table></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span title="更新于 2023-11-22 16:19:17">更新于 2023-11-22&nbsp;<a class=git-hash href=https://github.com/SivanLaai/blog/commit/dc0a138757503df67f41c3fb7bb10569f83ce973 rel="external nofollow noopener noreferrer" target=_blank title="commit by SivanLaai(lyhhap@163.com) dc0a138757503df67f41c3fb7bb10569f83ce973: update passages"><i class="fa-solid fa-hashtag fa-fw" aria-hidden=true></i>dc0a138</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a href=/posts/learning/rl/q_learning/index.md title=阅读原始文档 class=link-to-markdown>阅读原始文档</a></span><span><a href=https://github.com/SivanLaai/blog/edit/master/content/posts/learning/rl/q_learning.md title=编辑此页 target=_blank rel="external nofollow noopener noreferrer" class=link-to-edit>编辑此页</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://www.laais.cn/posts/learning/rl/q_learning/ data-title=Q学习算法><i class="fa-brands fa-twitter fa-fw" aria-hidden=true></i></a>
 <a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://www.laais.cn/posts/learning/rl/q_learning/><i class="fa-brands fa-facebook-square fa-fw" aria-hidden=true></i></a>
 <a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://www.laais.cn/posts/learning/rl/q_learning/ data-title=Q学习算法><i class="fa-brands fa-hacker-news fa-fw" aria-hidden=true></i></a>
 <a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://www.laais.cn/posts/learning/rl/q_learning/ data-title=Q学习算法><i data-svg-src=/lib/simple-icons/icons/line.min.svg aria-hidden=true></i></a>
