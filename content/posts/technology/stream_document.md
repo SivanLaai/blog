@@ -29,7 +29,7 @@ StartLimitIntervalSec=500
 StartLimitBurst=5
 
 [Service]
-ExecStart=<see table>
+ExecStart=/usr/bin/sunshine
 Restart=on-failure
 RestartSec=5s
 #Flatpak Only
@@ -47,7 +47,7 @@ systemctl --user enable sunshine
 ## 配置sunshine支持外网
 
 ```
-vim ~/.config/sunshine.conf
+vim ~/.config/sunshine/sunshine.conf
 ```
  - 添加如下内容：
 ```bash
