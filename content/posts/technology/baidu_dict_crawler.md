@@ -1,8 +1,9 @@
 ---
 title: 百度汉语词典爬虫
 date: 2023-12-18T16:32:53+08:00
-draft: true
-categories: 
+draft: false
+categories:
+  - 技术
 tags:
 ---
 # 准备工作
