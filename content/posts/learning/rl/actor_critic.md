@@ -1,5 +1,5 @@
 ---
-title: 演员评论家算法
+title: 强化学习A2C算法解析与实现
 date: 2023-10-07T14:57:55+08:00
 draft: true
 categories:
@@ -27,6 +27,7 @@ tags:
 
 这样做的好处就是，大于b的Reward对应的动作概率就会增加，而小于b的Reward对应的动作就会减小，这就可以在一定程度上避免没有采样的概率变小。
 
+# 概念解释
 ## 批评家Critic
 
 批评家不作什么动作，而是对演员的动作进行打分。
@@ -39,8 +40,15 @@ tags:
 
 学习一个策略函数，根据状态s选择下一步的动作。
 
-# 算法
+## 算法流程
 
+# 算法Python实现和解释
+
+### 前置需求
+- 安装numpy
+- 安装torch cuda版本
+- 强化学习gym环境
+### 导入必要的包
 ```python
 import numpy as np
 
@@ -52,18 +60,21 @@ import torch.nn.functional as F
 import torch
 from torch import optim
 from torch import Tensor
-
+# 定义需要的包
 device = torch.device("cuda" if torch.cuda.is_available else "cpu")
-
+```
+### 实现对数熵
+```python
 class SoftCrossEntryopy(nn.CrossEntropyLoss):
     def __init__(self, weight: Tensor = None, size_average=None, ignore_index: int = -100,
              reduce=None, reduction: str = 'mean', label_smoothing: float = 0.0) -> None:
         super().__init__(weight, size_average, reduce, reduction)
     def forward(self, input: Tensor, target: Tensor) -> Tensor:
-        #output = torch.mean(torch.sum(-torch.log(input)*target), 1)
         output = torch.mean(torch.sum(-torch.log(input)*target))
         return output
+```
 
+```python
 class Critic(nn.Module):
     def __init__(self, 
                  n_features,
@@ -86,7 +97,9 @@ class Critic(nn.Module):
         #x = self.ln(x)
         x = self.fc2(x)
         return x
+```
 
+```python
 class Actor(nn.Module):
     def __init__(self, 
                  n_actions,
@@ -111,7 +124,9 @@ class Actor(nn.Module):
         x = self.fc2(x)
         x = F.softmax(x) # action probs
         return x
+```
 
+```python
 class AdvancedActorCritic:
     def __init__(
             self,
@@ -195,15 +210,17 @@ class AdvancedActorCritic:
         self.actor_learn(s, a, td_error)
         
 
+```
 
+```python
 import gym
 import matplotlib.pyplot as plt
 
-DISPLAY_REWARD_THRESHOLD = 50  # renders environment if total episode reward is greater then this threshold
-RENDER = False  # rendering wastes time
+DISPLAY_REWARD_THRESHOLD = 50  
+RENDER = False 
 
 env = gym.make('CartPole-v0')
-env.seed(1)     # reproducible, general Policy gradient has high variance
+env.seed(1) 
 env = env.unwrapped
 
 print(env.action_space)
@@ -216,7 +233,6 @@ RL = AdvancedActorCritic(
     n_features=env.observation_space.shape[0],
     learning_rate=0.02,
     reward_decay=0.99,
-    # output_graph=True,
 )
 
 for i_episode in range(3000):

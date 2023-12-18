@@ -1,5 +1,5 @@
 ---
-title: 强化学习策略梯度
+title: 强化学习策略梯度算法解析与代码实现
 date: 2023-11-22T16:14:17+08:00
 draft: true
 categories: 
@@ -148,7 +148,6 @@ RL = PolicyGradient(
     n_features=env.observation_space.shape[0],
     learning_rate=0.02,
     reward_decay=0.99,
-    # output_graph=True,
 )
 
 for i_episode in range(3000):
