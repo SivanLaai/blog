@@ -1,0 +1,808 @@
+<!doctype html><html itemscope itemtype=http://schema.org/WebPage lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=2"><meta name=robots content="noodp"><title>百度汉语词典爬虫 - SivanLaai's Blog</title><meta name=author content="SivanLaai">
+<meta name=author-link content="https://www.laais.cn"><meta name=description content="准备工作 分析请求头信息 为了防止限制，打开百度汉语官网并登录，使用浏览器F12复制所有请求头信息，其中cookie是登录信息 分析根据关键字查找"><meta name=keywords content="Hugo,FixIt,Rime,learning"><meta itemprop=name content="百度汉语词典爬虫"><meta itemprop=description content="准备工作 分析请求头信息 为了防止限制，打开百度汉语官网并登录，使用浏览器F12复制所有请求头信息，其中cookie是登录信息 分析根据关键字查找"><meta itemprop=datePublished content="2023-12-18T16:32:53+08:00"><meta itemprop=dateModified content="2023-12-18T19:32:50+08:00"><meta itemprop=wordCount content="2859"><meta itemprop=image content="https://www.laais.cn/avatar.png"><meta itemprop=keywords content><meta property="og:title" content="百度汉语词典爬虫"><meta property="og:description" content="准备工作 分析请求头信息 为了防止限制，打开百度汉语官网并登录，使用浏览器F12复制所有请求头信息，其中cookie是登录信息 分析根据关键字查找"><meta property="og:type" content="article"><meta property="og:url" content="https://www.laais.cn/posts/technology/baidu_dict_crawler/"><meta property="og:image" content="https://www.laais.cn/avatar.png"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-12-18T16:32:53+08:00"><meta property="article:modified_time" content="2023-12-18T19:32:50+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://www.laais.cn/avatar.png"><meta name=twitter:title content="百度汉语词典爬虫"><meta name=twitter:description content="准备工作 分析请求头信息 为了防止限制，打开百度汉语官网并登录，使用浏览器F12复制所有请求头信息，其中cookie是登录信息 分析根据关键字查找"><meta name=application-name content="Sivanlaai's blog"><meta name=apple-mobile-web-app-title content="Sivanlaai's blog"><meta name=theme-color data-light=#f8f8f8 data-dark=#252627 content="#f8f8f8"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://www.laais.cn/posts/technology/baidu_dict_crawler/><link rel=prev href=https://www.laais.cn/posts/learning/rl/q_learning/><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"百度汉语词典爬虫","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.laais.cn\/posts\/technology\/baidu_dict_crawler\/"},"image":["https:\/\/www.laais.cn\/apple-touch-icon.png"],"genre":"posts","wordcount":2859,"url":"https:\/\/www.laais.cn\/posts\/technology\/baidu_dict_crawler\/","datePublished":"2023-12-18T16:32:53+08:00","dateModified":"2023-12-18T19:32:50+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"SivanLaai","logo":"https:\/\/www.laais.cn\/avatar.png"},"author":{"@type":"Person","name":"SivanLaai"},"description":""}</script></head><body data-header-desktop=sticky data-header-mobile=auto><script>(window.localStorage?.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("data-theme","dark")</script><div class=wrapper data-page-style=custom><header class="desktop animate__faster" id=header-desktop><div class=header-wrapper data-github-corner=right><div class=header-title><a href=/ title="SivanLaai's Blog"><img loading=lazy src=/avatar.png srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" sizes=auto data-title="SivanLaai's Blog" data-alt="SivanLaai's Blog" class=logo style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'><span class=header-title-text>SivanLaai's blog</span></a><span class=header-subtitle></span></div><nav><ul class=menu><li class=menu-item><a class=menu-link href=/posts/><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> 所有文章</a></li><li class=menu-item><a class=menu-link href=/categories/><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden=true></i> 分类</a></li><li class=menu-item><a class=menu-link href=/tags/><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> 标签</a></li><li class=menu-item><a class=menu-link href=/ccf title=CCF推荐><i class="fa-solid fa-book fa-fw fa-sm" aria-hidden=true></i> CCF</a></li><li class=menu-item><a class=menu-link href=/about/><i class="fa-solid fa-info-circle fa-fw fa-sm" aria-hidden=true></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item language"><span role=button aria-label title>简体中文<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i></span><ul class=sub-menu><li class=menu-item></li></ul></li><li class="menu-item search" id=search-desktop><input type=text placeholder id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title><i class="fa-solid fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></li><li class="menu-item theme-switch" title><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></li></ul></nav></div></header><header class="mobile animate__faster" id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="SivanLaai's Blog"><img loading=lazy src=/avatar.png srcset="/avatar.png, /avatar.png 1.5x, /avatar.png 2x" sizes=auto data-title=/avatar.png data-alt=/avatar.png class=logo style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'><span class=header-title-text>SivanLaai's blog</span></a><span class=header-subtitle></span></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><nav><ul class=menu id=menu-mobile><li class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title><i class="fa-solid fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title><i class="fa-solid fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile></a></li><li class=menu-item><a class=menu-link href=/posts/><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden=true></i> 所有文章</a></li><li class=menu-item><a class=menu-link href=/categories/><i class="fa-solid fa-th fa-fw fa-sm" aria-hidden=true></i> 分类</a></li><li class=menu-item><a class=menu-link href=/tags/><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden=true></i> 标签</a></li><li class=menu-item><a class=menu-link href=/ccf title=CCF推荐><i class="fa-solid fa-book fa-fw fa-sm" aria-hidden=true></i> CCF</a></li><li class=menu-item><a class=menu-link href=/about/><i class="fa-solid fa-info-circle fa-fw fa-sm" aria-hidden=true></i> 关于</a></li><li class="menu-item text-center"><a class=menu-link href=https://github.com/SivanLaai/blog title=GitHub rel="noopener noreferrer" target=_blank><i class='fa-brands fa-github fa-fw' aria-hidden=true></i></a></li><li class="menu-item theme-switch" title><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></li><li class="menu-item language"><span role=button aria-label title>简体中文<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden=true></i>
+</span><select class=language-select onchange="location=this.value"><option disabled></option></select></li></ul></nav></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><script>var _hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?aa4e404535364259553aa4bd8f89bb3a",e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script><main class=container><aside class=toc id=toc-auto><h2 class=toc-title>目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden=true></i></h2><div class=toc-content id=toc-content-auto></div></aside><aside class=aside-custom></aside><article class="page single"><div class=header><h1 class="single-title animate__animated animate__flipInX"><span>百度汉语词典爬虫</span></h1></div><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://www.laais.cn title=作者 target=_blank rel="external nofollow noopener noreferrer author" class=author><i class="fa-solid fa-user-circle" aria-hidden=true></i>
+SivanLaai</a></span>
+<span class=post-category>收录于 <a href=/categories/%E6%8A%80%E6%9C%AF/><i class="fa-regular fa-folder fa-fw" aria-hidden=true></i> 技术</a></span></div><div class=post-meta-line><span title="发布于 2023-12-18 16:32:53"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden=true></i><time datetime=2023-12-18>2023-12-18</time></span>&nbsp;<span title="更新于 2023-12-18 19:32:50"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden=true></i><time datetime=2023-12-18>2023-12-18</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden=true></i>约 2859 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden=true></i>预计阅读 6 分钟</span>&nbsp;<span class=comment-visitors data-flag-title=百度汉语词典爬虫>
+<i class="fa-regular fa-eye fa-fw me-1" aria-hidden=true></i><span data-path=/posts/technology/baidu_dict_crawler/ class=waline-pageview-count>-</span>&nbsp;次阅读
+</span>&nbsp;</div></div><div class="details toc" id=toc-static data-kept=false><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fa-solid fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><ul><li><a href=#分析请求头信息>分析请求头信息</a></li><li><a href=#分析根据关键字查找所有词语的列表接口>分析根据关键字查找所有词语的列表接口</a></li><li><a href=#在mysql中建如下表格>在mysql中建如下表格</a></li><li><a href=#准备单个词典文件>准备单个词典文件</a></li><li><a href=#安装python对应安装包>安装python对应安装包</a></li></ul></li></ul><ul><li><ul><li><a href=#日志模块>日志模块</a></li><li><a href=#配置模块>配置模块</a></li><li><a href=#配置文件>配置文件</a></li><li><a href=#爬虫主程序>爬虫主程序</a></li><li><a href=#运行程序>运行程序</a></li><li><a href=#运行日志部分展示>运行日志（部分展示）</a></li><li><a href=#数据库存储部分展示>数据库存储（部分展示）</a></li></ul></li></ul></nav></div></div><div class=content id=content><h1 id=准备工作>准备工作</h1><h3 id=分析请求头信息>分析请求头信息</h3><ul><li>为了防止限制，打开<a href=https://hanyu.baidu.com/ target=_blank rel="external nofollow noopener noreferrer">百度汉语官网<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden=true></i></a>并登录，使用浏览器F12复制所有请求头信息，其中cookie是登录信息
+<img loading=lazy src=https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218171154.png srcset="https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218171154.png, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218171154.png 1.5x, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218171154.png 2x" sizes=auto data-title=image.png data-alt=image.png style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'></li></ul><h3 id=分析根据关键字查找所有词语的列表接口>分析根据关键字查找所有词语的列表接口</h3><ul><li><p>在百度汉语主页面搜索关键字“诗词大全”，会以列表的形式展现所有相关的词语，
+<img loading=lazy src=https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172801.png srcset="https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172801.png, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172801.png 1.5x, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172801.png 2x" sizes=auto data-title=image.png data-alt=image.png style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'></p></li><li><p>使用F12或者是其他的抓包工具，分析到新<a href=https://hanyu.baidu.com/hanyu/ajax/search_list target=_blank rel="external nofollow noopener noreferrer">接口<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden=true></i></a>会返回对应的词典信息，如下：
+<img loading=lazy src=https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172530.png srcset="https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172530.png, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172530.png 1.5x, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172530.png 2x" sizes=auto data-title=image.png data-alt=image.png style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'></p></li><li><p>分析参数
+<img loading=lazy src=https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172727.png srcset="https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172727.png, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172727.png 1.5x, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172727.png 2x" sizes=auto data-title=image.png data-alt=image.png style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'>
+wd 是 包含的关键字的所有词语，pn表示页码，其他参数不是很重要，实际测试发现，不设置也返回，这里建议保留你浏览器生成的默认参数。</p></li></ul><h3 id=在mysql中建如下表格>在mysql中建如下表格</h3><div class=highlight id=id-1><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=k>CREATE</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=o>`</span><span class=n>single_character_info</span><span class=o>`</span><span class=w> </span><span class=p>(</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=o>`</span><span class=n>pinyin</span><span class=o>`</span><span class=w> </span><span class=kt>varchar</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=w> </span><span class=k>CHARACTER</span><span class=w> </span><span class=kt>SET</span><span class=w> </span><span class=n>utf8mb4</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=no>NULL</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=o>`</span><span class=n>word</span><span class=o>`</span><span class=w> </span><span class=kt>varchar</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=no>NULL</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=o>`</span><span class=n>plainPinyin</span><span class=o>`</span><span class=w> </span><span class=kt>varchar</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=w> </span><span class=k>CHARACTER</span><span class=w> </span><span class=kt>SET</span><span class=w> </span><span class=n>utf8mb4</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=no>NULL</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=o>`</span><span class=n>definition</span><span class=o>`</span><span class=w> </span><span class=kt>varchar</span><span class=p>(</span><span class=mi>4096</span><span class=p>)</span><span class=w> </span><span class=k>CHARACTER</span><span class=w> </span><span class=kt>SET</span><span class=w> </span><span class=n>utf8mb4</span><span class=w> </span><span class=k>DEFAULT</span><span class=w> </span><span class=no>NULL</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=o>`</span><span class=n>pronunciation</span><span class=o>`</span><span class=w> </span><span class=kt>varchar</span><span class=p>(</span><span class=mi>255</span><span class=p>)</span><span class=w> </span><span class=k>DEFAULT</span><span class=w> </span><span class=no>NULL</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=o>`</span><span class=n>wordID</span><span class=o>`</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=k>DEFAULT</span><span class=w> </span><span class=no>NULL</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=k>PRIMARY</span><span class=w> </span><span class=k>KEY</span><span class=w> </span><span class=p>(</span><span class=o>`</span><span class=n>word</span><span class=o>`</span><span class=p>,</span><span class=o>`</span><span class=n>pinyin</span><span class=o>`</span><span class=p>)</span><span class=w> </span><span class=k>USING</span><span class=w> </span><span class=n>BTREE</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>)</span><span class=w> </span><span class=kp>ENGINE</span><span class=o>=</span><span class=n>InnoDB</span><span class=w> </span><span class=k>DEFAULT</span><span class=w> </span><span class=kp>CHARSET</span><span class=o>=</span><span class=n>utf8mb4</span><span class=p>;</span></span></span></code></pre></td></tr></table></div></div><h3 id=准备单个词典文件>准备单个词典文件</h3><p>下载地址：<a href=https://github.com/SivanLaai/BaiduPinyinCrawler/blob/main/data/clover.base.dict.yaml target=_blank rel="external nofollow noopener noreferrer">BaiduPinyinCrawler/data/clover.base.dict.yaml at main · SivanLaai/BaiduPinyinCrawler (github.com)<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1 text-secondary" aria-hidden=true></i></a></p><h3 id=安装python对应安装包>安装python对应安装包</h3><ul><li>使用pip安装如下包：</li></ul><div class=highlight id=id-2><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nv>certifi</span><span class=o>==</span>2022.6.15
+</span></span><span class=line><span class=cl>charset-normalizer<span class=o>==</span>2.1.1
+</span></span><span class=line><span class=cl><span class=nv>idna</span><span class=o>==</span>3.3
+</span></span><span class=line><span class=cl><span class=nv>PyMySQL</span><span class=o>==</span>1.0.2
+</span></span><span class=line><span class=cl><span class=nv>requests</span><span class=o>==</span>2.28.1
+</span></span><span class=line><span class=cl><span class=nv>six</span><span class=o>==</span>1.16.0
+</span></span><span class=line><span class=cl><span class=nv>urllib3</span><span class=o>==</span>1.26.12</span></span></code></pre></td></tr></table></div></div><h1 id=代码实现>代码实现</h1><h3 id=日志模块>日志模块</h3><div class=highlight id=id-3><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Logger.py</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>logging</span><span class=o>,</span> <span class=nn>logging.handlers</span><span class=o>,</span> <span class=nn>time</span><span class=o>,</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>Config</span> <span class=kn>import</span> <span class=n>config</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Log</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    logging的初始化操作，以类封装的形式进行
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 设置输出的等级</span>
+</span></span><span class=line><span class=cl>    <span class=n>LEVELS</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;NOSET&#34;</span><span class=p>:</span> <span class=n>logging</span><span class=o>.</span><span class=n>NOTSET</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;DEBUG&#34;</span><span class=p>:</span> <span class=n>logging</span><span class=o>.</span><span class=n>DEBUG</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;INFO&#34;</span><span class=p>:</span> <span class=n>logging</span><span class=o>.</span><span class=n>INFO</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;WARNING&#34;</span><span class=p>:</span> <span class=n>logging</span><span class=o>.</span><span class=n>WARNING</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;ERROR&#34;</span><span class=p>:</span> <span class=n>logging</span><span class=o>.</span><span class=n>ERROR</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;CRITICAL&#34;</span><span class=p>:</span> <span class=n>logging</span><span class=o>.</span><span class=n>CRITICAL</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=n>log_level</span> <span class=o>=</span> <span class=n>config</span><span class=p>[</span><span class=s1>&#39;LOG&#39;</span><span class=p>][</span><span class=s1>&#39;LEVEL&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 定义对应的程序模块名name，默认为root</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>logger</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 每次被调用后，清空已经存在handler</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>handlers</span><span class=o>.</span><span class=n>clear</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># log_path是存放日志的路径</span>
+</span></span><span class=line><span class=cl>        <span class=n>service_name</span> <span class=o>=</span> <span class=s2>&#34;FundCrawler&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=n>timestr</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=s2>&#34;%Y_%m_</span><span class=si>%d</span><span class=s2>&#34;</span><span class=p>,</span> <span class=n>time</span><span class=o>.</span><span class=n>localtime</span><span class=p>(</span><span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()))</span>
+</span></span><span class=line><span class=cl>        <span class=n>lib_path</span> <span class=o>=</span> <span class=n>config</span><span class=p>[</span><span class=s1>&#39;LOG&#39;</span><span class=p>][</span><span class=s1>&#39;LOG_PATH&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 如果不存在这个logs文件夹，就自动创建一个</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>lib_path</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>os</span><span class=o>.</span><span class=n>mkdir</span><span class=p>(</span><span class=n>lib_path</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 日志文件的地址</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>logname</span> <span class=o>=</span> <span class=n>lib_path</span> <span class=o>+</span> <span class=s2>&#34;/&#34;</span> <span class=o>+</span> <span class=n>service_name</span> <span class=o>+</span> <span class=s2>&#34;_&#34;</span> <span class=o>+</span> <span class=n>timestr</span> <span class=o>+</span> <span class=s2>&#34;.log&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># 必须设置，这里如果不显示设置，默认过滤掉warning之前的所有级别的信息</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>setLevel</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>log_level</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># 日志输出格式</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>formatter</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>Formatter</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;[</span><span class=si>%(asctime)s</span><span class=s2>] [</span><span class=si>%(levelname)s</span><span class=s2>]: </span><span class=si>%(message)s</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>)</span>  <span class=c1># [2019-05-15 14:48:52,947] - test.py] - ERROR: this is error</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># 创建一个FileHandler， 向文件logname输出日志信息</span>
+</span></span><span class=line><span class=cl>        <span class=c1># fh = logging.FileHandler(self.logname, &#39;a&#39;, encoding=&#39;utf-8&#39;)</span>
+</span></span><span class=line><span class=cl>        <span class=n>fh</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>handlers</span><span class=o>.</span><span class=n>RotatingFileHandler</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=n>filename</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>logname</span><span class=p>,</span> <span class=n>maxBytes</span><span class=o>=</span><span class=mi>1024</span> <span class=o>*</span> <span class=mi>1024</span> <span class=o>*</span> <span class=mi>50</span><span class=p>,</span> <span class=n>backupCount</span><span class=o>=</span><span class=mi>5</span>
+</span></span><span class=line><span class=cl>        <span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 设置日志等级</span>
+</span></span><span class=line><span class=cl>        <span class=n>fh</span><span class=o>.</span><span class=n>setLevel</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>log_level</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 设置handler的格式对象</span>
+</span></span><span class=line><span class=cl>        <span class=n>fh</span><span class=o>.</span><span class=n>setFormatter</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>formatter</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 将handler增加到logger中</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>addHandler</span><span class=p>(</span><span class=n>fh</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># 创建一个StreamHandler,用于输出到控制台</span>
+</span></span><span class=line><span class=cl>        <span class=n>ch</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>StreamHandler</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>ch</span><span class=o>.</span><span class=n>setLevel</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>log_level</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>ch</span><span class=o>.</span><span class=n>setFormatter</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>formatter</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>addHandler</span><span class=p>(</span><span class=n>ch</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># # 关闭打开的文件</span>
+</span></span><span class=line><span class=cl>        <span class=n>fh</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>info</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>message</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>debug</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>message</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>warning</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>message</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>error</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>message</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>critical</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>message</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>critical</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>global</span> <span class=n>logger</span>
+</span></span><span class=line><span class=cl><span class=n>logger</span> <span class=o>=</span> <span class=n>Log</span><span class=p>()</span></span></span></code></pre></td></tr></table></div></div><h3 id=配置模块>配置模块</h3><div class=highlight id=id-4><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Config.py</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>configparser</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>sys</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>global</span> <span class=n>config</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>config</span> <span class=o>=</span> <span class=n>configparser</span><span class=o>.</span><span class=n>ConfigParser</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>config</span><span class=o>.</span><span class=n>sections</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>config</span><span class=o>.</span><span class=n>read</span><span class=p>(</span><span class=s2>&#34;setting.ini&#34;</span><span class=p>)</span></span></span></code></pre></td></tr></table></div></div><h3 id=配置文件>配置文件</h3><div class=highlight id=id-5><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[LOG]
+</span></span><span class=line><span class=cl>LEVEL = INFO //日志等级
+</span></span><span class=line><span class=cl>LOG_PATH = ./FundCrawler/logs //日志目录
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[MYSQL]
+</span></span><span class=line><span class=cl>host = 127.0.0.1 //MYSQL服务器ip
+</span></span><span class=line><span class=cl>PORT = 20137 //MYSQL服务器端口
+</span></span><span class=line><span class=cl>USERNAME = username
+</span></span><span class=line><span class=cl>PASSWORD = password
+</span></span><span class=line><span class=cl>DATA_BASE_NAME = Fund</span></span></code></pre></td></tr></table></div></div><h3 id=爬虫主程序>爬虫主程序</h3><div class=highlight id=id-6><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span><span class=lnt>179
+</span><span class=lnt>180
+</span><span class=lnt>181
+</span><span class=lnt>182
+</span><span class=lnt>183
+</span><span class=lnt>184
+</span><span class=lnt>185
+</span><span class=lnt>186
+</span><span class=lnt>187
+</span><span class=lnt>188
+</span><span class=lnt>189
+</span><span class=lnt>190
+</span><span class=lnt>191
+</span><span class=lnt>192
+</span><span class=lnt>193
+</span><span class=lnt>194
+</span><span class=lnt>195
+</span><span class=lnt>196
+</span><span class=lnt>197
+</span><span class=lnt>198
+</span><span class=lnt>199
+</span><span class=lnt>200
+</span><span class=lnt>201
+</span><span class=lnt>202
+</span><span class=lnt>203
+</span><span class=lnt>204
+</span><span class=lnt>205
+</span><span class=lnt>206
+</span><span class=lnt>207
+</span><span class=lnt>208
+</span><span class=lnt>209
+</span><span class=lnt>210
+</span><span class=lnt>211
+</span><span class=lnt>212
+</span><span class=lnt>213
+</span><span class=lnt>214
+</span><span class=lnt>215
+</span><span class=lnt>216
+</span><span class=lnt>217
+</span><span class=lnt>218
+</span><span class=lnt>219
+</span><span class=lnt>220
+</span><span class=lnt>221
+</span><span class=lnt>222
+</span><span class=lnt>223
+</span><span class=lnt>224
+</span><span class=lnt>225
+</span><span class=lnt>226
+</span><span class=lnt>227
+</span><span class=lnt>228
+</span><span class=lnt>229
+</span><span class=lnt>230
+</span><span class=lnt>231
+</span><span class=lnt>232
+</span><span class=lnt>233
+</span><span class=lnt>234
+</span><span class=lnt>235
+</span><span class=lnt>236
+</span><span class=lnt>237
+</span><span class=lnt>238
+</span><span class=lnt>239
+</span><span class=lnt>240
+</span><span class=lnt>241
+</span><span class=lnt>242
+</span><span class=lnt>243
+</span><span class=lnt>244
+</span><span class=lnt>245
+</span><span class=lnt>246
+</span><span class=lnt>247
+</span><span class=lnt>248
+</span><span class=lnt>249
+</span><span class=lnt>250
+</span><span class=lnt>251
+</span><span class=lnt>252
+</span><span class=lnt>253
+</span><span class=lnt>254
+</span><span class=lnt>255
+</span><span class=lnt>256
+</span><span class=lnt>257
+</span><span class=lnt>258
+</span><span class=lnt>259
+</span><span class=lnt>260
+</span><span class=lnt>261
+</span><span class=lnt>262
+</span><span class=lnt>263
+</span><span class=lnt>264
+</span><span class=lnt>265
+</span><span class=lnt>266
+</span><span class=lnt>267
+</span><span class=lnt>268
+</span><span class=lnt>269
+</span><span class=lnt>270
+</span><span class=lnt>271
+</span><span class=lnt>272
+</span><span class=lnt>273
+</span><span class=lnt>274
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># PinyinDataCrawler.py</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>random</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>requests</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>json</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pymysql</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>Logger</span> <span class=kn>import</span> <span class=n>logger</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>Config</span> <span class=kn>import</span> <span class=n>config</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>header_str</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;Host:hanyu.baidu.com
+</span></span></span><span class=line><span class=cl><span class=s1>Connection:keep-alive
+</span></span></span><span class=line><span class=cl><span class=s1>sec-ch-ua:&#34;Chromium&#34;;v=&#34;92&#34;, &#34; Not A;Brand&#34;;v=&#34;99&#34;, &#34;Microsoft Edge&#34;;v=&#34;92&#34;
+</span></span></span><span class=line><span class=cl><span class=s1>Accept:application/json, text/javascript, */*; q=0.01
+</span></span></span><span class=line><span class=cl><span class=s1>X-Requested-With:XMLHttpRequest
+</span></span></span><span class=line><span class=cl><span class=s1>sec-ch-ua-mobile:?0
+</span></span></span><span class=line><span class=cl><span class=s1>User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36 Edg/92.0.902.67
+</span></span></span><span class=line><span class=cl><span class=s1>Sec-Fetch-Site:same-origin
+</span></span></span><span class=line><span class=cl><span class=s1>Sec-Fetch-Mode:cors
+</span></span></span><span class=line><span class=cl><span class=s1>Sec-Fetch-Dest:empty
+</span></span></span><span class=line><span class=cl><span class=s1>Referer:https://hanyu.baidu.com/s?wd=</span><span class=si>%E</span><span class=s1>5</span><span class=si>%8F</span><span class=s1>%B7</span><span class=si>%E</span><span class=s1>8%AF%8D</span><span class=si>%E</span><span class=s1>7%BB%84&amp;from=poem
+</span></span></span><span class=line><span class=cl><span class=s1>Accept-Encoding:gzip, deflate, br
+</span></span></span><span class=line><span class=cl><span class=s1>Accept-Language:zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7
+</span></span></span><span class=line><span class=cl><span class=s1>Cookie:填写自己的Cookie&#39;&#39;&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>params_str</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;wd=</span><span class=si>%E</span><span class=s1>5</span><span class=si>%8F</span><span class=s1>%B7</span><span class=si>%E</span><span class=s1>8%AF%8D</span><span class=si>%E</span><span class=s1>7%BB%84
+</span></span></span><span class=line><span class=cl><span class=s1>from=poem
+</span></span></span><span class=line><span class=cl><span class=s1>pn=1
+</span></span></span><span class=line><span class=cl><span class=s1>_=1628826451938&#39;&#39;&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>PinyinDataCrawler</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>homographWeightDict</span> <span class=o>=</span> <span class=nb>dict</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>conn</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>getConnection</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>character_list</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>getAllCharacters</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>f</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=s2>&#34;./data/luna_pinyin.dict.yaml&#34;</span><span class=p>,</span> <span class=s2>&#34;r&#34;</span><span class=p>,</span> <span class=n>encoding</span><span class=o>=</span><span class=s1>&#39;utf8&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>line</span> <span class=ow>in</span> <span class=n>f</span><span class=o>.</span><span class=n>readlines</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>            <span class=n>datas</span> <span class=o>=</span> <span class=n>line</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\t</span><span class=s1>&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>datas</span><span class=p>)</span> <span class=o>==</span> <span class=mi>3</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>word</span> <span class=o>=</span> <span class=n>datas</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                <span class=n>pinyin</span> <span class=o>=</span> <span class=n>datas</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                <span class=n>weight</span> <span class=o>=</span> <span class=n>datas</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=n>word</span> <span class=ow>not</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>homographWeightDict</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=bp>self</span><span class=o>.</span><span class=n>homographWeightDict</span><span class=p>[</span><span class=n>word</span><span class=p>]</span> <span class=o>=</span> <span class=nb>dict</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=n>pinyin</span>  <span class=ow>not</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>homographWeightDict</span><span class=p>[</span><span class=n>word</span><span class=p>]:</span>
+</span></span><span class=line><span class=cl>                    <span class=bp>self</span><span class=o>.</span><span class=n>homographWeightDict</span><span class=p>[</span><span class=n>word</span><span class=p>][</span><span class=n>pinyin</span><span class=p>]</span> <span class=o>=</span> <span class=nb>dict</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>homographWeightDict</span><span class=p>[</span><span class=n>word</span><span class=p>][</span><span class=n>pinyin</span><span class=p>]</span> <span class=o>=</span> <span class=n>weight</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>getHomograph</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>word</span><span class=o>=</span><span class=s2>&#34;不&#34;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>homographWeightDict</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>word</span><span class=p>,</span> <span class=nb>dict</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 把所有的多音字进行识别</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>splitHomograph</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>path</span><span class=o>=</span><span class=s1>&#39;./Clover四叶草拼音&#39;</span><span class=p>,</span> <span class=n>newPath</span><span class=o>=</span><span class=s1>&#39;./Clover四叶草拼音new&#39;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>newPath</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>os</span><span class=o>.</span><span class=n>mkdir</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;</span><span class=si>{</span><span class=n>newPath</span><span class=si>}</span><span class=s1>&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>file_now</span> <span class=ow>in</span> <span class=n>os</span><span class=o>.</span><span class=n>listdir</span><span class=p>(</span><span class=n>path</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>new_file_path</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>newPath</span><span class=p>,</span> <span class=n>file_now</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>curr_path</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>path</span><span class=p>,</span> <span class=n>file_now</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>new_file</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=n>new_file_path</span><span class=p>,</span> <span class=s1>&#39;w&#39;</span><span class=p>,</span> <span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=s1>&#39;base&#39;</span> <span class=ow>not</span> <span class=ow>in</span> <span class=n>curr_path</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>continue</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=n>line</span> <span class=ow>in</span> <span class=nb>open</span><span class=p>(</span><span class=n>curr_path</span><span class=p>,</span> <span class=n>encoding</span><span class=o>=</span><span class=s1>&#39;utf-8&#39;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=s2>&#34;</span><span class=se>\t</span><span class=s2>&#34;</span> <span class=ow>in</span> <span class=n>line</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=n>keyword</span> <span class=o>=</span> <span class=n>line</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\t</span><span class=s1>&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                    <span class=n>pinyin_old</span> <span class=o>=</span> <span class=n>line</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\t</span><span class=s1>&#39;</span><span class=p>)[</span><span class=mi>1</span><span class=p>]</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>                    <span class=n>count_str</span> <span class=o>=</span> <span class=n>line</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\t</span><span class=s1>&#39;</span><span class=p>)[</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=s2>&#34; &#34;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=n>pinyinDict</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>getHomograph</span><span class=p>(</span><span class=n>keyword</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>pinyinDict</span><span class=p>)</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                        <span class=n>new_file</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>line</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                        <span class=n>new_file</span><span class=o>.</span><span class=n>flush</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>                    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                        <span class=n>currPinyins</span> <span class=o>=</span> <span class=nb>sorted</span><span class=p>(</span><span class=n>pinyinDict</span><span class=o>.</span><span class=n>items</span><span class=p>(),</span> <span class=n>key</span><span class=o>=</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=n>reverse</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                        <span class=k>for</span> <span class=n>currPinyin</span> <span class=ow>in</span> <span class=n>currPinyins</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                            <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                                <span class=n>newLine</span> <span class=o>=</span> <span class=n>line</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=n>pinyin_old</span><span class=p>,</span> <span class=n>currPinyin</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=n>count_str</span><span class=p>,</span> <span class=n>currPinyin</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>                                <span class=n>new_file</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>newLine</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                                <span class=n>new_file</span><span class=o>.</span><span class=n>flush</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>                            <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                                <span class=nb>print</span><span class=p>(</span><span class=n>e</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=n>new_file</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>line</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=n>new_file</span><span class=o>.</span><span class=n>flush</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=n>new_file</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>format_header</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>header_str</span><span class=o>=</span><span class=n>header_str</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>header</span> <span class=o>=</span> <span class=nb>dict</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>line</span> <span class=ow>in</span> <span class=n>header_str</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>header</span><span class=p>[</span><span class=n>line</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;:&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]]</span> <span class=o>=</span> <span class=s2>&#34;:&#34;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>line</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;:&#39;</span><span class=p>)[</span><span class=mi>1</span><span class=p>:])</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>header</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>format_params</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>params_str</span><span class=o>=</span><span class=n>params_str</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>params</span> <span class=o>=</span> <span class=nb>dict</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>line</span> <span class=ow>in</span> <span class=n>params_str</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>params</span><span class=p>[</span><span class=n>line</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;=&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]]</span> <span class=o>=</span> <span class=n>line</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;=&#39;</span><span class=p>)[</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>params</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>getPlainPinyin</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>sug_py</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>splits</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;a&#39;</span><span class=p>,</span> <span class=s1>&#39;o&#39;</span><span class=p>,</span> <span class=s1>&#39;e&#39;</span><span class=p>,</span> <span class=s1>&#39;i&#39;</span><span class=p>,</span> <span class=s1>&#39;u&#39;</span><span class=p>,</span> <span class=s1>&#39;ü&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>shengdiao</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;a ā á ǎ à
+</span></span></span><span class=line><span class=cl><span class=s1>o ō ó ǒ ò
+</span></span></span><span class=line><span class=cl><span class=s1>e ē é ě è
+</span></span></span><span class=line><span class=cl><span class=s1>i ī í ǐ ì
+</span></span></span><span class=line><span class=cl><span class=s1>u ū ú ǔ ù
+</span></span></span><span class=line><span class=cl><span class=s1>ü ǖ ǘ ǚ ǜ&#39;&#39;&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=n>shengdiaoToWord</span> <span class=o>=</span> <span class=nb>dict</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>line</span> <span class=ow>in</span> <span class=n>shengdiao</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>datas</span> <span class=o>=</span> <span class=n>line</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=n>curr</span> <span class=ow>in</span> <span class=n>datas</span><span class=p>[</span><span class=mi>1</span><span class=p>:]:</span>
+</span></span><span class=line><span class=cl>                <span class=n>shengdiaoToWord</span><span class=p>[</span><span class=n>curr</span><span class=p>]</span> <span class=o>=</span> <span class=n>datas</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>plain_pinyin</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>curr</span> <span class=ow>in</span> <span class=n>sug_py</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>curr</span> <span class=ow>not</span> <span class=ow>in</span> <span class=n>shengdiaoToWord</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>plain_pinyin</span> <span class=o>+=</span> <span class=n>curr</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>plain_pinyin</span> <span class=o>+=</span> <span class=n>shengdiaoToWord</span><span class=p>[</span><span class=n>curr</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>plain_pinyin</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>storeWord</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>word</span><span class=p>,</span> <span class=n>currMean</span><span class=p>,</span> <span class=n>word_index</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>pinyin</span> <span class=o>=</span> <span class=n>currMean</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;pinyin&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>pinyin</span><span class=p>)</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>pinyin</span> <span class=o>=</span> <span class=n>pinyin</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>definition</span> <span class=o>=</span> <span class=n>currMean</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;definition&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>definition</span><span class=p>)</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>definition</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=se>\n</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>definition</span><span class=p>)</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=s2>&#34;&#39;&#34;</span><span class=p>,</span> <span class=s1>&#39;&#34;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>definition</span><span class=p>)</span> <span class=o>&gt;</span> <span class=mi>4096</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=n>definition</span> <span class=o>=</span> <span class=n>definition</span><span class=p>[:</span><span class=mi>4096</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>plain_pinyin</span> <span class=o>=</span> <span class=n>currMean</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;sug_py&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>plain_pinyin</span><span class=p>)</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>plain_pinyin</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>getPlainPinyin</span><span class=p>(</span><span class=n>pinyin</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>pronunciation</span> <span class=o>=</span> <span class=n>currMean</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;tone_py&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>pronunciation</span><span class=p>)</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>pronunciation</span> <span class=o>=</span> <span class=n>pronunciation</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>sql_str</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&#34;insert into single_character_info values (&#39;</span><span class=si>{</span><span class=n>pinyin</span><span class=si>}</span><span class=s2>&#39;, &#39;</span><span class=si>{</span><span class=n>word</span><span class=si>}</span><span class=s2>&#39;, </span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span><span class=s2>            &#39;</span><span class=si>{</span><span class=n>plain_pinyin</span><span class=si>}</span><span class=s2>&#39;, &#39;</span><span class=si>{</span><span class=n>definition</span><span class=si>}</span><span class=s2>&#39;, &#39;</span><span class=si>{</span><span class=n>pronunciation</span><span class=si>}</span><span class=s2>&#39;, </span><span class=si>{</span><span class=n>word_index</span><span class=si>}</span><span class=s2>)&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=n>cursor</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>conn</span><span class=o>.</span><span class=n>cursor</span><span class=p>(</span><span class=n>pymysql</span><span class=o>.</span><span class=n>cursors</span><span class=o>.</span><span class=n>DictCursor</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>cursor</span><span class=o>.</span><span class=n>execute</span><span class=p>(</span><span class=n>sql_str</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>conn</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=s2>&#34;Duplicate&#34;</span> <span class=ow>not</span> <span class=ow>in</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>e</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;word: </span><span class=si>{</span><span class=n>word</span><span class=si>}</span><span class=s2>, pinyin: </span><span class=si>{</span><span class=n>pinyin</span><span class=si>}</span><span class=s2>, error_info: </span><span class=si>{</span><span class=n>e</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>fixesDatas</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>f</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;1.txt&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>line</span> <span class=ow>in</span> <span class=n>f</span><span class=o>.</span><span class=n>readlines</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>            <span class=n>word</span> <span class=o>=</span> <span class=n>line</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=s2>&#34; &#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&#34;:&#34;</span><span class=p>)[</span><span class=o>-</span><span class=mi>3</span><span class=p>]</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&#34;,&#34;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;更新词组[</span><span class=si>{</span><span class=n>word</span><span class=si>}</span><span class=s2>]的数据&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>headers</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>format_header</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=n>params</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>format_params</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=n>params</span><span class=p>[</span><span class=s2>&#34;pn&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>            <span class=n>url</span> <span class=o>=</span> <span class=s2>&#34;https://hanyu.baidu.com/hanyu/ajax/search_list&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=n>params</span><span class=p>[</span><span class=s1>&#39;wd&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>word</span>
+</span></span><span class=line><span class=cl>            <span class=k>while</span> <span class=kc>True</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=n>response</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=p>,</span> <span class=n>params</span><span class=o>=</span><span class=n>params</span><span class=p>,</span> <span class=n>headers</span><span class=o>=</span><span class=n>headers</span><span class=p>,</span> <span class=n>timeout</span><span class=o>=</span><span class=p>(</span><span class=mf>3.05</span><span class=p>,</span> <span class=mi>10</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>                    <span class=k>break</span>
+</span></span><span class=line><span class=cl>                <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;error_info: </span><span class=si>{</span><span class=n>e</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=k>if</span> <span class=s1>&#39;timed out&#39;</span> <span class=ow>in</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>e</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                        <span class=k>continue</span>
+</span></span><span class=line><span class=cl>            <span class=n>datas</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>loads</span><span class=p>(</span><span class=n>response</span><span class=o>.</span><span class=n>text</span><span class=p>)</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;ret_array&#39;</span><span class=p>,</span> <span class=nb>list</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=n>currWordData</span> <span class=ow>in</span> <span class=n>datas</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=s1>&#39;mean_list&#39;</span> <span class=ow>not</span> <span class=ow>in</span> <span class=n>currWordData</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;warning_info: </span><span class=si>{</span><span class=n>word</span><span class=si>}</span><span class=s2> has not mean_list&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=k>continue</span>
+</span></span><span class=line><span class=cl>                <span class=n>currMeanList</span> <span class=o>=</span> <span class=n>currWordData</span><span class=p>[</span><span class=s2>&#34;mean_list&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=n>word</span> <span class=o>=</span> <span class=n>currWordData</span><span class=p>[</span><span class=s2>&#34;name&#34;</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                    <span class=k>for</span> <span class=n>currMean</span> <span class=ow>in</span> <span class=n>currMeanList</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                        <span class=bp>self</span><span class=o>.</span><span class=n>storeWord</span><span class=p>(</span><span class=n>word</span><span class=p>,</span> <span class=n>currMean</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=k>break</span>
+</span></span><span class=line><span class=cl>                <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;error_info: </span><span class=si>{</span><span class=n>e</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>parserDatas</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>word</span><span class=p>,</span> <span class=n>datas</span><span class=p>,</span> <span class=n>word_index</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>currWordData</span> <span class=ow>in</span> <span class=n>datas</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=s1>&#39;mean_list&#39;</span> <span class=ow>not</span> <span class=ow>in</span> <span class=n>currWordData</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;warning_info: </span><span class=si>{</span><span class=n>word</span><span class=si>}</span><span class=s2> has not mean_list&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>continue</span>
+</span></span><span class=line><span class=cl>            <span class=n>currMeanList</span> <span class=o>=</span> <span class=n>currWordData</span><span class=p>[</span><span class=s2>&#34;mean_list&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>word</span> <span class=o>=</span> <span class=n>currWordData</span><span class=p>[</span><span class=s2>&#34;name&#34;</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=n>currMean</span> <span class=ow>in</span> <span class=n>currMeanList</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>storeWord</span><span class=p>(</span><span class=n>word</span><span class=p>,</span> <span class=n>currMean</span><span class=p>,</span> <span class=n>word_index</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>getConnection</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>host</span> <span class=o>=</span> <span class=n>config</span><span class=p>[</span><span class=s2>&#34;MYSQL&#34;</span><span class=p>][</span><span class=s2>&#34;HOST&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>port</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=n>config</span><span class=p>[</span><span class=s2>&#34;MYSQL&#34;</span><span class=p>][</span><span class=s2>&#34;PORT&#34;</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>        <span class=n>db</span> <span class=o>=</span> <span class=n>config</span><span class=p>[</span><span class=s2>&#34;MYSQL&#34;</span><span class=p>][</span><span class=s2>&#34;DATA_BASE_NAME&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>user</span> <span class=o>=</span> <span class=n>config</span><span class=p>[</span><span class=s2>&#34;MYSQL&#34;</span><span class=p>][</span><span class=s2>&#34;USERNAME&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>password</span> <span class=o>=</span> <span class=n>config</span><span class=p>[</span><span class=s2>&#34;MYSQL&#34;</span><span class=p>][</span><span class=s2>&#34;PASSWORD&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>conn</span> <span class=o>=</span> <span class=n>pymysql</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span><span class=n>host</span><span class=o>=</span><span class=n>host</span><span class=p>,</span> <span class=n>port</span><span class=o>=</span><span class=n>port</span><span class=p>,</span> <span class=n>db</span><span class=o>=</span><span class=n>db</span><span class=p>,</span> <span class=n>user</span><span class=o>=</span><span class=n>user</span><span class=p>,</span> <span class=n>password</span><span class=o>=</span><span class=n>password</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>conn</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>getCurrWordPageCount</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>url</span><span class=p>,</span> <span class=n>params</span><span class=p>,</span> <span class=n>headers</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>pageCount</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=n>pageCount</span> <span class=o>==</span> <span class=o>-</span><span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>response</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=p>,</span> <span class=n>params</span><span class=o>=</span><span class=n>params</span><span class=p>,</span> <span class=n>headers</span><span class=o>=</span><span class=n>headers</span><span class=p>,</span> <span class=n>timeout</span><span class=o>=</span><span class=p>(</span><span class=mf>3.05</span><span class=p>,</span> <span class=mi>27</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>response</span><span class=o>.</span><span class=n>text</span><span class=p>)</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=k>break</span>
+</span></span><span class=line><span class=cl>                <span class=n>pageDatas</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>loads</span><span class=p>(</span><span class=n>response</span><span class=o>.</span><span class=n>text</span><span class=p>)</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;extra&#39;</span><span class=p>,</span> <span class=nb>dict</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>                <span class=n>pageCount</span> <span class=o>=</span> <span class=n>pageDatas</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;total-page&#34;</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;getCurrWordPageCount, error_info: </span><span class=si>{</span><span class=n>e</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=mi>10</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;getCurrWordPageCount, pageCount = </span><span class=si>{</span><span class=n>pageCount</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>pageCount</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>crawlerExactPhrasePinyin</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>word</span><span class=o>=</span><span class=s2>&#34;号&#34;</span><span class=p>,</span> <span class=n>word_index</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>characters</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>phrase</span><span class=o>=</span><span class=kc>True</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>characters</span> <span class=ow>is</span> <span class=kc>None</span> <span class=ow>and</span> <span class=n>phrase</span> <span class=ow>is</span> <span class=kc>True</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>characters</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>character_list</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>characters</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>characters</span> <span class=o>=</span> <span class=nb>list</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>headers</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>format_header</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>params</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>format_params</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>params</span><span class=p>[</span><span class=s2>&#34;pn&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=n>url</span> <span class=o>=</span> <span class=s2>&#34;https://hanyu.baidu.com/hanyu/ajax/search_list&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>phrase</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>params</span><span class=p>[</span><span class=s1>&#39;wd&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>word</span> <span class=o>+</span> <span class=s2>&#34;词组&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>params</span><span class=p>[</span><span class=s1>&#39;wd&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>word</span>
+</span></span><span class=line><span class=cl>        <span class=n>pageCount</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>getCurrWordPageCount</span><span class=p>(</span><span class=n>url</span><span class=p>,</span> <span class=n>params</span><span class=p>,</span> <span class=n>headers</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>currPageIndex</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=n>currPageIndex</span> <span class=o>&lt;</span> <span class=n>pageCount</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>params</span><span class=p>[</span><span class=s2>&#34;pn&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=n>currPageIndex</span>
+</span></span><span class=line><span class=cl>            <span class=k>while</span> <span class=n>params</span><span class=p>[</span><span class=s2>&#34;pn&#34;</span><span class=p>]</span> <span class=o>==</span> <span class=n>currPageIndex</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;更新汉字[</span><span class=si>{</span><span class=n>word</span><span class=si>}</span><span class=s2>](</span><span class=si>{</span><span class=n>word_index</span> <span class=o>+</span> <span class=mi>1</span><span class=si>}</span><span class=s2> / </span><span class=si>{</span><span class=nb>len</span><span class=p>(</span><span class=n>characters</span><span class=p>)</span><span class=si>}</span><span class=s2>)的词组数据(页数:</span><span class=si>{</span><span class=n>currPageIndex</span> <span class=o>+</span> <span class=mi>1</span><span class=si>}</span><span class=s2> / </span><span class=si>{</span><span class=n>pageCount</span><span class=si>}</span><span class=s2>) &#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=n>response</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=p>,</span> <span class=n>params</span><span class=o>=</span><span class=n>params</span><span class=p>,</span> <span class=n>headers</span><span class=o>=</span><span class=n>headers</span><span class=p>,</span> <span class=n>timeout</span><span class=o>=</span><span class=p>(</span><span class=mf>3.05</span><span class=p>,</span> <span class=mi>10</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>                    <span class=n>datas</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>loads</span><span class=p>(</span><span class=n>response</span><span class=o>.</span><span class=n>text</span><span class=p>)</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;ret_array&#39;</span><span class=p>,</span> <span class=nb>list</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>                    <span class=bp>self</span><span class=o>.</span><span class=n>parserDatas</span><span class=p>(</span><span class=n>word</span><span class=p>,</span> <span class=n>datas</span><span class=p>,</span> <span class=n>word_index</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=n>currPageIndex</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>                <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                    <span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;更新汉字</span><span class=si>{</span><span class=n>word</span><span class=si>}</span><span class=s2>出现错误, 错误信息: </span><span class=si>{</span><span class=n>e</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=mi>9</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>            <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span> <span class=mi>100</span><span class=p>)</span> <span class=o>*</span> <span class=mf>0.01</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;更新汉字[</span><span class=si>{</span><span class=n>word</span><span class=si>}</span><span class=s2>]的词组数据完成。&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>getAllCharacters</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>file_path</span> <span class=o>=</span> <span class=s1>&#39;./data/clover.base.dict.yaml&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=n>file</span> <span class=o>=</span> <span class=nb>open</span><span class=p>(</span><span class=n>file_path</span><span class=p>,</span> <span class=s1>&#39;r&#39;</span><span class=p>,</span> <span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>character_list</span> <span class=o>=</span> <span class=nb>list</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>line</span> <span class=ow>in</span> <span class=n>file</span><span class=o>.</span><span class=n>readlines</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=s1>&#39;</span><span class=se>\t</span><span class=s1>&#39;</span> <span class=ow>in</span> <span class=n>line</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>word</span> <span class=o>=</span> <span class=n>line</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\t</span><span class=s1>&#39;</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=n>word</span> <span class=ow>not</span> <span class=ow>in</span> <span class=nb>set</span><span class=p>(</span><span class=n>character_list</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                    <span class=n>character_list</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>word</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>character_list</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>getCurrCharacterStoreIndex</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>sql_str</span> <span class=o>=</span> <span class=s1>&#39;select * from single_character_info order by wordID desc&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=n>cursor</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>conn</span><span class=o>.</span><span class=n>cursor</span><span class=p>(</span><span class=n>pymysql</span><span class=o>.</span><span class=n>cursors</span><span class=o>.</span><span class=n>DictCursor</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>cursor</span><span class=o>.</span><span class=n>execute</span><span class=p>(</span><span class=n>sql_str</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>data</span> <span class=o>=</span> <span class=n>cursor</span><span class=o>.</span><span class=n>fetchone</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;getCurrCharacterStoreIndex data = </span><span class=si>{</span><span class=n>data</span><span class=si>}</span><span class=s1>&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>data</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>data</span><span class=p>[</span><span class=s1>&#39;wordID&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>crawlerPhraseDict</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>characters</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>character_list</span>
+</span></span><span class=line><span class=cl>        <span class=n>i</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>getCurrCharacterStoreIndex</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=c1>#i = 41318</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=nb>len</span><span class=p>(</span><span class=n>characters</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>word</span> <span class=o>=</span> <span class=n>characters</span><span class=p>[</span><span class=n>i</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;开始更新汉字[</span><span class=si>{</span><span class=n>word</span><span class=si>}</span><span class=s1>](</span><span class=si>{</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=si>}</span><span class=s1>/</span><span class=si>{</span><span class=nb>len</span><span class=p>(</span><span class=n>characters</span><span class=p>)</span><span class=si>}</span><span class=s1>)的数据...&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>crawlerExactPhrasePinyin</span><span class=p>(</span><span class=n>word</span><span class=p>,</span> <span class=n>i</span><span class=p>,</span> <span class=n>characters</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>i</span> <span class=o>=</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>            <span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;更新汉字[</span><span class=si>{</span><span class=n>word</span><span class=si>}</span><span class=s1>](</span><span class=si>{</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=si>}</span><span class=s1>/</span><span class=si>{</span><span class=nb>len</span><span class=p>(</span><span class=n>characters</span><span class=p>)</span><span class=si>}</span><span class=s1>)的数据完成！&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>5</span><span class=p>)</span> <span class=o>*</span> <span class=mf>0.2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>PinyinDataCrawler</span><span class=p>()</span><span class=o>.</span><span class=n>crawlerPhraseDict</span><span class=p>()</span></span></span></code></pre></td></tr></table></div></div><ul><li>注意事项<ul><li>需要把header_str中的Cookie替换成你电脑浏览器生成的Cookie</li><li>主程序中为了防止被ban加入了随机时间暂停的功能，不要轻易修改这部分，以防自己账号被封禁</li><li>数据量比较多，大概有35W的数据，又有随机暂停，所以需要抓取2-3天左右，建议后台运行</li></ul></li></ul><h3 id=运行程序>运行程序</h3><ul><li>把上述所有模块放在一个文件夹下，字典放在data目录下，进行项目目录运行下面代码</li></ul><div class=highlight id=id-7><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>python PinyinDataCrawler.py</span></span></code></pre></td></tr></table></div></div><ul><li>项目的源码：https://github.com/SivanLaai/BaiduPinyinCrawler</li></ul><h3 id=运行日志部分展示>运行日志（部分展示）</h3><p><img loading=lazy src=https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218173958.png srcset="https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218173958.png, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218173958.png 1.5x, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218173958.png 2x" sizes=auto data-title=image.png data-alt=image.png style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'></p><h3 id=数据库存储部分展示>数据库存储（部分展示）</h3><p><img loading=lazy src=https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218174038.png srcset="https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218174038.png, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218174038.png 1.5x, https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218174038.png 2x" sizes=auto data-title=image.png data-alt=image.png style="background:url(/svg/loading.min.svg)no-repeat 50%" onload='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e);this.dataset.lazyloaded=""' onerror='this.title=this.dataset.title,this.alt=this.dataset.alt;for(const e of["style","data-title","data-alt","onerror","onload"])this.removeAttribute(e)'></p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span title="更新于 2023-12-18 19:32:50">更新于 2023-12-18&nbsp;<a class=git-hash href=https://github.com/SivanLaai/blog/commit/f4282fba2904f517860c6e20e85c634022752fec rel="external nofollow noopener noreferrer" target=_blank title="commit by SivanLaai(lyhhap@163.com) f4282fba2904f517860c6e20e85c634022752fec: update passages"><i class="fa-solid fa-hashtag fa-fw" aria-hidden=true></i>f4282fb</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a href=/posts/technology/baidu_dict_crawler/index.md title=阅读原始文档 class=link-to-markdown>阅读原始文档</a></span><span><a href=https://github.com/SivanLaai/blog/edit/master/content/posts/technology/baidu_dict_crawler.md title=编辑此页 target=_blank rel="external nofollow noopener noreferrer" class=link-to-edit>编辑此页</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://www.laais.cn/posts/technology/baidu_dict_crawler/ data-title=百度汉语词典爬虫><i class="fa-brands fa-twitter fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://www.laais.cn/posts/technology/baidu_dict_crawler/><i class="fa-brands fa-facebook-square fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://www.laais.cn/posts/technology/baidu_dict_crawler/ data-title=百度汉语词典爬虫><i class="fa-brands fa-hacker-news fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://www.laais.cn/posts/technology/baidu_dict_crawler/ data-title=百度汉语词典爬虫><i data-svg-src=/lib/simple-icons/icons/line.min.svg aria-hidden=true></i></a>
+<a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://www.laais.cn/posts/technology/baidu_dict_crawler/ data-title=百度汉语词典爬虫><i class="fa-brands fa-weibo fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/learning/rl/q_learning/ class=post-nav-item rel=prev title=Q学习算法><i class="fa-solid fa-angle-left fa-fw" aria-hidden=true></i>Q学习算法</a></div></div><div id=comments><div id=waline class=comment></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://waline.js.org/ rel="external nofollow noopener noreferrer">Waline</a>.</noscript></div></article></main><footer class=footer><div class=footer-container><div class="footer-line copyright" itemscope itemtype=http://schema.org/CreativeWork><i class="fa-regular fa-copyright fa-fw" aria-hidden=true></i>
+<span itemprop=copyrightYear>2018 - 2023</span><span class=author itemprop=copyrightHolder>
+<a href=https://www.laais.cn target=_blank rel="external nofollow noopener noreferrer">SivanLaai</a></span></div><div class="footer-line statistics"><span class=site-time title><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden=true></i>&nbsp;<span class=run-times></span></span></div><div class="footer-line beian"><a href=https://beian.miit.gov.cn class="icp footer-divider">京ICP备2023014024号-1</a></div></div></footer></div><div class=widgets><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role=button aria-label=回到顶部><i class="fa-solid fa-arrow-up fa-fw" aria-hidden=true></i><span class=variant-numeric>0%</span></div><div class="fixed-button view-comments d-none" role=button aria-label=查看评论><i class="fa-solid fa-comment fa-fw" aria-hidden=true></i></div></div><a href=https://github.com/SivanLaai/blog title="在 GitHub 上查看源代码" target=_blank rel="external nofollow" class="github-corner right d-none-mobile"><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div id=mask></div><div class=reading-progress-bar style=left:0;top:0;--bg-progress:#000;--bg-progress-dark:#fff></div><noscript><div class=noscript-warning>FixIt 主题在启用 JavaScript 的情况下效果最佳。</div></noscript></div><link rel=stylesheet href=/lib/waline/waline.css><link rel=stylesheet href=/lib/katex/katex.min.css><script src=/lib/waline/waline.js defer></script><script src=/lib/autocomplete/autocomplete.min.js defer></script><script src=/lib/fuse/fuse.min.js defer></script><script src=/lib/sharer/sharer.min.js async defer></script><script src=/lib/katex/katex.min.js defer></script><script src=/lib/katex/auto-render.min.js defer></script><script src=/lib/katex/copy-tex.min.js defer></script><script src=/lib/katex/mhchem.min.js defer></script><script src=/lib/pangu/pangu.min.js defer></script><script src=/lib/cell-watermark/watermark.min.js defer></script><script>window.config={autoBookmark:!0,code:{copyTitle:"复制到剪贴板",editLockTitle:"锁定可编辑代码块",editUnLockTitle:"解锁可编辑代码块",editable:!0,maxShownLines:10},comment:{enable:!0,expired:!1,waline:{copyright:!0,dark:"body[data-theme='dark']",el:"#waline",emoji:["//unpkg.com/@waline/emojis@1.1.0/weibo"],highlighter:!1,imageUploader:!1,lang:"zh-cn",login:"enable",meta:["nick","mail","link"],pageSize:10,pageview:!0,search:!1,serverURL:"https://comment.laais.cn/",texRenderer:!1}},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},pangu:{enable:!0,selector:""},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"没有找到结果",snippetLength:30,threshold:.3,type:"fuse",useExtendedSearch:!1},watermark:{appendto:".wrapper>main",colspacing:30,content:'<img class="fixit-icon" src="/safari-pinned-tab.svg" alt="FixIt logo" /> FixIt 主题',enable:!0,fontfamily:"inherit",fontsize:.85,height:21,opacity:.0125,rotate:15,rowspacing:60,width:150}}</script><script src=/js/theme.min.js defer></script></body></html>

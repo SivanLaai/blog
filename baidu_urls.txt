@@ -1,3 +1,4 @@
+https://www.laais.cn/posts/technology/baidu_dict_crawler/
 https://www.laais.cn/ccf/
 https://www.laais.cn/posts/learning/rl/q_learning/
 https://www.laais.cn/posts/learning/rl/rl_basic/
