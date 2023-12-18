@@ -13,7 +13,9 @@
 ![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172530.png)
 
 - 分析参数
+
 ![image.png](https://cdn.statically.io/gh/SivanLaai/image-store-rep@master/note/20231218172727.png)
+
 wd 是 包含的关键字的所有词语，pn表示页码，其他参数不是很重要，实际测试发现，不设置也返回，这里建议保留你浏览器生成的默认参数。
 ### 在mysql中建如下表格
 
