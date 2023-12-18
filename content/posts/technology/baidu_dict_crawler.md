@@ -449,13 +449,14 @@ if __name__ == "__main__":
     PinyinDataCrawler().crawlerPhraseDict()
 ```
 - 注意事项
-需要把header_str中的Cookie替换成你电脑浏览器生成的Cookie
+	- 需要把header_str中的Cookie替换成你电脑浏览器生成的Cookie
+	- 主程序中为了防止被ban加入了随机时间暂停的功能，不要轻易修改这部分，以防自己账号被封禁
+	- 数据量比较多，大概有35W的数据，又有随机暂停，所以需要抓取2-3天左右，建议后台运行
 ### 运行程序
 - 把上述所有模块放在一个文件夹下，字典放在data目录下，进行项目目录运行下面代码
 ```bash
 python PinyinDataCrawler.py
 ```
-- 数据量比较多，大概有35W的数据，需要抓取2-3天左右，建议后台运行
 - 项目的源码：https://github.com/SivanLaai/BaiduPinyinCrawler
 ### 运行日志（部分展示）
 
