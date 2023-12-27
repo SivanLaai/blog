@@ -257,6 +257,6 @@ class DeepQNetwork(object):
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/learning/rl/q_learning/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/learning/rl/q_learning/  
 

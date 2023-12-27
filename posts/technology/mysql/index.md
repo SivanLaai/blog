@@ -65,6 +65,6 @@ FLUSH PRIVILEGES;
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/technology/mysql/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/technology/mysql/  
 

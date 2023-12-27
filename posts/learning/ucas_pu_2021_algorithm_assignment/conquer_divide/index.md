@@ -378,6 +378,6 @@ int main()
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/learning/ucas_pu_2021_algorithm_assignment/conquer_divide/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/learning/ucas_pu_2021_algorithm_assignment/conquer_divide/  
 

@@ -221,7 +221,7 @@
 
   
 
-- [查看安装方法](https://www.laais.cn/posts/projects/rime/installation/)
+- [查看安装方法](https://blog.laais.cn/posts/projects/rime/installation/)
 
   
 
@@ -313,7 +313,7 @@
  - 2.修复小鹤双拼简繁转换问题
  - 3.自然码支持简繁转换问题
 
-#### [查看全部历史](https://www.laais.cn/posts/projects/rime/update_history/)
+#### [查看全部历史](https://blog.laais.cn/posts/projects/rime/update_history/)
 
   
 
@@ -391,6 +391,6 @@ Copyright (c) 2020-present SivanLaai
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/projects/rime/info/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/projects/rime/info/  
 

@@ -13,6 +13,6 @@ $$\nabla\psi(x,y)-\epsilon\psi(x,y)=\rho(x,y),(x,y)\in R$$
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/research/desity_modeling/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/research/desity_modeling/  
 

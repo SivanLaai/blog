@@ -65,4 +65,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: https://www.laais.cn/sitemap.xml
+Sitemap: https://blog.laais.cn/sitemap.xml

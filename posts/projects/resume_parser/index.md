@@ -109,6 +109,6 @@ fc-cache -fv
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/projects/resume_parser/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/projects/resume_parser/  
 

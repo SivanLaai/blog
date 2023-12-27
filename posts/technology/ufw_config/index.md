@@ -82,6 +82,6 @@ sudo ufw delete allow from 203.0.113.101 to any port 8080
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/technology/ufw_config/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/technology/ufw_config/  
 

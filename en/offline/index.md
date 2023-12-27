@@ -4,6 +4,6 @@
 
 ---
 
-> Author: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/en/offline/  
+> Author: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/en/offline/  
 

@@ -330,5 +330,5 @@ Connected (press CTRL+C to quit)
 ---
 
 > 作者: prinsss  
-> URL: https://www.laais.cn/posts/technology/lattern/  
+> URL: https://blog.laais.cn/posts/technology/lattern/  
 

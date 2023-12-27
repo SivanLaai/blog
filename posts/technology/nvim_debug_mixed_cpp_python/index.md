@@ -134,6 +134,6 @@ gdbserver localhost:1234 ~/anaconda3/bin/python unittest/ops/lpabs_wirelength_un
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/technology/nvim_debug_mixed_cpp_python/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/technology/nvim_debug_mixed_cpp_python/  
 

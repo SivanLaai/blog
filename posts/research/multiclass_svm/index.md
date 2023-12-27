@@ -17,6 +17,6 @@ $$执行 W = W - \alpha \frac{dL}{dW},在根据W求s，然后求loss，最后优
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/research/multiclass_svm/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/research/multiclass_svm/  
 

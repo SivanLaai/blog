@@ -49,6 +49,6 @@ Actor做出动作，Critic对动作进行打分
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/learning/rl/rl_basic/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/learning/rl/rl_basic/  
 

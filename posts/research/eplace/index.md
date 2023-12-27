@@ -362,6 +362,6 @@ $$\gamma(\tau)=8.0w_b\times10^{k\tau+b} \tag{38}$$
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/research/eplace/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/research/eplace/  
 

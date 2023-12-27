@@ -62,6 +62,6 @@ $$b = b - \alpha \cdot db$$
 
 ---
 
-> 作者: [SivanLaai](https://www.laais.cn)  
-> URL: https://www.laais.cn/posts/research/neural_network/  
+> 作者: [SivanLaai](https://blog.laais.cn)  
+> URL: https://blog.laais.cn/posts/research/neural_network/  
 
