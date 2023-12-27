@@ -7,7 +7,7 @@
 
 文章内容所见即所得。写完文章后快捷键 ```Crtl + U```快速发布文章，然后等待GitHub Action部署完成，刷新页面就可以看到新文章，如下为展示的效果：
 
-[点击预览](https://www.laais.cn/video/obsdidian_hugo_auto_deploy.mp4)
+[点击预览](https://blog.laais.cn/video/obsdidian_hugo_auto_deploy.mp4)
 
 
 # 快速开始

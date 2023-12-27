@@ -1,5 +1,5 @@
 title = "SivanLaai's Blog"
-baseURL = "https://www.laais.cn"
+baseURL = "https://blog.laais.cn"
 # theme
 # 主题
 theme = "FixIt"
@@ -859,7 +859,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 [author]
   name = "SivanLaai"
   email = "lyhhap@163.com"
-  link = "https://www.laais.cn"
+  link = "https://blog.laais.cn"
 
 # Sitemap config
 # 网站地图配置

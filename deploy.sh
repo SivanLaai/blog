@@ -19,7 +19,7 @@ hugo --gc --minify --cleanDestinationDir
 cd public
 
 # deploy to github pages
-echo 'www.laais.cn' > CNAME
+echo 'blog.laais.cn' > CNAME
 username="SivanLaai"
 email="lyhhap@163.com"
 git config --global user.name "$username"

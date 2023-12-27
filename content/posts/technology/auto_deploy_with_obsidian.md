@@ -106,8 +106,8 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: PASSWORD
       SITE_NAME: "SivanLaai's Blog"
-      SITE_URL: 'http://www.laais.cn'
-      SECURE_DOMAINS: 'www.laais.cn'
+      SITE_URL: 'http://blog.laais.cn'
+      SECURE_DOMAINS: 'blog.laais.cn'
       AUTHOR_EMAIL: 'eamil@163.com'
       SMTP_PASS: SMTP_PASSWORD
       SMTP_USER: qqid@qq.com
